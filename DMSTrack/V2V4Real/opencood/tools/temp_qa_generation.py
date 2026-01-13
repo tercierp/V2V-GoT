@@ -75,18 +75,22 @@ def main():
 
     hypes = yaml_utils.load_yaml(None, opt)
 
-    print('Dataset Building')
-    opencood_dataset = build_dataset(hypes, visualize=True, train=(opt.split=='train'),
-                                     isSim=opt.isSim)
+    print('Skip Dataset Building')
+    #opencood_dataset = build_dataset(hypes, visualize=True, train=(opt.split=='train'),
+    #                                 isSim=opt.isSim)
     print(hypes['fusion']['core_method'])
     # IntermediateFusionDataset
 
-    print("opencood_dataset.len_record: ", opencood_dataset.len_record)
+    print('Directly use v2v4real test set len_record')
+    opencood_dataset_len_record = [147, 261, 405, 603, 783, 1093, 1397, 1618, 1993]
+    print("opencood_dataset_len_record: ", opencood_dataset_len_record)
+
     # train set has 32 sequences
     # [147, 552, 709, 1953, 2086, 2303, 2425, 2573, 2983, 3298, 3417, 3524, 3648, 3737, 3817, 3962, 4255, 4366, 4549, 4726, 5001, 5287, 5516, 5636, 5804, 6254, 6389, 6532, 6681, 6846, 6997, 7105]
     # test set has 9 sequences
     # [147, 261, 405, 603, 783, 1093, 1397, 1618, 1993]
-    print("opencood_dataset.scenario_database.keys(): ", opencood_dataset.scenario_database.keys())
+
+    #print("opencood_dataset.scenario_database.keys(): ", opencood_dataset.scenario_database.keys())
     # odict_keys([0, 1, 2, 3, 4, 5, 6, 7, 8])
     npy_save_path = os.path.join(opt.model_dir, 'npy')
     print('npy_save_path: ', npy_save_path)
@@ -149,19 +153,19 @@ def main():
 
 
     if opt.output_qa_dataset == 'nq3sm3w0dc':
-      generate_3d_grounding_qa_dataset_nq3(opencood_dataset.len_record, npy_save_path, ['ego', '1'], downsample_negatives=False, simplified=True, max_num_answer_objects=3, num_future_waypoints=0, double_cavs=True, with_context=True, context_list=input_data_list, output_file=output_file, context_list_from_gt=context_list_from_gt)
+      generate_3d_grounding_qa_dataset_nq3(opencood_dataset_len_record, npy_save_path, ['ego', '1'], downsample_negatives=False, simplified=True, max_num_answer_objects=3, num_future_waypoints=0, double_cavs=True, with_context=True, context_list=input_data_list, output_file=output_file, context_list_from_gt=context_list_from_gt)
     elif opt.output_qa_dataset == 'nq4sm3w0dc':
-      generate_3d_grounding_qa_dataset_nq4(opencood_dataset.len_record, npy_save_path, ['ego', '1'], downsample_negatives=False, simplified=True, max_num_answer_objects=3, num_future_waypoints=0, double_cavs=True, with_context=True, context_list=input_data_list, output_file=output_file, context_list_from_gt=context_list_from_gt)
+      generate_3d_grounding_qa_dataset_nq4(opencood_dataset_len_record, npy_save_path, ['ego', '1'], downsample_negatives=False, simplified=True, max_num_answer_objects=3, num_future_waypoints=0, double_cavs=True, with_context=True, context_list=input_data_list, output_file=output_file, context_list_from_gt=context_list_from_gt)
     elif opt.output_qa_dataset == 'nq5sm3w1dc':
-      generate_3d_grounding_qa_dataset_nq5(opencood_dataset.len_record, npy_save_path, ['ego', '1'], downsample_negatives=False, simplified=True, max_num_answer_objects=3, num_future_waypoints=1, double_cavs=True, with_context=True, context_list=input_data_list, output_file=output_file, context_list_from_gt=context_list_from_gt)
+      generate_3d_grounding_qa_dataset_nq5(opencood_dataset_len_record, npy_save_path, ['ego', '1'], downsample_negatives=False, simplified=True, max_num_answer_objects=3, num_future_waypoints=1, double_cavs=True, with_context=True, context_list=input_data_list, output_file=output_file, context_list_from_gt=context_list_from_gt)
     elif opt.output_qa_dataset == 'nq6sm3w1dc':
-      generate_3d_grounding_qa_dataset_nq6(opencood_dataset.len_record, npy_save_path, ['ego', '1'], downsample_negatives=False, simplified=True, max_num_answer_objects=3, num_future_waypoints=1, double_cavs=True, with_context=True, context_list=input_data_list, output_file=output_file, context_list_from_gt=context_list_from_gt)
+      generate_3d_grounding_qa_dataset_nq6(opencood_dataset_len_record, npy_save_path, ['ego', '1'], downsample_negatives=False, simplified=True, max_num_answer_objects=3, num_future_waypoints=1, double_cavs=True, with_context=True, context_list=input_data_list, output_file=output_file, context_list_from_gt=context_list_from_gt)
     elif opt.output_qa_dataset == 'nq7sm3w1dc':
-      generate_3d_grounding_qa_dataset_nq7(opencood_dataset.len_record, npy_save_path, ['ego', '1'], downsample_negatives=False, simplified=True, max_num_answer_objects=3, num_future_waypoints=1, double_cavs=True, with_context=True, context_list=input_data_list, output_file=output_file, context_list_from_gt=context_list_from_gt)
+      generate_3d_grounding_qa_dataset_nq7(opencood_dataset_len_record, npy_save_path, ['ego', '1'], downsample_negatives=False, simplified=True, max_num_answer_objects=3, num_future_waypoints=1, double_cavs=True, with_context=True, context_list=input_data_list, output_file=output_file, context_list_from_gt=context_list_from_gt)
     elif opt.output_qa_dataset == 'nq8sm3w6dc':
-      generate_3d_grounding_qa_dataset_nq8(opencood_dataset.len_record, npy_save_path, ['ego', '1'], downsample_negatives=False, simplified=True, max_num_answer_objects=3, num_future_waypoints=6, double_cavs=True, with_context=True, context_list=input_data_list, output_file=output_file, context_list_from_gt=context_list_from_gt)
+      generate_3d_grounding_qa_dataset_nq8(opencood_dataset_len_record, npy_save_path, ['ego', '1'], downsample_negatives=False, simplified=True, max_num_answer_objects=3, num_future_waypoints=6, double_cavs=True, with_context=True, context_list=input_data_list, output_file=output_file, context_list_from_gt=context_list_from_gt)
     elif opt.output_qa_dataset == 'nq9sm3w6dc':
-      generate_3d_grounding_qa_dataset_nq9(opencood_dataset.len_record, npy_save_path, ['ego', '1'], downsample_negatives=False, simplified=True, max_num_answer_objects=3, num_future_waypoints=6, double_cavs=True, with_context=True, context_list=input_data_list, output_file=output_file, context_list_from_gt=context_list_from_gt)
+      generate_3d_grounding_qa_dataset_nq9(opencood_dataset_len_record, npy_save_path, ['ego', '1'], downsample_negatives=False, simplified=True, max_num_answer_objects=3, num_future_waypoints=6, double_cavs=True, with_context=True, context_list=input_data_list, output_file=output_file, context_list_from_gt=context_list_from_gt)
     else:
       print('not implemented')
       assert False
