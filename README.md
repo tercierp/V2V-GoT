@@ -214,24 +214,26 @@ V2V-GoT
 
 We mainly use the open source code of the following three papers as the reference to implement our code.
 
-- \[1\] *"Probabilistic 3D Multi-Object Cooperative Tracking for Autonomous Driving via Differentiable Multi-Sensor Kalman Filter"*, Hsu-kuang Chiu, Chien-Yi Wang, Min-Hung Chen, and Stephen F. Smith, ICRA 2024.
-- \[2\] *"V2V4Real: A Real-world Large-scale Dataset for Vehicle-to-Vehicle Cooperative Perception"*, Runsheng Xu, Xin Xia, Jinlong Li, Hanzhao Li, Shuo Zhang, Zhengzhong Tu, Zonglin Meng, Hao Xiang, Xiaoyu Dong, Rui Song, Hongkai Yu, Bolei Zhou, Jiaqi Ma, CVPR 2023.
-- \[3\] *"A Baseline for 3D Multi-Object Tracking"*, Xinshuo Weng and Kris Kitani, IROS 2020.
+- \[1\] *"LLaVA: Large Language and Vision Assistant"*, Haotian Liu, Chunyuan Li, Qingyang Wu, and Yong Jae Lee, NeurIPS 2023.
+- \[2\] *"Probabilistic 3D Multi-Object Cooperative Tracking for Autonomous Driving via Differentiable Multi-Sensor Kalman Filter"*, Hsu-kuang Chiu, Chien-Yi Wang, Min-Hung Chen, and Stephen F. Smith, ICRA 2024.
+- \[3\] *"V2V4Real: A Real-world Large-scale Dataset for Vehicle-to-Vehicle Cooperative Perception"*, Runsheng Xu, Xin Xia, Jinlong Li, Hanzhao Li, Shuo Zhang, Zhengzhong Tu, Zonglin Meng, Hao Xiang, Xiaoyu Dong, Rui Song, Hongkai Yu, Bolei Zhou, Jiaqi Ma, CVPR 2023.
+- \[4\] *"A Baseline for 3D Multi-Object Tracking"*, Xinshuo Weng and Kris Kitani, IROS 2020.
+
 
 
 ## To Cite Our Paper
 ```
-@ARTICLE{chiu2025v2vgot,
+@ARTICLE{chiu2026v2vgot,
   title={V2V-GoT: Vehicle-to-Vehicle Cooperative Autonomous Driving with Multimodal Large Language Models with Graph-of-Thoughts},
   author={Chiu, Hsu-kuang and Hachiuma, Ryo and Wang, Chien-Yi and Wang, Yu-Chiang Frank and Chen, Min-Hung and Smith, Stephen F.},
-  journal={https://arxiv.org/abs/2509.18053},
-  year={2025}
+  journal={IEEE International Conference on Robotics and Automation (ICRA)},
+  year={2026}
 }
 
-@ARTICLE{chiu2025v2vllm,
+@ARTICLE{chiu2026v2vllm,
   title={V2V-LLM: Vehicle-to-Vehicle Cooperative Autonomous Driving with Multi-Modal Large Language Models},
   author={Chiu, Hsu-kuang and Hachiuma, Ryo and Wang, Chien-Yi and Smith, Stephen F. and Wang, Yu-Chiang Frank and Chen, Min-Hung},
-  journal={https://arxiv.org/abs/2502.09980},
-  year={2025}
+  journal={IEEE International Conference on Robotics and Automation (ICRA)},
+  year={2026}
 }
 ```
