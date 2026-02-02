@@ -231,7 +231,7 @@ We mainly use the open source code of the following three papers as the referenc
 }
 
 @ARTICLE{chiu2026v2vllm,
-  title={V2V-LLM: Vehicle-to-Vehicle Cooperative Autonomous Driving with Multi-Modal Large Language Models},
+  title={V2V-LLM: Vehicle-to-Vehicle Cooperative Autonomous Driving with Multimodal Large Language Models},
   author={Chiu, Hsu-kuang and Hachiuma, Ryo and Wang, Chien-Yi and Smith, Stephen F. and Wang, Yu-Chiang Frank and Chen, Min-Hung},
   journal={IEEE International Conference on Robotics and Automation (ICRA)},
   year={2026}
