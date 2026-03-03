@@ -2,13 +2,13 @@
 
 # V2V-GoT: Vehicle-to-Vehicle Cooperative Autonomous Driving with Multimodal Large Language Models and Graph-of-Thoughts
 
-Hsu-kuang Chiu<sup>1,2</sup>, Ryo Hachiuma<sup>1</sup>, Chien-Yi Wang<sup>1</sup>, Yu-Chiang Frank Wang<sup>1</sup>, Min-Hung Chen<sup>1*</sup>, Stephen F. Smith<sup>2*</sup>
+[Hsu-kuang Chiu](https://eddyhkchiu.github.io/)<sup>1,2</sup>, [Ryo Hachiuma](https://ryohachiuma.github.io/)<sup>1</sup>, [Chien-Yi Wang](https://chienyiwang.github.io/)<sup>1</sup>, [Yu-Chiang Frank Wang](https://research.nvidia.com/labs/twn/author/yu-chiang-frank-wang/)<sup>1</sup>, [Min-Hung Chen](https://minhungchen.netlify.app/)<sup>1*</sup>, [Stephen F. Smith](https://www.ri.cmu.edu/ri-faculty/stephen-smith/)<sup>2*</sup>
 
 <sup>1</sup>NVIDIA, <sup>2</sup>Carnegie Mellon University, <sup>*</sup> equally advising
 
 
 
-[project](https://eddyhkchiu.github.io/v2vgot.github.io/)  [arxiv](https://arxiv.org/abs/2509.18053)
+[Project](https://eddyhkchiu.github.io/v2vgot.github.io/)  [Arxiv](https://arxiv.org/abs/2509.18053)
 
 <img src="images/V2V-LLM-Graph_Fig_1_0915_Fit.jpg" height=400px>
 
