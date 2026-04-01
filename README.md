@@ -212,7 +212,7 @@ V2V-GoT
 
 ## References
 
-We mainly use the open source code of the following three papers as the reference to implement our code.
+We mainly use the open source code of the following four papers as the reference to implement our code.
 
 - \[1\] *"LLaVA: Large Language and Vision Assistant"*, Haotian Liu, Chunyuan Li, Qingyang Wu, and Yong Jae Lee, NeurIPS 2023.
 - \[2\] *"Probabilistic 3D Multi-Object Cooperative Tracking for Autonomous Driving via Differentiable Multi-Sensor Kalman Filter"*, Hsu-kuang Chiu, Chien-Yi Wang, Min-Hung Chen, and Stephen F. Smith, ICRA 2024.
