@@ -77,6 +77,9 @@ class ModelArguments:
     ego_only: bool = field(default=False)
     feature_source: Optional[str] = field(default="no_fusion_keep_all") # or cobevt
     dataset_source: Optional[str] = field(default="v2v4real") # or v2xreal
+    # MY_CODE: OSM map image encoder
+    use_osm: bool = field(default=False)
+    osm_encoder_name: Optional[str] = field(default="timm/vit_large_patch16_dinov3.sat493m")
 
 
 @dataclass
@@ -92,7 +95,9 @@ class DataArguments:
     eval_data_split: str = 'val'
     seq_eval_mode: str = 'all' # or one of ['0000', '0001', ...]
     v2v4real_config_path: str = './playground/data/V2V4Real/data.json'
-    simplified_object_feature: int = 0 
+    simplified_object_feature: int = 0
+    # MY_CODE: folder containing one OSM PNG per scenario, named {seq_id}.png (e.g. 0000.png)
+    osm_image_folder: Optional[str] = field(default=None)
     # 0: original: dmstrack coordinate system
     # 8: [h, w, l, x, y, z, a, s], 3: [x, y, s], in v2v4real coordinate
 
@@ -229,7 +234,7 @@ def get_mm_adapter_state_maybe_zero_3(named_params, keys_to_match):
 def find_all_linear_names(model):
     cls = torch.nn.Linear
     lora_module_names = set()
-    multimodal_keywords = ['mm_projector', 'vision_tower', 'vision_resampler', 'mm_scene_projector']
+    multimodal_keywords = ['mm_projector', 'vision_tower', 'vision_resampler', 'mm_scene_projector', 'mm_osm_encoder', 'mm_osm_projector']
     for name, module in model.named_modules():
         if any(mm_keyword in name for mm_keyword in multimodal_keywords):
             continue
@@ -994,6 +999,16 @@ class V2V4RealDataset(Dataset):
         return
 
 
+    # MY_CODE: OSM helper
+    def _global_to_seq_id(self, global_timestamp_index):
+        '''Map a global frame index to its scenario sequence ID string (e.g. "0003").'''
+        prev_end = 0
+        for seq_id, end in zip(self.seq_eval, self.len_record):
+            if prev_end <= global_timestamp_index < end:
+                return seq_id
+            prev_end = end
+        return self.seq_eval[-1]
+
     def __len__(self):
         # revert back to the original llava format
         #print('len(self.list_data_dict): ', len(self.list_data_dict))
@@ -1426,6 +1441,25 @@ class V2V4RealDataset(Dataset):
         data_dict['local_timestamp_index'] = torch.from_numpy(np.array(local_timestamp_index))
         data_dict['qa_sub_type'] = torch.from_numpy(np.array(-1))
 
+        # MY_CODE: load OSM map image for this scenario (one image per sequence)
+        if self.data_args.osm_image_folder is not None:
+            from PIL import Image as PILImage
+            from torchvision import transforms as T
+            seq_id = self._global_to_seq_id(global_timestamp_index)
+            osm_path = os.path.join(self.data_args.osm_image_folder, f'{seq_id}.png')
+            if not os.path.exists(osm_path):
+                osm_path = os.path.join(self.data_args.osm_image_folder, f'{seq_id}.jpg')
+            if os.path.exists(osm_path):
+                osm_img = PILImage.open(osm_path).convert('RGB')
+            else:
+                osm_img = PILImage.new('RGB', (256, 256), color=(255, 255, 255))
+            osm_transform = T.Compose([
+                T.Resize((224, 224)),
+                T.ToTensor(),
+                T.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
+            ])
+            data_dict['osm_image'] = osm_transform(osm_img)
+
         return data_dict
 
 
@@ -1756,7 +1790,7 @@ class DataCollatorForSupervisedDataset(object):
         # can do for loop over the ke words:
         # ['image', 'scene_point_feature_map', ...]
         #print('instances: ', instances)        
-        for data_feature_name in ['scene_point_feature_map', 'regression_map', 'classification_map', 'detection_box_score', 'object_features', 'active_agent_mask', 'i', 'global_timestamp_index', 'local_timestamp_index', 'qa_sub_type']:
+        for data_feature_name in ['scene_point_feature_map', 'regression_map', 'classification_map', 'detection_box_score', 'object_features', 'active_agent_mask', 'i', 'global_timestamp_index', 'local_timestamp_index', 'qa_sub_type', 'osm_image']:
             if data_feature_name in instances[0]:
                 images = [instance[data_feature_name] for instance in instances]
                 if all(x is not None and x.shape == images[0].shape for x in images):
@@ -1919,6 +1953,9 @@ def train(attn_implementation=None):
         'ego_only': model_args.ego_only,
         'feature_source': model_args.feature_source,
         'dataset_source': model_args.dataset_source,
+        # OSM
+        'use_osm': model_args.use_osm,
+        'osm_encoder_name': model_args.osm_encoder_name,
     }
     local_rank = training_args.local_rank
     compute_dtype = (torch.float16 if training_args.fp16 else (torch.bfloat16 if training_args.bf16 else torch.float32))
