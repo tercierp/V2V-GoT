@@ -80,6 +80,10 @@ class ModelArguments:
     # MY_CODE: OSM map image encoder
     use_osm: bool = field(default=False)
     osm_encoder_name: Optional[str] = field(default="timm/vit_large_patch16_dinov3.sat493m")
+    # Stage 1: freeze everything except mm_osm_projector
+    freeze_all_but_osm_projector: bool = field(default=False)
+    # Stage 2: path to non_lora_trainables.bin saved by Stage 1
+    pretrain_osm_projector: Optional[str] = field(default=None)
 
 
 @dataclass
@@ -2073,6 +2077,16 @@ def train(attn_implementation=None):
     if model_args.freeze_backbone:
         model.model.requires_grad_(False)
 
+    # MY_CODE: Stage 1 — freeze everything, only train mm_osm_projector
+    if model_args.freeze_all_but_osm_projector:
+        rank0_print("Stage 1: freezing all parameters except mm_osm_projector...")
+        model.requires_grad_(False)
+        if hasattr(model.get_model(), 'mm_osm_projector'):
+            for p in model.get_model().mm_osm_projector.parameters():
+                p.requires_grad = True
+        else:
+            raise ValueError("freeze_all_but_osm_projector=True but mm_osm_projector not found. Set --use_osm True.")
+
     if training_args.bits in [4, 8]:
         from peft import prepare_model_for_kbit_training
         model.config.torch_dtype=(torch.float32 if training_args.fp16 else (torch.bfloat16 if training_args.bf16 else torch.float32))
@@ -2183,6 +2197,20 @@ def train(attn_implementation=None):
         training_args.use_im_start_end = model_args.mm_use_im_start_end
         model.config.mm_use_im_patch_token = model_args.mm_use_im_patch_token
         model.initialize_vision_tokenizer(model_args, tokenizer=tokenizer)
+
+        # MY_CODE: Stage 2 — load mm_osm_projector weights from Stage 1 checkpoint
+        if model_args.pretrain_osm_projector is not None:
+            rank0_print(f"Stage 2: loading OSM projector weights from {model_args.pretrain_osm_projector}")
+            osm_weights_all = torch.load(model_args.pretrain_osm_projector, map_location='cpu')
+            osm_weights = {
+                k.replace('model.mm_osm_projector.', ''): v
+                for k, v in osm_weights_all.items()
+                if 'mm_osm_projector' in k
+            }
+            if len(osm_weights) == 0:
+                raise ValueError(f"No mm_osm_projector keys found in {model_args.pretrain_osm_projector}")
+            model.get_model().mm_osm_projector.load_state_dict(osm_weights, strict=True)
+            rank0_print(f"Loaded {len(osm_weights)} OSM projector tensors.")
 
     if training_args.bits in [4, 8]:
         from peft.tuners.lora import LoraLayer
