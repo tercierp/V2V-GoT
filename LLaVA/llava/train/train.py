@@ -1442,9 +1442,9 @@ class V2V4RealDataset(Dataset):
         data_dict['qa_sub_type'] = torch.from_numpy(np.array(-1))
 
         # MY_CODE: load OSM map image for this scenario (one image per sequence)
+        # Uses CLIPImageProcessor to match the existing vision_tower preprocessing
         if self.data_args.osm_image_folder is not None:
             from PIL import Image as PILImage
-            from torchvision import transforms as T
             seq_id = self._global_to_seq_id(global_timestamp_index)
             osm_path = os.path.join(self.data_args.osm_image_folder, f'{seq_id}.png')
             if not os.path.exists(osm_path):
@@ -1453,12 +1453,10 @@ class V2V4RealDataset(Dataset):
                 osm_img = PILImage.open(osm_path).convert('RGB')
             else:
                 osm_img = PILImage.new('RGB', (256, 256), color=(255, 255, 255))
-            osm_transform = T.Compose([
-                T.Resize((224, 224)),
-                T.ToTensor(),
-                T.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
-            ])
-            data_dict['osm_image'] = osm_transform(osm_img)
+            # Reuse the CLIP image processor already instantiated for the vision tower
+            clip_processor = self.data_args.image_processor
+            osm_tensor = clip_processor.preprocess(osm_img, return_tensors='pt')['pixel_values'][0]
+            data_dict['osm_image'] = osm_tensor  # [3, 336, 336]
 
         return data_dict
 

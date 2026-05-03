@@ -19,7 +19,7 @@ import torch
 import torch.nn as nn
 
 from .multimodal_encoder.builder import build_vision_tower
-from .multimodal_encoder.osm_encoder import OSMViTEncoder
+from .multimodal_encoder.osm_encoder import OSMCLIPEncoder
 from .multimodal_projector.builder import build_vision_projector, build_scene_vision_projector, build_osm_projector
 
 from llava.constants import IGNORE_INDEX, IMAGE_TOKEN_INDEX, DEFAULT_IMAGE_PATCH_TOKEN, DEFAULT_IM_START_TOKEN, DEFAULT_IM_END_TOKEN
@@ -64,10 +64,12 @@ class LlavaMetaModel:
             #assert False
 
             # MY_CODE: OSM map encoder + projector
+            # OSMCLIPEncoder wraps the existing vision_tower — no new weights loaded
             if getattr(config, 'use_osm', False):
-                self.mm_osm_encoder = OSMViTEncoder(
-                    model_name=getattr(config, 'osm_encoder_name', 'facebook/dinov2-small'),
-                    num_output_tokens=getattr(config, 'osm_num_tokens', 64),
+                osm_num_tokens = getattr(config, 'osm_num_tokens', 64)
+                self.mm_osm_encoder = OSMCLIPEncoder(
+                    vision_tower=self.vision_tower,
+                    num_output_tokens=osm_num_tokens,
                 )
                 self.mm_osm_projector = build_osm_projector(
                     self.mm_osm_encoder.hidden_size, config.hidden_size

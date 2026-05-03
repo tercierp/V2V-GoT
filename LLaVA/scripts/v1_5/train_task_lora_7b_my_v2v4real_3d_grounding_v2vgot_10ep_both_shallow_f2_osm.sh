@@ -27,7 +27,6 @@ deepspeed llava/train/train_mem.py \
     --ego_only False \
     --feature_source no_fusion_keep_all \
     --use_osm True \
-    --osm_encoder_name timm/vit_large_patch16_dinov3.sat493m \
     --osm_image_folder $OSM_IMAGE_FOLDER \
     --image_folder ./playground/data \
     --vision_tower openai/clip-vit-large-patch14-336 \
