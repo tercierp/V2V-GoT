@@ -27,7 +27,7 @@ deepspeed llava/train/train_mem.py \
     --use_osm True \
     --osm_image_folder $OSM_IMAGE_FOLDER \
     --freeze_all_but_osm_projector True \
-    --lora_enable False \
+    --lora_enable True --lora_r 8 --lora_alpha 16 \
     --image_folder ./playground/data \
     --vision_tower openai/clip-vit-large-patch14-336 \
     --mm_projector_type mlp2x_gelu \

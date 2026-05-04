@@ -2077,16 +2077,6 @@ def train(attn_implementation=None):
     if model_args.freeze_backbone:
         model.model.requires_grad_(False)
 
-    # MY_CODE: Stage 1 — freeze everything, only train mm_osm_projector
-    if model_args.freeze_all_but_osm_projector:
-        rank0_print("Stage 1: freezing all parameters except mm_osm_projector...")
-        model.requires_grad_(False)
-        if hasattr(model.get_model(), 'mm_osm_projector'):
-            for p in model.get_model().mm_osm_projector.parameters():
-                p.requires_grad = True
-        else:
-            raise ValueError("freeze_all_but_osm_projector=True but mm_osm_projector not found. Set --use_osm True.")
-
     if training_args.bits in [4, 8]:
         from peft import prepare_model_for_kbit_training
         model.config.torch_dtype=(torch.float32 if training_args.fp16 else (torch.bfloat16 if training_args.bf16 else torch.float32))
@@ -2117,6 +2107,17 @@ def train(attn_implementation=None):
                 model.to(torch.float16)
         rank0_print("Adding LoRA adapters...")
         model = get_peft_model(model, lora_config)
+
+    # MY_CODE: Stage 1 — freeze everything AFTER LoRA setup, only train mm_osm_projector
+    # Must run after get_peft_model() so LoRA adapters are also frozen
+    if model_args.freeze_all_but_osm_projector:
+        rank0_print("Stage 1: freezing all parameters except mm_osm_projector...")
+        model.requires_grad_(False)
+        if hasattr(model.get_model(), 'mm_osm_projector'):
+            for p in model.get_model().mm_osm_projector.parameters():
+                p.requires_grad = True
+        else:
+            raise ValueError("freeze_all_but_osm_projector=True but mm_osm_projector not found — set --use_osm True.")
 
     if 'mpt' in model_args.model_name_or_path:
         tokenizer = transformers.AutoTokenizer.from_pretrained(
