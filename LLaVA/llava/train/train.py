@@ -101,7 +101,10 @@ class DataArguments:
     v2v4real_config_path: str = './playground/data/V2V4Real/data.json'
     simplified_object_feature: int = 0
     # MY_CODE: folder containing one OSM PNG per scenario, named {seq_id}.png (e.g. 0000.png)
+    # For CRAFTER: root folder of sat_images (e.g. /scratch/tercier/v2v-got/sat_images)
     osm_image_folder: Optional[str] = field(default=None)
+    # MY_CODE: which data split folder to use for CRAFTER sat images (e.g. 'train_01')
+    crafter_split: Optional[str] = field(default=None)
     # 0: original: dmstrack coordinate system
     # 8: [h, w, l, x, y, z, a, s], 3: [x, y, s], in v2v4real coordinate
 
@@ -1755,6 +1758,85 @@ class V2XRealDataset(V2V4RealDataset):
         return data_dict
 
 
+# MY_CODE: CRAFTER dataset (satellite images from faresse)
+# sat_images structure:
+#   {osm_image_folder}/{crafter_split}/{sequence_name}/{frame_step_id}/agent_0.png
+# where frame_step_id is zero-padded 6 digits multiple of 30 (e.g. 000000, 000030, ...)
+class CRAFTERDataset(V2V4RealDataset):
+    """Dataset for CRAFTER data with per-frame satellite images.
+
+    The sat_images folder from faresse has the structure:
+        sat_images/{split}/{sequence_name}/{frame_step_id}/agent_{n}.png
+
+    This dataset extends V2V4RealDataset and overrides the OSM image loading
+    to resolve the correct per-frame satellite image from the nested directory.
+    """
+
+    def __init__(self, data_path: str,
+                 tokenizer: transformers.PreTrainedTokenizer,
+                 data_args: DataArguments,
+                 model_args: ModelArguments,
+                 dataset_for: str):
+        super(CRAFTERDataset, self).__init__(data_path, tokenizer, data_args, model_args, dataset_for)
+        rank0_print('CRAFTERDataset: using sat_images folder:', data_args.osm_image_folder)
+        rank0_print('CRAFTERDataset: split:', data_args.crafter_split)
+
+    def _resolve_crafter_sat_image(self, global_timestamp_index: int, agent_id: int = 0) -> str:
+        """Return the path to the satellite image for a given global frame index.
+
+        Maps global_timestamp_index → (sequence_name, local_frame_step_id)
+        using self.seq_eval and self.len_record (same as _global_to_seq_id).
+
+        The local frame within the sequence is converted back to the CRAFTER
+        frame step format: local_idx * 30, zero-padded to 6 digits.
+        (e.g. local frame 0 → '000000', local frame 1 → '000030', ...)
+        """
+        prev_end = 0
+        local_frame_idx = global_timestamp_index
+        seq_name = self.seq_eval[-1]  # fallback
+        for sn, end in zip(self.seq_eval, self.len_record):
+            if prev_end <= global_timestamp_index < end:
+                seq_name = sn
+                local_frame_idx = global_timestamp_index - prev_end
+                break
+            prev_end = end
+
+        frame_step_id = f'{local_frame_idx * 30:06d}'
+        split = self.data_args.crafter_split or 'train_01'
+        path = os.path.join(
+            self.data_args.osm_image_folder,
+            split,
+            seq_name,
+            frame_step_id,
+            f'agent_{agent_id}.png'
+        )
+        return path
+
+    def __getitem__(self, i) -> Dict[str, torch.Tensor]:
+        # Call parent __getitem__ to get the base data dict
+        data_dict = super(CRAFTERDataset, self).__getitem__(i)
+
+        # Override the OSM image with the per-frame CRAFTER satellite image
+        if self.data_args.osm_image_folder is not None:
+            from PIL import Image as PILImage
+            sources = self.list_data_dict[i]
+            global_timestamp_index = sources['global_timestamp_index']
+
+            # Use ego satellite image (agent_0)
+            sat_path = self._resolve_crafter_sat_image(global_timestamp_index, agent_id=0)
+            if os.path.exists(sat_path):
+                osm_img = PILImage.open(sat_path).convert('RGB')
+            else:
+                rank0_print(f'[CRAFTERDataset] WARNING: sat image not found: {sat_path}')
+                osm_img = PILImage.new('RGB', (256, 256), color=(255, 255, 255))
+
+            clip_processor = self.data_args.image_processor
+            osm_tensor = clip_processor.preprocess(osm_img, return_tensors='pt')['pixel_values'][0]
+            data_dict['osm_image'] = osm_tensor  # [3, 336, 336]
+
+        return data_dict
+
+
 
 
 @dataclass
@@ -1840,7 +1922,14 @@ def make_supervised_data_module(tokenizer: transformers.PreTrainedTokenizer,
     #print('data_args: ', data_args)
     # llava:
     # data_args:  DataArguments(data_path='./playground/data/LLaVA-Pretrain/blip_laion_cc_sbu_558k.json', lazy_preprocess=True, is_multimodal=True, image_folder='./playground/data/LLaVA-Pretrain/images', image_aspect_ratio='square')
-    if 'V2V4Real' in data_args.data_path:
+    if 'CRAFTER' in data_args.data_path:
+      # MY_CODE: CRAFTER dataset with per-frame satellite images from faresse
+      train_dataset = CRAFTERDataset(tokenizer=tokenizer,
+                                data_path=data_args.data_path,
+                                data_args=data_args,
+                                model_args=model_args,
+                                dataset_for='train')
+    elif 'V2V4Real' in data_args.data_path:
       train_dataset = V2V4RealDataset(tokenizer=tokenizer,
                                 data_path=data_args.data_path,
                                 data_args=data_args,
