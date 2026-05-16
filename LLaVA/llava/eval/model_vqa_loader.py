@@ -145,7 +145,7 @@ class V2V4RealCustomDataset(Dataset):
 
         scene_spatial_features_2d_all = []
         #feature_shape = None
-        feature_shape = [1, 1, 1, 1]
+        feature_shape = [1, 256, 50, 88]  # correct fallback shape when co_llm npy files are absent
         for cav_id in cav_ids:
 
             #if cav_id == 'ego':
@@ -575,6 +575,71 @@ class V2XRealCustomDataset(V2V4RealCustomDataset):
 
 
 
+class CRAFTERInferenceDataset(V2V4RealCustomDataset):
+    """Extends V2V4RealCustomDataset with per-frame satellite (OSM) image loading.
+
+    Resolves sat images using scenario_index + local_timestamp_index from the QA
+    dict, scanning {osm_image_folder}/{split}/{seq_name}/{frame_step_id}/agent_0.png
+    across all splits.
+    """
+
+    def __init__(self, list_data_dict, image_folder, tokenizer, image_processor,
+                 model_config, simplified_object_feature, num_input_frames,
+                 num_latency_frames, positional_error_std, osm_image_folder):
+        self.osm_image_folder = osm_image_folder
+        self.image_processor = image_processor
+
+        # Build seq_list before super().__init__() — parent calls self.__getitem__(0) during init
+        seen = set()
+        seq_list = []
+        for split_dir in sorted(os.listdir(osm_image_folder)):
+            split_path = os.path.join(osm_image_folder, split_dir)
+            if not os.path.isdir(split_path):
+                continue
+            for seq in sorted(os.listdir(split_path)):
+                if seq not in seen:
+                    seen.add(seq)
+                    seq_list.append(seq)
+        self.seq_list = seq_list
+        print(f'CRAFTERInferenceDataset: found {len(seq_list)} sequences in {osm_image_folder}')
+
+        super().__init__(list_data_dict, image_folder, tokenizer, image_processor,
+                         model_config, simplified_object_feature, num_input_frames,
+                         num_latency_frames, positional_error_std)
+
+    def _resolve_sat_image(self, scenario_index, local_timestamp_index):
+        if scenario_index >= len(self.seq_list):
+            return ''
+        seq_name = self.seq_list[scenario_index]
+        frame_step_id = f'{local_timestamp_index * 30:06d}'
+        for split_dir in sorted(os.listdir(self.osm_image_folder)):
+            path = os.path.join(self.osm_image_folder, split_dir, seq_name, frame_step_id, 'agent_0.png')
+            if os.path.exists(path):
+                return path
+        return ''
+
+    def __getitem__(self, index):
+        base = super().__getitem__(index)
+        input_ids, image_tensor, image_sizes, scene_point_feature_map, \
+            regression_map, classification_map, detection_box_score, \
+            object_features, active_agent_mask = base
+
+        data_dict = self.list_data_dict[index]
+        scenario_index = data_dict.get('scenario_index', 0)
+        local_timestamp_index = data_dict.get('local_timestamp_index', 0)
+
+        sat_path = self._resolve_sat_image(scenario_index, local_timestamp_index)
+        if sat_path and os.path.exists(sat_path):
+            osm_img = Image.open(sat_path).convert('RGB')
+        else:
+            osm_img = Image.new('RGB', (256, 256), color=(255, 255, 255))
+
+        osm_tensor = self.image_processor.preprocess(osm_img, return_tensors='pt')['pixel_values'][0]
+        return (input_ids, image_tensor, image_sizes, scene_point_feature_map,
+                regression_map, classification_map, detection_box_score,
+                object_features, active_agent_mask, osm_tensor)
+
+
 def collate_fn(batch):
     input_ids, image_tensors, image_sizes = zip(*batch)
     input_ids = torch.stack(input_ids, dim=0)
@@ -598,6 +663,23 @@ def v2v4real_collate_fn(batch):
     active_agent_mask = torch.stack(active_agent_mask, dim=0)
 
     return input_ids, image_tensors, image_sizes, scene_point_feature_map, regression_map, classification_map, detection_box_score, object_features, active_agent_mask
+
+
+def v2v4real_osm_collate_fn(batch):
+    (input_ids, image_tensors, image_sizes, scene_point_feature_map, regression_map,
+     classification_map, detection_box_score, object_features, active_agent_mask,
+     osm_images) = zip(*batch)
+    input_ids = torch.stack(input_ids, dim=0)
+    image_tensors = torch.stack(image_tensors, dim=0)
+    scene_point_feature_map = torch.stack(scene_point_feature_map, dim=0)
+    regression_map = torch.stack(regression_map, dim=0)
+    classification_map = torch.stack(classification_map, dim=0)
+    detection_box_score = torch.stack(detection_box_score, dim=0)
+    object_features = torch.stack(object_features, dim=0)
+    active_agent_mask = torch.stack(active_agent_mask, dim=0)
+    osm_images = torch.stack(osm_images, dim=0)
+    return (input_ids, image_tensors, image_sizes, scene_point_feature_map, regression_map,
+            classification_map, detection_box_score, object_features, active_agent_mask, osm_images)
 
 
 def v2xreal_collate_fn(batch):
@@ -626,10 +708,17 @@ def create_data_loader(questions, image_folder, tokenizer, image_processor, mode
     return data_loader
 
 
-def create_data_loader_v2v4real(list_data_dict, image_folder, tokenizer, image_processor, model_config, simplified_object_feature, num_input_frames, num_latency_frames, positional_error_std, batch_size=1, num_workers=64):
+def create_data_loader_v2v4real(list_data_dict, image_folder, tokenizer, image_processor, model_config, simplified_object_feature, num_input_frames, num_latency_frames, positional_error_std, batch_size=1, num_workers=4):
     assert batch_size == 1, "batch_size must be 1"
     dataset = V2V4RealCustomDataset(list_data_dict, image_folder, tokenizer, image_processor, model_config, simplified_object_feature, num_input_frames, num_latency_frames, positional_error_std)
     data_loader = DataLoader(dataset, batch_size=batch_size, num_workers=num_workers, shuffle=False, collate_fn=v2v4real_collate_fn)
+    return data_loader
+
+
+def create_data_loader_v2v4real_osm(list_data_dict, image_folder, tokenizer, image_processor, model_config, simplified_object_feature, num_input_frames, num_latency_frames, positional_error_std, osm_image_folder, batch_size=1, num_workers=4):
+    assert batch_size == 1, "batch_size must be 1"
+    dataset = CRAFTERInferenceDataset(list_data_dict, image_folder, tokenizer, image_processor, model_config, simplified_object_feature, num_input_frames, num_latency_frames, positional_error_std, osm_image_folder)
+    data_loader = DataLoader(dataset, batch_size=batch_size, num_workers=num_workers, shuffle=False, collate_fn=v2v4real_osm_collate_fn)
     return data_loader
 
 def create_data_loader_v2xreal(list_data_dict, image_folder, tokenizer, image_processor, model_config, simplified_object_feature, num_input_frames, num_latency_frames, positional_error_std, batch_size=1, num_workers=4):
@@ -696,6 +785,7 @@ def inference_v2v4real_3d_grounding(args):
     disable_torch_init()
     model_path = os.path.expanduser(args.model_path)
     model_name = get_model_name_from_path(model_path)
+    use_osm = args.use_osm in ('True', 'true', True)
     my_model_config = {
       'mm_scene_projector_input_size': args.mm_scene_projector_input_size,
       'scene_level_only': True if args.scene_level_only == 'True' or args.scene_level_only == 'true' else False,
@@ -708,6 +798,7 @@ def inference_v2v4real_3d_grounding(args):
       'dataset_source': args.dataset_source,
       'num_latency_frames': args.num_latency_frames,
       'positional_error_std': args.positional_error_10_std * 0.1,
+      'use_osm': use_osm,
     }
     if args.feature_source in ['cobevt', 'early', 'v2xvit', 'attfuse', 'no_fusion']: # and other intermediate fusion, early fusion
         assert(args.ego_only == 'True' or args.ego_only == 'true')
@@ -733,24 +824,26 @@ def inference_v2v4real_3d_grounding(args):
         args.conv_mode = args.conv_mode + '_mmtag'
         print(f'It seems that this is a plain model, but it is not using a mmtag prompt, auto switching to {args.conv_mode}.')
 
-    if args.dataset_source == 'v2v4real':
+    if use_osm and args.osm_image_folder:
+      print(f'OSM inference enabled: loading sat images from {args.osm_image_folder}')
+      data_loader = create_data_loader_v2v4real_osm(list_data_dict, args.image_folder, tokenizer, image_processor, model.config, args.simplified_object_feature, args.num_input_frames, args.num_latency_frames, args.positional_error_10_std * 0.1, args.osm_image_folder)
+    elif args.dataset_source == 'v2v4real':
       data_loader = create_data_loader_v2v4real(list_data_dict, args.image_folder, tokenizer, image_processor, model.config, args.simplified_object_feature, args.num_input_frames, args.num_latency_frames, args.positional_error_10_std * 0.1)
-    else:  
+    else:
       data_loader = create_data_loader_v2xreal(list_data_dict, args.image_folder, tokenizer, image_processor, model.config, args.simplified_object_feature, args.num_input_frames, args.num_latency_frames, args.positional_error_10_std * 0.1)
 
   
     inference_time_sum = 0
     inference_time_count = 0
 
-    for (input_ids, image_tensor, image_sizes, scene_point_feature_map, regression_map, classification_map, detection_box_score, object_features, active_agent_mask), data_dict in tqdm(zip(data_loader, list_data_dict), total=len(list_data_dict)):
+    for batch, data_dict in tqdm(zip(data_loader, list_data_dict), total=len(list_data_dict)):
 
-        #print('input_ids: ', input_ids)
-        #print('scene_point_feature_map.shape: ', scene_point_feature_map.shape)
-        # [1, 256*2, 50, 88]
-        #print('detection_box_score.shape: ', detection_box_score.shape)
-        # [1, 50*2, 8]
-        #print('data_dict: ', data_dict)
-        # {'id': 0, 'conversations': [{'from': 'human', 'value': 'What is the object at the location [-20.5, -0.1]? What are its bounding box parameters? \n'}, {'from': 'gpt', 'value': 'A car is at the location. Its bounding box parameters are [1.7, 2.1, 4.0, -20.5, -1.0, -0.1, 0.03]. \n'}], 'scenario_index': 0, 'local_timestamp_index': 0, 'global_timestamp_index': 0}
+        if use_osm and args.osm_image_folder:
+            input_ids, image_tensor, image_sizes, scene_point_feature_map, regression_map, classification_map, detection_box_score, object_features, active_agent_mask, osm_image = batch
+            osm_image = osm_image.to(dtype=torch.float16, device='cuda', non_blocking=True)
+        else:
+            input_ids, image_tensor, image_sizes, scene_point_feature_map, regression_map, classification_map, detection_box_score, object_features, active_agent_mask = batch
+            osm_image = None
 
         scene_point_feature_map = scene_point_feature_map.to(dtype=torch.float16, device='cuda', non_blocking=True)
         regression_map = regression_map.to(dtype=torch.float16, device='cuda', non_blocking=True)
@@ -759,15 +852,9 @@ def inference_v2v4real_3d_grounding(args):
         object_features = object_features.to(dtype=torch.float16, device='cuda', non_blocking=True)
         active_agent_mask = active_agent_mask.to(dtype=torch.bool, device='cuda', non_blocking=True)
 
-        #idx = line["question_id"]
-        #cur_prompt = line["text"]
-
         input_ids = input_ids.to(device='cuda', non_blocking=True)
 
-
-        #start_time = time.time()
         with torch.inference_mode():
-            #output_ids, inference_time = model.generate(
             output_ids = model.generate(
                 input_ids,
                 images=image_tensor.to(dtype=torch.float16, device='cuda', non_blocking=True),
@@ -783,7 +870,8 @@ def inference_v2v4real_3d_grounding(args):
                 classification_map=classification_map,
                 detection_box_score=detection_box_score,
                 object_features=object_features,
-                active_agent_mask=active_agent_mask)
+                active_agent_mask=active_agent_mask,
+                osm_image=osm_image)
 
         #print('outputs: ', outputs)
         #end_time = time.time()
@@ -846,6 +934,9 @@ if __name__ == "__main__":
     # dynamic environment
     parser.add_argument("--num_latency_frames", type=int, default=0)
     parser.add_argument("--positional_error_10_std", type=int, default=0)
+    # OSM / CRAFTER satellite image inference
+    parser.add_argument("--use_osm", type=str, default='False')
+    parser.add_argument("--osm_image_folder", type=str, default=None)
 
     args = parser.parse_args()
 

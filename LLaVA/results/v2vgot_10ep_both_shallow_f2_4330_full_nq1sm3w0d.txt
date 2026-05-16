@@ -1,0 +1,75 @@
+v2vgot_10ep_both_shallow_f2
+nq1sm3w0d
+full
+4330
+args.answers_file:  ./playground/data/eval/v2v4real_3d_grounding_v2vgot_10ep_both_shallow_f2_4330_full_nq1sm3w0d/answers/val/llava-v1.5-7b/merge.jsonl
+data[0]:  {'id': 0, 'conversations': [{'from': 'human', 'value': 'I am CAV_EGO at (0.0,0.0). What are the notable objects visible to me near my planned future trajectory [(8.6,0.2),(17.2,0.5),(26.0,0.7),(34.7,0.8),(43.6,0.8),(52.6,0.6)]? '}, {'from': 'gpt', 'value': 'There is no notable object visible to you.'}], 'scenario_index': 0, 'local_timestamp_index': 0, 'global_timestamp_index': 0, 'qa_sub_type': [-1], 'distance_to_waypoint': None, 'future_time': None, 'future_trajectory_str_in_ego': '[(8.6,0.2),(17.2,0.5),(26.0,0.7),(34.7,0.8),(43.6,0.8),(52.6,0.6)]', 'future_trajectory_str_in_self': '[(8.6,0.2),(17.2,0.5),(26.0,0.7),(34.7,0.8),(43.6,0.8),(52.6,0.6)]', 'asker_cav_id': 'ego', 'cav_ego_lidar_pose': [-0.8603860139846802, -0.5096380114555359, 0.0020271099638193846, -747.4990234375, 0.5096420049667358, -0.8603760004043579, 0.004268390126526356, 246.41400146484375, -0.0004312550008762628, 0.004705559927970171, 0.9999889731407166, 4.646309852600098, 0.0, 0.0, 0.0, 1.0], 'cav_1_lidar_pose': [-0.6782050132751465, -0.7342339754104614, -0.03063499927520752, -685.0469970703125, 0.734870970249176, -0.6776940226554871, -0.026362700387835503, 203.3769989013672, -0.0014047699514776468, -0.04039210081100464, 0.9991829991340637, 7.019320011138916, 0.0, 0.0, 0.0, 1.0], 'outputs': 'There is no notable object visible to you.'}
+parse location error
+answer:  There is a car at (0.7,3..0) visible to you.
+parse location error
+answer:  There is a car at (0.0,0.0) visible to you. There is a car at (-3.oc.h.0) visible to you.
+parse location error
+answer:  There is a car at (5.9,-3.3) visible to you. There is a car at (11.9,6.3) visible to you. There is a car at (30.0,,-2.4) visible to you.
+parse location error
+answer:  There is a car at (11.8,4.0) visible to you. There is a car at (32.9,4.oh) visible to you.
+parse location error
+answer:  There is a car at (15.7,al.5) visible to you. There is a car at (41.5,4.5) visible to you.
+parse location error
+answer:  There is a car at (15.7,al.5) visible to you. There is a car at (41.5,4.5) visible to you.
+parse location error
+answer:  There is a car at (40.6,7.8) visible to you. There is a car at (4-0.2,-3.1) visible to you. There is a car at (59.1,-1.1) visible to you.
+parse location error
+answer:  There is a car at (40.6,7.8) visible to you. There is a car at (4-0.2,-3.1) visible to you. There is a car at (59.1,-1.1) visible to you.
+parse location error
+answer:  There is a car at (40.6,7.6) visible to you. There is a car at (4-way.0,0.7) visible to you. There is a car at (6.4,-3.1) visible to you.
+parse location error
+answer:  There is a car at (40.6,7.6) visible to you. There is a car at (4-way.0,0.7) visible to you. There is a car at (6.4,-3.1) visible to you.
+parse location error
+answer:  There is a car at (65.7,8...2) visible to you. There is a car at (71.6,8.8) visible to you. There is a car at (81.4,9.0) visible to you.
+parse location error
+answer:  There is a car at (65.7,8...2) visible to you. There is a car at (71.6,8.8) visible to you. There is a car at (81.4,9.0) visible to you.
+parse location error
+answer:  There is a car at (65.7,8...2) visible to you. There is a car at (71.6,8.8) visible to you. There is a car at (81.4,9.0) visible to you.
+parse location error
+answer:  There is a car at (0.0,0.0) visible to you. There is a car at (-x.2,10.1) visible to you.
+parse location error
+answer:  There is a car at (40.6,-1.0) visible to you. There is a car at (40.9,7.oh) visible to you.
+parse location error
+answer:  There is a car at (32.8,-7.3) visible to you. There is a car at (34.3,,-2.1) visible to you.
+parse location error
+answer:  There is a car at (0.0,,-3.3) visible to you.
+parse location error
+answer:  There is a car at (0.0,0.0) visible to you. There is a car at (-2.3,-0.4) visible to you. There is a car at (-10.7,2.-3) visible to you.
+parse location error
+answer:  There is a car at (0.0,,-3.9) visible to you.
+parse location error
+answer:  There is a car at (-3.0,,-0.4) visible to you. There is a car at (-1.5,,-0.1) visible to you. There is a car at (-7.5,9.1) visible to you.
+parse location error
+answer:  There is a car at (-3.0,,-0.4) visible to you. There is a car at (-1.5,,-0.1) visible to you. There is a car at (-7.5,9.1) visible to you.
+parse location error
+answer:  There is a car at (-3.0,,-0.4) visible to you. There is a car at (-1.5,,-0.1) visible to you. There is a car at (-7.5,9.1) visible to you.
+parse location error
+answer:  There is a car at (-3.9,9.8) visible to you. There is a car at (-10.8,9.: There is a car at (-17.6,9.0) visible to you. There is a car at (-24.4,8.9) visible to you.
+parse location error
+answer:  There is a car at (-3.9,9.8) visible to you. There is a car at (-10.8,9.: There is a car at (-17.6,9.0) visible to you. There is a car at (-24.4,8.9) visible to you.
+parse location error
+answer:  There is a car at (-1.2,8.7) visible to you. There is a car at (-o.1,-0.1) visible to you.
+num_future_waypoints:  0
+action_accuracy:  1.0
+localization_f1 @ 0.500000: 0.253787
+localization_precision @ 0.500000: 0.249420
+localization_recall@ 0.500000: 0.258310
+localization_f1 @ 1.000000: 0.336809
+localization_precision @ 1.000000: 0.331013
+localization_recall@ 1.000000: 0.342811
+localization_f1 @ 2.000000: 0.394452
+localization_precision @ 2.000000: 0.387664
+localization_recall@ 2.000000: 0.401482
+localization_f1 @ 4.000000: 0.515837
+localization_precision @ 4.000000: 0.506961
+localization_recall@ 4.000000: 0.525030
+binary_f1:  0.9407421799106275
+binary_precision:  0.9149659863945578
+binary_recall:  0.9680127948820472
+gt_parse_error_rate:  0.0
+output_parse_error_rate:  0.004933255948926291

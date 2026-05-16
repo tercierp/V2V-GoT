@@ -1,0 +1,125 @@
+v2vgot_10ep_both_shallow_f2
+nq5sm3w1dc
+full
+4330
+args.answers_file:  ./playground/data/eval/v2v4real_3d_grounding_v2vgot_10ep_both_shallow_f2_4330_full_nq5sm3w1dc/answers/val/llava-v1.5-7b/merge.jsonl
+data[0]:  {'id': 0, 'conversations': [{'from': 'human', 'value': 'I am CAV_EGO at (0.0,0.0). Where might those notable objects move in the future if my planned future trajectory is [(8.6,0.2),(17.2,0.5),(26.0,0.7),(34.7,0.8),(43.6,0.8),(52.6,0.6)]? Context: Is there anything I need to be aware of given my planned future trajectory? There is no notable object. '}, {'from': 'gpt', 'value': 'There is no notable object.'}], 'scenario_index': 0, 'local_timestamp_index': 0, 'global_timestamp_index': 0, 'qa_sub_type': [-1], 'distance_to_waypoint': None, 'future_time': None, 'future_trajectory_str_in_ego': '[(8.6,0.2),(17.2,0.5),(26.0,0.7),(34.7,0.8),(43.6,0.8),(52.6,0.6)]', 'future_trajectory_str_in_self': '[(8.6,0.2),(17.2,0.5),(26.0,0.7),(34.7,0.8),(43.6,0.8),(52.6,0.6)]', 'asker_cav_id': 'ego', 'cav_ego_lidar_pose': [-0.8603860139846802, -0.5096380114555359, 0.0020271099638193846, -747.4990234375, 0.5096420049667358, -0.8603760004043579, 0.004268390126526356, 246.41400146484375, -0.0004312550008762628, 0.004705559927970171, 0.9999889731407166, 4.646309852600098, 0.0, 0.0, 0.0, 1.0], 'cav_1_lidar_pose': [-0.6782050132751465, -0.7342339754104614, -0.03063499927520752, -685.0469970703125, 0.734870970249176, -0.6776940226554871, -0.026362700387835503, 203.3769989013672, -0.0014047699514776468, -0.04039210081100464, 0.9991829991340637, 7.019320011138916, 0.0, 0.0, 0.0, 1.0], 'outputs': 'There is no notable object.'}
+parse trajectory error
+answer:  There is a car at (0.0,-0.0) moving forward. The predicted future trajectory is [(72.0,,-1.2)]. There is a car at (-60.9,2.2) moving forward. The predicted future trajectory is [(6.7,6.0)]. There is a car at (-47.6,-4.6) moving forward. The predicted future trajectory is [(12.3,0.2)].
+parse trajectory error
+answer:  There is a car at (-30.6,-0.4) moving forward. The predicted future trajectory is [(42.8,-1.2)]. There is a car at (-40.5,1.9) moving forward. The predicted future trajectory is [(6.4,x.5)]. There is a car at (-57.0,-6.4) moving forward. The predicted future trajectory is [(-8.6,-0.2)].
+parse trajectory error
+answer:  There is a car at (-2.2,0.2) moving forward. The predicted future trajectory is [(20.7,,-1.1)]. There is a car at (-20.7,-0.7) moving forward. The predicted future trajectory is [(9.8,,-1.0)]. There is a car at (-27.1,-10.1) moving forward. The predicted future trajectory is [(-26.2,-9.9)].
+parse trajectory error
+answer:  There is a car at (-2.2,0.2) moving forward. The predicted future trajectory is [(20.7,,-1.1)]. There is a car at (-20.7,-0.7) moving forward. The predicted future trajectory is [(9.8,,-1.0)]. There is a car at (-27.1,-10.1) moving forward. The predicted future trajectory is [(-26.2,-9.9)].
+parse trajectory error
+answer:  There is a car at (0.0,0.0) moving forward. The predicted future trajectory is [((-0.1,0.1)]. There is a car at (-11.7,3.1) moving forward. The predicted future trajectory is [(-11.1,3.2)]. There is a car at (-4.1,7.6) moving forward. The predicted future trajectory is [(-0.1,7.9)].
+parse trajectory error
+answer:  There is a car at (0.0,0.0) moving forward. The predicted future trajectory is [(,-0.1,0.1)]. There is a car at (-8.8,8.5) staying at the same location. The predicted future trajectory is [(-8.7,8.7)].
+parse trajectory error
+answer:  There is a car at (0.0,0.0) moving forward. The predicted future trajectory is [(50.8,1.7)]. There is a car at (-10.1,3.5) moving forward. The predicted future trajectory is [(49.8,5.1)]. There is a car at (-47.8,-1.5) moving forward. The predicted future trajectory is [0.3,0.7)].
+parse trajectory error
+answer:  There is a car at (0.0,0.0) moving forward. The predicted future trajectory is [(50.5,1.5)]. There is a car at (-0.4,3.4) moving forward. The predicted future trajectory is [(5 5.0,5.4)]. There is a car at (-41.5,-0.9) moving forward. The predicted future trajectory is [(0.9,0.7)].
+parse trajectory error
+answer:  There is a car at (5.0,3.8) moving forward. The predicted future trajectory is [(41._5,4.6)]. There is a car at (-38.5,1.4) moving forward. The predicted future trajectory is [(10.2,3.3)].
+parse location error
+answer:  There is a car at (0.0,0.0) moving forward. The predicted future trajectory is [(20.5,0.7)]. There is a car at (-3.oc.h.0) moving forward. The predicted future trajectory is [(16.4,1.0)].
+parse trajectory error
+answer:  There is a car at (-0.0,-0.0) staying at the same location. The predicted future trajectory is [(0.0,-0.0)]. There is a car at (0.3,4.3) staying at the same location. The predicted future trajectory is [(0.3,4.3)]. There is a car at (-13.5,-4.1) moving forward. The predicted future trajectory is [(,-12.1,-3.6)].
+parse trajectory error
+answer:  There is a car at (-0.0,0.0) staying at the same location. The predicted future trajectory is [(0.0,-0.0)]. There is a car at (0.3,4.3) staying at the same location. The predicted future trajectory is [(0.1,4.3)]. There is a car at (-13.2,-4.1) moving forward. The predicted future trajectory is [(,-11.7,-4.0)].
+parse trajectory error
+answer:  There is a car at (-0.0,0.0) staying at the same location. The predicted future trajectory is [(0.0,-0.0)]. There is a car at (0.3,4.1) staying at the same location. The predicted future trajectory is [(0.1,4.1)]. There is a car at (-13.2,-4.1) moving forward. The predicted future trajectory is [(,-11.7,-3.6)].
+parse trajectory error
+answer:  There is a car at (-0.0,0.0) staying at the same location. The predicted future trajectory is [(0.0,-0.0)]. There is a car at (0.3,4.1) staying at the same location. The predicted future trajectory is [(0.1,4.1)]. There is a car at (-13.2,-4.1) moving forward. The predicted future trajectory is [(,-11.7,-3.6)].
+parse trajectory error
+answer:  There is a car at (-0.0,0.0) staying at the same location. The predicted future trajectory is [(0.0,-0.0)]. There is a car at (0.3,4.1) staying at the same location. The predicted future trajectory is [(0.3,4.1)]. There is a car at (-13.2,-4.1) moving forward. The predicted future trajectory is [(,-11.9,-3.8)].
+parse trajectory error
+answer:  There is a car at (-0.0,0.0) staying at the same location. The predicted future trajectory is [(0.0,-0.0)]. There is a car at (0.1,4.1) staying at the same location. The predicted future trajectory is [(0.2,4.1)]. There is a car at (-13.2,-4.1) moving forward. The predicted future trajectory is [(,-11.7,-3.8)].
+parse trajectory error
+answer:  There is a car at (11.5,-0.0) moving forward. The predicted future trajectory is [(1 1.8,-0.1)]. There is a car at (16.9,-0.0) moving forward. The predicted future trajectory is [(17.5,-0.0)].
+parse location error
+answer:  There is a car at (5.9,-3.3) moving forward. The predicted future trajectory is [(6.5,-3.2)]. There is a car at (11.9,6.3) staying at the same location. The predicted future trajectory is [(12.2,6.5)]. There is a car at (30.0,,-2.4) staying at the same location. The predicted future trajectory is [(30.2,-2.0)].
+parse location error
+answer:  There is a car at (15.7,al.5) moving forward. The predicted future trajectory is [(66.4,5.3)]. There is a car at (41.5,4.5) moving forward. The predicted future trajectory is [(90.2,8.3)].
+parse location error
+answer:  There is a car at (15.7,al.5) moving forward. The predicted future trajectory is [(66.4,5.3)]. There is a car at (41.5,4.5) moving forward. The predicted future trajectory is [(90.2,8.3)].
+parse action error
+answer:  There is a car at (29.1,7.
+parse trajectory error
+answer:  There is a car at (29.1,7.
+parse location error
+answer:  There is a car at (40.6,7.8) staying at the same location. The predicted future trajectory is [(40.3,7.5)]. There is a car at (4-0.2,-3.1) staying at the same location. The predicted future trajectory is [(3.8,-2.8)]. There is a car at (59.1,-1.1) staying at the same location. The predicted future trajectory is [(59.1,-1.1)].
+parse location error
+answer:  There is a car at (40.6,7.8) staying at the same location. The predicted future trajectory is [(40.3,7.5)]. There is a car at (4-0.2,-3.1) staying at the same location. The predicted future trajectory is [(3.8,-2.8)]. There is a car at (59.1,-1.1) staying at the same location. The predicted future trajectory is [(59.1,-1.1)].
+parse location error
+answer:  There is a car at (40.6,7.6) staying at the same location. The predicted future trajectory is [(40.7,7.6)]. There is a car at (4-way.0,0.7) moving forward. The predicted future trajectory is [(80.2,0.9)]. There is a car at (6.4,-3.1) staying at the same location. The predicted future trajectory is [(6.4,-2.9)].
+parse location error
+answer:  There is a car at (40.6,7.6) staying at the same location. The predicted future trajectory is [(40.7,7.6)]. There is a car at (4-way.0,0.7) moving forward. The predicted future trajectory is [(80.2,0.9)]. There is a car at (6.4,-3.1) staying at the same location. The predicted future trajectory is [(6.4,-2.9)].
+parse trajectory error
+answer:  There is a car at (0.0,-0.0) moving forward. The predicted future trajectory is [(9.0,0.3)]. There is a car at (-4.9,3.6) moving forward. The predicted future trajectory is [(3.2,3.
+parse location error
+answer:  There is a car at (0.0,0.0) moving forward. The predicted future trajectory is [(35.8,1.2)]. There is a car at (-x.2,10.1) staying at the same location. The predicted future trajectory is [(-0.1,10.1)]. There is a car at (-11.2,2.5) moving forward. The predicted future trajectory is [(18.7,3.8)].
+parse location error
+answer:  There is a car at (0.0,0.0) moving forward. The predicted future trajectory is [(35.8,1.2)]. There is a car at (-x.2,10.1) staying at the same location. The predicted future trajectory is [(-0.1,10.1)]. There is a car at (-11.2,2.5) moving forward. The predicted future trajectory is [(18.7,3.8)].
+parse trajectory error
+answer:  There is a car at (0.0,0.0) moving forward. The predicted future trajectory is [(32.9,,0.3)]. There is a car at (-0.3,9.1) moving forward. The predicted future trajectory is [(-8.9,9.7)]. There is a car at (13.0,3.5) moving forward. The predicted future trajectory is [(42.6,3.9)].
+parse trajectory error
+answer:  There is a car at (0.0,0.0) moving forward. The predicted future trajectory is [(39.2,0.6)]. There is a car at (-0.3,9.6) moving forward. The predicted future trajectory is [(-0.o,9.6)]. There is a car at (-12.9,2.8) moving forward. The predicted future trajectory is [(14.6,3.6)].
+parse trajectory error
+answer:  There is a car at (0.0,0.0) moving forward. The predicted future trajectory is [(37.3,0.5)]. There is a car at (-27.2,5.4) moving forward. The predicted future trajectory is [(1st.2,6.0)].
+parse trajectory error
+answer:  There is a car at (28.6,-12.2) staying at the same location. The predicted future trajectory is [(28.6,-12.2)]. There is a car at (28.6,9.8) staying at the same location. The predicted future trajectory is [(29.0,10.0)]. There is a car at (-27.5,-3.8) moving forward. The predicted future trajectory is [(x,-3.5)].
+parse location error
+answer:  There is a car at (0.0,0.0) staying at the same location. The predicted future trajectory is [(0.0,-0.0)]. There is a car at (-2.3,-0.4) staying at the same location. The predicted future trajectory is [(-2.1,-0.2)]. There is a car at (-10.7,2.,-3) moving forward. The predicted future trajectory is [(-10.1,3.2)].
+parse trajectory error
+answer:  There is a car at (0.3,-3.9) moving forward. The predicted future trajectory is [(,-0.0,-0.0)].
+parse trajectory error
+answer:  There is a car at (0.3,-3.9) moving forward. The predicted future trajectory is [(,-0.0,-3.7)].
+parse trajectory error
+answer:  There is a car at (0.0,0.0) staying at the same location. There is no notable object invisible to you.
+parse trajectory error
+answer:  There is a car at (0.0,0.0) staying at the same location. The predicted future trajectory is [(-0.0,-0.0)]. There is a car at (-3.4,-3.9) moving forward. The predicted future trajectory is [(-3.1,-3.9)]. There is a car at (-9.4,-3.6) moving forward. The predicted future trajectory is [(,-8.7,-3.5)].
+parse trajectory error
+answer:  There is a car at (0.0,0.0) staying at the same location. The predicted future trajectory is [(-0.0,-0.0)]. There is a car at (-2.3,9.1) moving forward. The predicted future trajectory is [(-1.1,9.l)].
+parse trajectory error
+answer:  There is a car at (0.0,-0.0) staying at the same location. The predicted future trajectory is [(0.0,-0.0)]. There is a car at (-2.1,-0.1) moving forward. The predicted future trajectory is [(-0.1,,-0.0)].
+parse trajectory error
+answer:  There is a car at (0.3,-3.9) moving forward. The predicted future trajectory is [(,-0.0,-3.7)].
+parse location error
+answer:  There is a car at (-3.0,,-0.4) staying at the same location. The predicted future trajectory is [(-2.8,-0.3)]. There is a car at (-1.5,,-0.1) staying at the same location. The predicted future trajectory is [(-1.5,0.1)]. There is a car at (-7.5,9.1) moving forward. The predicted future trajectory is [(-7.0,8.9)].
+parse location error
+answer:  There is a car at (-3.0,,-0.4) staying at the same location. The predicted future trajectory is [(-2.8,-0.3)]. There is a car at (-1.5,,-0.1) staying at the same location. The predicted future trajectory is [(-1.5,0.1)]. There is a car at (-7.5,9.1) moving forward. The predicted future trajectory is [(-7.0,8.9)].
+parse location error
+answer:  There is a car at (-3.0,,-0.4) staying at the same location. The predicted future trajectory is [(-2.8,-0.3)]. There is a car at (-1.5,,-0.1) staying at the same location. The predicted future trajectory is [(-1.5,0.1)]. There is a car at (-7.5,9.1) moving forward. The predicted future trajectory is [(-7.0,8.9)].
+parse trajectory error
+answer:  There is a car at (0.0,-0.0) staying at the same location. The predicted future trajectory is [(0.0,-0.0)]. There is a car at (-2.1,-0.1) moving forward. The predicted future trajectory is [(-0.1,,-0.0)].
+parse trajectory error
+answer:  There is a car at (0.0,-0.0) staying at the same location. The predicted future trajectory is [(0.0,-0.0)]. There is a car at (-2.1,-0.1) moving forward. The predicted future trajectory is [(-0.1,,-0.0)].
+parse location error
+answer:  There is a car at (-1.2,8.7) staying at the same location. The predicted future trajectory is [(-1.1,8.9)]. There is a car at (-o.1,-0.1) staying at the same location. The predicted future trajectory is [(-0.0,-0.1)].
+num_future_waypoints:  1
+l2_error_avg_1s:  0.0
+l2_error_avg_2s:  0.0
+l2_error_avg_3s:  11.083778468722699
+l2_error_avg_123_all:  3.694592822907566
+l2_error_avg_0s:  5.038597010496092
+l2_error_avg_03_all:  8.061187739609394
+action_accuracy:  0.7048932959689588
+localization_f1 @ 0.500000: 0.253653
+localization_precision @ 0.500000: 0.250044
+localization_recall@ 0.500000: 0.257369
+localization_f1 @ 1.000000: 0.347711
+localization_precision @ 1.000000: 0.342762
+localization_recall@ 1.000000: 0.352804
+localization_f1 @ 2.000000: 0.411478
+localization_precision @ 2.000000: 0.405622
+localization_recall@ 2.000000: 0.417505
+localization_f1 @ 4.000000: 0.529448
+localization_precision @ 4.000000: 0.521914
+localization_recall@ 4.000000: 0.537203
+binary_f1:  0.9393414211438476
+binary_precision:  0.9114349775784754
+binary_recall:  0.9690107270560191
+gt_parse_error_rate:  0.0
+output_parse_error_rate:  0.011317469529889728

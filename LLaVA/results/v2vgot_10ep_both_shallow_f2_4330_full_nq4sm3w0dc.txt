@@ -1,0 +1,47 @@
+v2vgot_10ep_both_shallow_f2
+nq4sm3w0dc
+full
+4330
+args.answers_file:  ./playground/data/eval/v2v4real_3d_grounding_v2vgot_10ep_both_shallow_f2_4330_full_nq4sm3w0dc/answers/val/llava-v1.5-7b/merge.jsonl
+data[0]:  {'id': 0, 'conversations': [{'from': 'human', 'value': 'I am CAV_EGO at (0.0,0.0). Is there anything I need to be aware of if my planned future trajectory is [(8.6,0.2),(17.2,0.5),(26.0,0.7),(34.7,0.8),(43.6,0.8),(52.6,0.6)]? Context: Is there anything I need to be aware of given my planned future trajectory? There is no notable object visible to you. There is no notable object invisible to you. '}, {'from': 'gpt', 'value': 'There is no notable object.'}], 'scenario_index': 0, 'local_timestamp_index': 0, 'global_timestamp_index': 0, 'qa_sub_type': [-1], 'distance_to_waypoint': None, 'future_time': None, 'future_trajectory_str_in_ego': '[(8.6,0.2),(17.2,0.5),(26.0,0.7),(34.7,0.8),(43.6,0.8),(52.6,0.6)]', 'future_trajectory_str_in_self': '[(8.6,0.2),(17.2,0.5),(26.0,0.7),(34.7,0.8),(43.6,0.8),(52.6,0.6)]', 'asker_cav_id': 'ego', 'cav_ego_lidar_pose': [-0.8603860139846802, -0.5096380114555359, 0.0020271099638193846, -747.4990234375, 0.5096420049667358, -0.8603760004043579, 0.004268390126526356, 246.41400146484375, -0.0004312550008762628, 0.004705559927970171, 0.9999889731407166, 4.646309852600098, 0.0, 0.0, 0.0, 1.0], 'cav_1_lidar_pose': [-0.6782050132751465, -0.7342339754104614, -0.03063499927520752, -685.0469970703125, 0.734870970249176, -0.6776940226554871, -0.026362700387835503, 203.3769989013672, -0.0014047699514776468, -0.04039210081100464, 0.9991829991340637, 7.019320011138916, 0.0, 0.0, 0.0, 1.0], 'has_nearby_detection': {'10': False, '20': False, '30': True, '40': True, '50': True}, 'outputs': 'There is no notable object.'}
+data[1]:  {'id': 1, 'conversations': [{'from': 'human', 'value': 'I am CAV_1 at (-75.7,5.2). Is there anything I need to be aware of if my planned future trajectory is [(-68.0,3.4),(-59.9,1.4),(-51.8,0.5),(-43.9,0.6),(-35.5,0.4),(-26.8,0.3)]? Context: Is there anything I need to be aware of given my planned future trajectory? There is a car at (-21.1,1.5) visible to you. There is a car at (-20.5,-0.1) invisible to you. '}, {'from': 'gpt', 'value': 'There is a car at (-20.5,-0.1). There is a car at (-21.1,1.5). '}], 'scenario_index': 0, 'local_timestamp_index': 0, 'global_timestamp_index': 0, 'qa_sub_type': [0.0, 0.0], 'distance_to_waypoint': [6.345685982198006, 5.8998676466399065], 'future_time': [29.0, 29.0], 'future_trajectory_str_in_ego': '[(-68.0,3.4),(-59.9,1.4),(-51.8,0.5),(-43.9,0.6),(-35.5,0.4),(-26.8,0.3)]', 'future_trajectory_str_in_self': '[(7.9,0.5),(16.2,1.0),(24.2,2.5),(31.8,4.8),(39.9,7.0),(48.2,9.4)]', 'asker_cav_id': '1', 'cav_ego_lidar_pose': [-0.8603860139846802, -0.5096380114555359, 0.0020271099638193846, -747.4990234375, 0.5096420049667358, -0.8603760004043579, 0.004268390126526356, 246.41400146484375, -0.0004312550008762628, 0.004705559927970171, 0.9999889731407166, 4.646309852600098, 0.0, 0.0, 0.0, 1.0], 'cav_1_lidar_pose': [-0.6782050132751465, -0.7342339754104614, -0.03063499927520752, -685.0469970703125, 0.734870970249176, -0.6776940226554871, -0.026362700387835503, 203.3769989013672, -0.0014047699514776468, -0.04039210081100464, 0.9991829991340637, 7.019320011138916, 0.0, 0.0, 0.0, 1.0], 'has_nearby_detection': {'10': False, '20': False, '30': True, '40': True, '50': True}, 'outputs': 'There is a car at (-21.1,1.5). There is a car at (-20.5,-0.1).'}
+gt_answer_types[0]:  [-1  0]
+gt_boxes[0]:  [[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+gt_boxes[1]:  [[-20.5  -0.1   1. ]
+ [-21.1   1.5   1. ]
+ [  0.    0.    0. ]]
+gt_boxes.shape:  (3446, 3, 3)
+output_boxes.shape:  (3446, 3, 3)
+accuracy:  0.9045269878119558
+TP:  2425
+FP:  237
+FN:  92
+TN:  692
+precision:  0.9109691960931631
+recall:  0.9634485498609455
+f1:  0.9364742228229388
+num_failed_parsing:  4
+parsing_success_rate:  0.9983505154639175
+gt_boxes[TP_mask].shape:  (2425, 3, 3)
+output_boxes[TP_mask].shape:  (2425, 3, 3)
+num_total_gt_boxes:  5416
+num_total_output_boxes:  5303
+avg_dist_error:  5.87516341080357
+threshold:  0.5
+precision:  0.27305298887422214
+recall:  0.26717134416543575
+f1:  0.27008014857620377
+threshold:  1
+precision:  0.3733735621346408
+recall:  0.3629985228951256
+f1:  0.36811295348733186
+threshold:  2
+precision:  0.4442768244389968
+recall:  0.4287296898079764
+f1:  0.43636481978579755
+threshold:  4
+precision:  0.5994719969828399
+recall:  0.6148449039881831
+f1:  0.6070611421677216

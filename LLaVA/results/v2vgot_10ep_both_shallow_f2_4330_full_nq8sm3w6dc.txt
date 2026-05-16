@@ -1,0 +1,14 @@
+v2vgot_10ep_both_shallow_f2
+nq8sm3w6dc
+full
+4330
+args.answers_file:  ./playground/data/eval/v2v4real_3d_grounding_v2vgot_10ep_both_shallow_f2_4330_full_nq8sm3w6dc/answers/val/llava-v1.5-7b/merge.jsonl
+data[0]:  {'id': 0, 'conversations': [{'from': 'human', 'value': 'I am CAV_EGO at (0.0,0.0). What are the suggested speed and steering settings to avoid collision with nearby objects? Context: Where might those notable objects move in the future if my planned future trajectory is [(8.6,0.2),(17.2,0.5),(26.0,0.7),(34.7,0.8),(43.6,0.8),(52.6,0.6)]? There is no notable object. '}, {'from': 'gpt', 'value': 'The suggested speed setting is: fast. The suggested steering setting is: straight.'}], 'scenario_index': 0, 'local_timestamp_index': 0, 'global_timestamp_index': 0, 'qa_sub_type': 2, 'suggested_speed_idx': 0, 'suggested_steering_idx': 2, 'dist': 8.768972905266613, 'angle': 0.6360308611218952, 'future_trajectory_str_in_ego': '[(8.6,0.2),(17.2,0.5),(26.0,0.7),(34.7,0.8),(43.6,0.8),(52.6,0.6)]', 'future_trajectory_str_in_self': '[(8.6,0.2),(17.2,0.5),(26.0,0.7),(34.7,0.8),(43.6,0.8),(52.6,0.6)]', 'asker_cav_id': 'ego', 'cav_ego_lidar_pose': [-0.8603860139846802, -0.5096380114555359, 0.0020271099638193846, -747.4990234375, 0.5096420049667358, -0.8603760004043579, 0.004268390126526356, 246.41400146484375, -0.0004312550008762628, 0.004705559927970171, 0.9999889731407166, 4.646309852600098, 0.0, 0.0, 0.0, 1.0], 'cav_1_lidar_pose': [-0.6782050132751465, -0.7342339754104614, -0.03063499927520752, -685.0469970703125, 0.734870970249176, -0.6776940226554871, -0.026362700387835503, 203.3769989013672, -0.0014047699514776468, -0.04039210081100464, 0.9991829991340637, 7.019320011138916, 0.0, 0.0, 0.0, 1.0], 'outputs': 'The suggested speed setting is: fast. The suggested steering setting is: straight.'}
+speed_accuracy:  0.9556006964596634
+steering_accuracy:  0.9582124201973302
+action_accuracy:  0.918165989553105
+speed_edit_dist:  0.044399303540336624
+steering_edit_dist:  0.04381892048752176
+action_edit_dist:  0.08821822402785838
+non_straight_steering_count:  360
+non_straight_steering_count %:  0.1044689495066744

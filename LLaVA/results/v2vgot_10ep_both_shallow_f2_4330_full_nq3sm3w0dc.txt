@@ -1,0 +1,25 @@
+v2vgot_10ep_both_shallow_f2
+nq3sm3w0dc
+full
+4330
+args.answers_file:  ./playground/data/eval/v2v4real_3d_grounding_v2vgot_10ep_both_shallow_f2_4330_full_nq3sm3w0dc/answers/val/llava-v1.5-7b/merge.jsonl
+data[0]:  {'id': 0, 'conversations': [{'from': 'human', 'value': 'I am CAV_EGO at (0.0,0.0). What are the notable objects invisible to me near my planned future trajectory [(8.6,0.2),(17.2,0.5),(26.0,0.7),(34.7,0.8),(43.6,0.8),(52.6,0.6)]? Context: What objects might obstruct my view? There is a car at (-21.1,1.5) obstructing your view. There is a car at (-20.5,-0.1) obstructing your view. '}, {'from': 'gpt', 'value': 'There is no notable object invisible to you.'}], 'scenario_index': 0, 'local_timestamp_index': 0, 'global_timestamp_index': 0, 'qa_sub_type': [-1], 'distance_to_waypoint': None, 'future_time': None, 'future_trajectory_str_in_ego': '[(8.6,0.2),(17.2,0.5),(26.0,0.7),(34.7,0.8),(43.6,0.8),(52.6,0.6)]', 'future_trajectory_str_in_self': '[(8.6,0.2),(17.2,0.5),(26.0,0.7),(34.7,0.8),(43.6,0.8),(52.6,0.6)]', 'asker_cav_id': 'ego', 'cav_ego_lidar_pose': [-0.8603860139846802, -0.5096380114555359, 0.0020271099638193846, -747.4990234375, 0.5096420049667358, -0.8603760004043579, 0.004268390126526356, 246.41400146484375, -0.0004312550008762628, 0.004705559927970171, 0.9999889731407166, 4.646309852600098, 0.0, 0.0, 0.0, 1.0], 'cav_1_lidar_pose': [-0.6782050132751465, -0.7342339754104614, -0.03063499927520752, -685.0469970703125, 0.734870970249176, -0.6776940226554871, -0.026362700387835503, 203.3769989013672, -0.0014047699514776468, -0.04039210081100464, 0.9991829991340637, 7.019320011138916, 0.0, 0.0, 0.0, 1.0], 'outputs': 'There is no notable object invisible to you.'}
+num_future_waypoints:  0
+action_accuracy:  1.0
+localization_f1 @ 0.500000: 0.218830
+localization_precision @ 0.500000: 0.211823
+localization_recall@ 0.500000: 0.226316
+localization_f1 @ 1.000000: 0.364716
+localization_precision @ 1.000000: 0.353038
+localization_recall@ 1.000000: 0.377193
+localization_f1 @ 2.000000: 0.418999
+localization_precision @ 2.000000: 0.405583
+localization_recall@ 2.000000: 0.433333
+localization_f1 @ 4.000000: 0.437659
+localization_precision @ 4.000000: 0.423645
+localization_recall@ 4.000000: 0.452632
+binary_f1:  0.5127753303964758
+binary_precision:  0.5008605851979346
+binary_recall:  0.5252707581227437
+gt_parse_error_rate:  0.0
+output_parse_error_rate:  0.0

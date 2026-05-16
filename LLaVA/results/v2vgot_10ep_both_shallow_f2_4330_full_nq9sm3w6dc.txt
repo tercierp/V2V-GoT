@@ -1,0 +1,5 @@
+v2vgot_10ep_both_shallow_f2
+nq9sm3w6dc
+full
+4330
+args.answers_file:  ./playground/data/eval/v2v4real_3d_grounding_v2vgot_10ep_both_shallow_f2_4330_full_nq9sm3w6dc/answers/val/llava-v1.5-7b/merge.jsonl

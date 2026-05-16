@@ -1,0 +1,7 @@
+v2vgot_10ep_both_shallow_f2
+nq6sm3w1dc
+full
+4330
+args.answers_file:  ./playground/data/eval/v2v4real_3d_grounding_v2vgot_10ep_both_shallow_f2_4330_full_nq6sm3w1dc/answers/val/llava-v1.5-7b/merge.jsonl
+evaluate_is_another_cav_notable_object
+binary classification accuracy:  0.8749274521183982

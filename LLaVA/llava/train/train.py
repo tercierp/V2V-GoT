@@ -1117,7 +1117,7 @@ class V2V4RealDataset(Dataset):
         #print('cav_ids: ', cav_ids)
 
         scene_spatial_features_2d_all = []
-        feature_shape = [1, 1, 1, 1]
+        feature_shape = [1, 256, 50, 88]
         for cav_id in cav_ids:
             scene_spatial_features_2d_file = os.path.join(self.llm_data_path, cav_id, '%04d_%s.npy' % (single_frame_global_timestamp_index, feature_map_name))
             # v2xreal, not every frame has every agent
@@ -1802,15 +1802,12 @@ class CRAFTERDataset(V2V4RealDataset):
             prev_end = end
 
         frame_step_id = f'{local_frame_idx * 30:06d}'
-        split = self.data_args.crafter_split or 'train_01'
-        path = os.path.join(
-            self.data_args.osm_image_folder,
-            split,
-            seq_name,
-            frame_step_id,
-            f'agent_{agent_id}.png'
-        )
-        return path
+        base = self.data_args.osm_image_folder
+        for split_dir in sorted(os.listdir(base)):
+            path = os.path.join(base, split_dir, seq_name, frame_step_id, f'agent_{agent_id}.png')
+            if os.path.exists(path):
+                return path
+        return ''
 
     def __getitem__(self, i) -> Dict[str, torch.Tensor]:
         # Call parent __getitem__ to get the base data dict
