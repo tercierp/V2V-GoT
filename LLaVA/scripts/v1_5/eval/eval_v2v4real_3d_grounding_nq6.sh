@@ -10,8 +10,9 @@ MODEL=$1
 DATA=$2
 GRAPH=$3 
 CKPT_ID_INPUT=$4
+EXP_SUFFIX=${5:-""}
 
-OUTPUT="results/${MODEL}_${CKPT_ID_INPUT}_${GRAPH}_${DATA}.txt"
+OUTPUT="results/${MODEL}_${CKPT_ID_INPUT}_${GRAPH}_${DATA}${EXP_SUFFIX}.txt"
 echo $MODEL > $OUTPUT
 echo $DATA >> $OUTPUT
 echo $GRAPH >> $OUTPUT
@@ -26,7 +27,7 @@ do
         --qa-type-id 16 \
         --num-future-waypoints 1 \
         --npy-save-path ../DMSTrack/V2V4Real/official_models/no_fusion_keep_all/npy \
-        --answers-file ./playground/data/eval/v2v4real_3d_grounding_${MODEL}_${CKPT_ID}_${GRAPH}_${DATA}/answers/val/llava-v1.5-7b/merge.jsonl \
+        --answers-file ./playground/data/eval/v2v4real_3d_grounding_${MODEL}_${CKPT_ID}_${GRAPH}_${DATA}${EXP_SUFFIX}/answers/val/llava-v1.5-7b/merge.jsonl \
 	>> $OUTPUT
 done
 

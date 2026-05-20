@@ -67,7 +67,7 @@ class CustomDataset(Dataset):
 
 # Custom dataset class
 class V2V4RealCustomDataset(Dataset):
-    def __init__(self, list_data_dict, image_folder, tokenizer, image_processor, model_config, simplified_object_feature, num_input_frames, num_latency_frames, positional_error_std):
+    def __init__(self, list_data_dict, image_folder, tokenizer, image_processor, model_config, simplified_object_feature, num_input_frames, num_latency_frames, positional_error_std, lidar_mode='normal'):
         self.list_data_dict = list_data_dict
         self.image_folder = image_folder
         self.tokenizer = tokenizer
@@ -78,6 +78,7 @@ class V2V4RealCustomDataset(Dataset):
         self.num_latency_frames = num_latency_frames
         self.last_global_timestamp_index = 1992 # v2v4real val set total  1993 frames
         self.positional_error_std = positional_error_std
+        self.lidar_mode = lidar_mode
 
         self.feature_source = args.feature_source
         self.llm_data_path = os.path.join('../DMSTrack/V2V4Real/official_models/', self.feature_source, 'npy/co_llm')
@@ -334,7 +335,15 @@ class V2V4RealCustomDataset(Dataset):
 
         if args.ego_only == 'True' or args.ego_only == 'true':
             cav_ids = ['ego']
-        else:    
+        elif self.lidar_mode == 'single':
+            # Only the asker CAV's own LiDAR is loaded.
+            cav_ids = [str(data_dict.get('asker_cav_id', 'ego'))]
+        elif self.lidar_mode == 'duplicate':
+            # Two slots, both filled with the asker's own perception. Closer to the
+            # training distribution (num_cavs=2) than 'single'; still no other-CAV info.
+            asker_cav_id = str(data_dict.get('asker_cav_id', 'ego'))
+            cav_ids = [asker_cav_id, asker_cav_id]
+        else:  # 'normal'
             cav_ids = ['ego', '1']
         #print('cav_ids: ', cav_ids)    
 
@@ -412,7 +421,7 @@ class V2V4RealCustomDataset(Dataset):
         #print('detection_box_score.shape: ', detection_box_score.shape)
         # [num_input_frames=2, num_cavs=2, num_max_boxes_per_cav=50, feature_size=8]
 
-        active_agent_mask = torch.from_numpy(np.ones([num_input_frames, 2]))
+        active_agent_mask = torch.from_numpy(np.ones([num_input_frames, len(cav_ids)]))
 
 
         qs = DEFAULT_IMAGE_TOKEN + '\n' +  data_dict['conversations'][0]['value']
@@ -626,9 +635,9 @@ def create_data_loader(questions, image_folder, tokenizer, image_processor, mode
     return data_loader
 
 
-def create_data_loader_v2v4real(list_data_dict, image_folder, tokenizer, image_processor, model_config, simplified_object_feature, num_input_frames, num_latency_frames, positional_error_std, batch_size=1, num_workers=64):
+def create_data_loader_v2v4real(list_data_dict, image_folder, tokenizer, image_processor, model_config, simplified_object_feature, num_input_frames, num_latency_frames, positional_error_std, lidar_mode='normal', batch_size=1, num_workers=64):
     assert batch_size == 1, "batch_size must be 1"
-    dataset = V2V4RealCustomDataset(list_data_dict, image_folder, tokenizer, image_processor, model_config, simplified_object_feature, num_input_frames, num_latency_frames, positional_error_std)
+    dataset = V2V4RealCustomDataset(list_data_dict, image_folder, tokenizer, image_processor, model_config, simplified_object_feature, num_input_frames, num_latency_frames, positional_error_std, lidar_mode=lidar_mode)
     data_loader = DataLoader(dataset, batch_size=batch_size, num_workers=num_workers, shuffle=False, collate_fn=v2v4real_collate_fn)
     return data_loader
 
@@ -724,6 +733,10 @@ def inference_v2v4real_3d_grounding(args):
     # MY_DEBUG
     #list_data_dict = list_data_dict[:16]
 
+    if args.max_items > 0:
+        list_data_dict = list_data_dict[:args.max_items]
+        print(f'SUBSET: truncated list_data_dict to first {args.max_items} items')
+
     list_data_dict = get_chunk(list_data_dict, args.num_chunks, args.chunk_idx)
     answers_file = os.path.expanduser(args.answers_file)
     os.makedirs(os.path.dirname(answers_file), exist_ok=True)
@@ -734,7 +747,7 @@ def inference_v2v4real_3d_grounding(args):
         print(f'It seems that this is a plain model, but it is not using a mmtag prompt, auto switching to {args.conv_mode}.')
 
     if args.dataset_source == 'v2v4real':
-      data_loader = create_data_loader_v2v4real(list_data_dict, args.image_folder, tokenizer, image_processor, model.config, args.simplified_object_feature, args.num_input_frames, args.num_latency_frames, args.positional_error_10_std * 0.1)
+      data_loader = create_data_loader_v2v4real(list_data_dict, args.image_folder, tokenizer, image_processor, model.config, args.simplified_object_feature, args.num_input_frames, args.num_latency_frames, args.positional_error_10_std * 0.1, lidar_mode=args.lidar_mode)
     else:  
       data_loader = create_data_loader_v2xreal(list_data_dict, args.image_folder, tokenizer, image_processor, model.config, args.simplified_object_feature, args.num_input_frames, args.num_latency_frames, args.positional_error_10_std * 0.1)
 
@@ -840,6 +853,13 @@ if __name__ == "__main__":
     parser.add_argument("--object_feature_mode", type=str, default='shallow')
     parser.add_argument("--num_input_frames", type=int, default=1)
     parser.add_argument("--ego_only", type=str, default='False')
+    # Decentralized inference: only the asker CAV features are kept; others zeroed and masked inactive
+    parser.add_argument("--lidar_mode", type=str, default='normal', choices=['normal', 'single', 'duplicate'],
+                        help="How to populate the LiDAR slots at inference. "
+                             "'normal' = both CAVs (centralized). 'single' = only the asker CAV (shape 1). "
+                             "'duplicate' = asker CAV in both slots (shape 2, no other-CAV info).")
+    # Subset runs: limit list_data_dict to first N items (-1 = no limit)
+    parser.add_argument("--max_items", type=int, default=-1)
     parser.add_argument("--feature_source", type=str, default='no_fusion_keep_all')
     # v2xreal
     parser.add_argument("--dataset_source", type=str, default='v2v4real')

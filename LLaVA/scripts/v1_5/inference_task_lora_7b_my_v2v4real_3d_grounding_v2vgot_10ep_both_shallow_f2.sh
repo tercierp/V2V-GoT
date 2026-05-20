@@ -12,6 +12,9 @@ CKPT_NUMBER=$1
 DATA=$2 # 'nq1sm3w0d', or others
 DATA_SOURCE=$3 # 'graph' or 'gt'
 GRAPH=$4 # 'full'
+LIDAR_MODE=${5:-normal} # 'normal' (both CAVs, centralized), 'single' (only asker), 'duplicate' (asker in both slots).
+EXP_SUFFIX=${6:-""} # Suffix appended to EXP folder, e.g. '_central' or '_decent'
+MAX_ITEMS=${7:--1} # -1 = no limit; otherwise process only first N items
 
 NUM_LATENCY_FRAMES=0
 echo $NUM_LATENCY_FRAMES
@@ -30,7 +33,7 @@ SPLIT='val'
 for CKPT_ID in $CKPT_NUMBER
 do
 
-    EXP="v2v4real_3d_grounding_${MODEL}_${CKPT_ID}_${GRAPH}_${DATA}"
+    EXP="v2v4real_3d_grounding_${MODEL}_${CKPT_ID}_${GRAPH}_${DATA}${EXP_SUFFIX}"
     echo $EXP
     MODEL_PATH="./checkpoints/llava-v1.5-7b-task-lora/llava-v1.5-7b-task-lora_v2v4real_3d_grounding_${MODEL}/checkpoint-${CKPT_ID}"
     echo $MODEL_PATH
@@ -55,6 +58,8 @@ do
             --object_feature_mode shallow \
             --num_input_frames 2 \
             --ego_only False \
+            --lidar_mode $LIDAR_MODE \
+            --max_items $MAX_ITEMS \
             --feature_source no_fusion_keep_all \
             --num_latency_frames $NUM_LATENCY_FRAMES \
 	    --positional_error_10_std $POSITIONAL_ERROR_10_STD \

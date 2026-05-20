@@ -4356,6 +4356,51 @@ def get_another_cav_future_trajectory_str(asker_cav_id, double_cavs_future_traje
   return another_cav_future_trajectory_str
 
 
+def format_v2v_q1_message(q1_output_str, sender_cav_name, sender_location_str):
+  """
+  Strategy B (Q1 edge): format the sender CAV Q1 inference output as a text
+  V2V perception message for the receiver. Mirrors the same Q6-style structure as
+  format_v2v_message (pose sentence + payload sentence). The payload now comes from
+  the sender notable-visible-objects list, not from raw detections.
+
+  Q1 outputs use the form There is a car at (x,y) visible to you. ... (from the
+  sender POV). you would be ambiguous in the receiver prompt, so we extract
+  the coordinates and re-emit them in the same sentence style.
+  """
+  import re as _re
+  pose_sentence = "%s is at %s. " % (sender_cav_name, sender_location_str)
+  coords = _re.findall(r"\(([-\d.]+),([-\d.]+)\)", q1_output_str or "")
+  if not coords:
+    return pose_sentence + "%s sees no notable visible object. " % sender_cav_name
+  if len(coords) == 1:
+    return pose_sentence + "%s sees a notable car at (%s,%s). " % (sender_cav_name, coords[0][0], coords[0][1])
+  coords_str = ", ".join("(%s,%s)" % c for c in coords)
+  return pose_sentence + "%s sees notable cars at the following positions: %s. " % (sender_cav_name, coords_str)
+
+
+def format_v2v_message(det_box_scores, score_thresh, sender_cav_name, sender_location_str):
+  '''
+  Strategy B: format sender CAV's pose + detector output as a text V2V perception message.
+
+  Output mimics the nq6 GT-broadcast style ('CAV_X is at (x,y). Its planned future
+  trajectory is ...'): a pose sentence identifies the sender, then a payload sentence
+  reports its detections. Three cases:
+    - no detection survives:  '<sender> has no detection.'
+    - exactly one detection:  '<sender> detected a car at (x,y).'
+    - multiple detections:    '<sender> detected cars at the following positions: (x1,y1), (x2,y2), ... .'
+  '''
+  pose_sentence = '%s is at %s. ' % (sender_cav_name, sender_location_str)
+  if det_box_scores is None or len(det_box_scores) == 0:
+    return pose_sentence + '%s has no detection. ' % sender_cav_name
+  keep = det_box_scores[det_box_scores[:, 7] >= score_thresh]
+  if len(keep) == 0:
+    return pose_sentence + '%s has no detection. ' % sender_cav_name
+  if len(keep) == 1:
+    return pose_sentence + '%s detected a car at %s. ' % (sender_cav_name, round_to_str(keep[0], center_only=True))
+  coords_str = ', '.join(round_to_str(row, center_only=True) for row in keep)
+  return pose_sentence + '%s detected cars at the following positions: %s. ' % (sender_cav_name, coords_str)
+
+
 def generate_3d_grounding_qa_sample_nq5(
   asker_cav_id, initial_lidar_pose,
   notable_gts, notable_gts_future_trajectory,
@@ -4542,7 +4587,7 @@ def generate_3d_grounding_qa_sample_nq6(
   num_future_waypoints, 
   with_context, asker_initial_location, 
   cav_ids, double_cavs_future_trajectory_in_ego_current, asker_initial_location_dict,
-  context_sample_list, context_list_from_gt):
+  context_sample_list, context_list_from_gt, strip_other_cav_context=False):
   '''
   NQ6 Prediction by Planning
 
@@ -4594,12 +4639,13 @@ def generate_3d_grounding_qa_sample_nq6(
     # Question Context
     human_input += 'Context: '
     # use GT CAV future trajectory
-    for cav_id in cav_ids:
-      if cav_id != asker_cav_id:
-        context_initial_location_str = round_to_str(asker_initial_location_dict[cav_id], center_only=False) 
-        human_input += '%s is at %s. ' % (cav_name_dict[cav_id], context_initial_location_str)
-        context_future_trajectory_str_in_ego = get_future_trajectory_str(double_cavs_future_trajectory_in_ego_current[cav_id], default_num_future_waypoints) 
-        human_input += 'Its planned future trajectory is %s. ' % context_future_trajectory_str_in_ego
+    if not strip_other_cav_context:
+      for cav_id in cav_ids:
+        if cav_id != asker_cav_id:
+          context_initial_location_str = round_to_str(asker_initial_location_dict[cav_id], center_only=False)
+          human_input += '%s is at %s. ' % (cav_name_dict[cav_id], context_initial_location_str)
+          context_future_trajectory_str_in_ego = get_future_trajectory_str(double_cavs_future_trajectory_in_ego_current[cav_id], default_num_future_waypoints)
+          human_input += 'Its planned future trajectory is %s. ' % context_future_trajectory_str_in_ego
 
     # include notable object context (nq4 output)
     human_input += 'Notable object context: '
@@ -5182,7 +5228,8 @@ def generate_3d_grounding_qa_sample_nq3(
   visible_gt_object_ids_dict, invisible_gt_object_ids_dict,
   occluding_gt_ids_in_gt_boxes, occluded_gt_ids_in_gt_boxes, gt_boxes, asker_initial_location,
   context_sample_list, context_list_from_gt,
-  asker_initial_location_dict):
+  asker_initial_location_dict,
+  v2v_message_str=''):
   '''
   NQ3 Invisible Notable object identification
 
@@ -5229,6 +5276,10 @@ def generate_3d_grounding_qa_sample_nq3(
   else:
     assert False
   human_input += 'What are the notable objects invisible to me near my planned future trajectory %s? ' % future_trajectory_str_in_ego
+
+  # Strategy B: V2V perception messaging (empty string == disabled)
+  if v2v_message_str:
+    human_input += v2v_message_str
 
   if with_context:
     # from nq2
@@ -7579,7 +7630,7 @@ def generate_3d_grounding_qa_dataset_nq7(len_record, npy_save_path, cav_ids, dow
 
 
 
-def generate_3d_grounding_qa_dataset_nq6(len_record, npy_save_path, cav_ids, downsample_negatives, simplified, max_num_answer_objects, num_future_waypoints, double_cavs, with_context, context_list, output_file, context_list_from_gt):
+def generate_3d_grounding_qa_dataset_nq6(len_record, npy_save_path, cav_ids, downsample_negatives, simplified, max_num_answer_objects, num_future_waypoints, double_cavs, with_context, context_list, output_file, context_list_from_gt, strip_other_cav_context=False):
   '''
   # Note that in my dmstrack coordinate system
   # [x, z] is the ground plane spatial location
@@ -7780,7 +7831,8 @@ def generate_3d_grounding_qa_dataset_nq6(len_record, npy_save_path, cav_ids, dow
             data_sample_id, scenario_index, local_timestamp_index, global_timestamp_index, simplified,
             num_future_waypoints, with_context, asker_initial_location_dict[asker_cav_id],
             cav_ids, double_cavs_future_trajectory_in_ego_current, asker_initial_location_dict,
-            context_sample_list, context_list_from_gt)
+            context_sample_list, context_list_from_gt,
+            strip_other_cav_context=strip_other_cav_context)
         list_data_dict.append(qa_sample_data_dict)
 
         # MY_DEBUG
@@ -8098,7 +8150,7 @@ def generate_3d_grounding_qa_dataset_nq4(len_record, npy_save_path, cav_ids, dow
 
 
 
-def generate_3d_grounding_qa_dataset_nq3(len_record, npy_save_path, cav_ids, downsample_negatives, simplified, max_num_answer_objects, num_future_waypoints, double_cavs, with_context, context_list, output_file, context_list_from_gt):
+def generate_3d_grounding_qa_dataset_nq3(len_record, npy_save_path, cav_ids, downsample_negatives, simplified, max_num_answer_objects, num_future_waypoints, double_cavs, with_context, context_list, output_file, context_list_from_gt, v2v_message_score_thresh=None, v2v_message_q1_data=None):
   '''
   # Note that in my dmstrack coordinate system
   # [x, z] is the ground plane spatial location
@@ -8296,18 +8348,44 @@ def generate_3d_grounding_qa_dataset_nq3(len_record, npy_save_path, cav_ids, dow
         else:
           context_sample_list = None
 
+        # Strategy B: build V2V perception message. Two mutually-exclusive sources:
+        #   - v2v_message_q1_data:        sender Q1 inference output (notable visible objects).
+        #   - v2v_message_score_thresh:   sender raw detector output (score-thresholded).
+        v2v_message_str = ""
+        if v2v_message_q1_data is not None or v2v_message_score_thresh is not None:
+            sender_cav_id = [c for c in cav_ids if c != asker_cav_id][0]
+            sender_cav_name = "CAV_EGO" if sender_cav_id == "ego" else "CAV_" + sender_cav_id
+            sender_location_str = round_to_str(asker_initial_location_dict[sender_cav_id], center_only=False)
+            if v2v_message_q1_data is not None:
+                q1_entry = None
+                for d in v2v_message_q1_data:
+                    if d.get("global_timestamp_index") == global_timestamp_index and d.get("asker_cav_id") == sender_cav_id:
+                        q1_entry = d
+                        break
+                v2v_message_str = format_v2v_q1_message(
+                    q1_entry.get("outputs", "") if q1_entry is not None else "",
+                    sender_cav_name,
+                    sender_location_str)
+            else:
+                v2v_message_str = format_v2v_message(
+                    det_box_scores_dict[sender_cav_id],
+                    v2v_message_score_thresh,
+                    sender_cav_name,
+                    sender_location_str)
+
         qa_sample_data_dict, qa_sub_type, future_time, distance_to_waypoint, num_invisible_notable_gts = generate_3d_grounding_qa_sample_nq3(
             asker_cav_id, initial_lidar_pose,
             asker_notable_gts_dict[asker_cav_id],
             asker_notable_gts_future_trajectory_dict[asker_cav_id],
             double_cavs_future_trajectory_in_ego_current[asker_cav_id], double_cavs_future_trajectory_in_self_current[asker_cav_id],
-            asker_merged_reason_point_in_det_boxes_dict[asker_cav_id],    
+            asker_merged_reason_point_in_det_boxes_dict[asker_cav_id],
             data_sample_id, scenario_index, local_timestamp_index, global_timestamp_index, simplified,
             num_future_waypoints, with_context,
-            visible_gt_object_ids_dict, invisible_gt_object_ids_dict, 
+            visible_gt_object_ids_dict, invisible_gt_object_ids_dict,
             occluding_gt_ids_in_gt_boxes, occluded_gt_ids_in_gt_boxes, gt_boxes, asker_initial_location_dict[asker_cav_id],
             context_sample_list, context_list_from_gt,
-            asker_initial_location_dict)
+            asker_initial_location_dict,
+            v2v_message_str=v2v_message_str)
         qa_sub_type = np.array(qa_sub_type)
         total_num_invisible_notable_gts_stats_dict[asker_cav_id] += num_invisible_notable_gts
         total_num_notable_gts_stats_dict[asker_cav_id] += asker_notable_gts_dict[asker_cav_id].shape[0] if asker_notable_gts_dict[asker_cav_id] is not None else 0

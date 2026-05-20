@@ -60,7 +60,18 @@ def test_parser():
                         help='whether to generate training data. otherwise generate inference qa')
     parser.add_argument('--split', type=str, default="val",
                         help='split')
+    # Subset runs: override len_record to first K frames of scenario 0
+    parser.add_argument('--max_frames', type=int, default=-1,
+                        help='If >0, override len_record to [max_frames]')
+    parser.add_argument('--exp_suffix', type=str, default='',
+                        help='Suffix appended to EXP folder name (input + output paths)')
 
+    parser.add_argument('--strip_other_cav_context', action='store_true',
+                        help='nq6 only: omit the GT-injected other-CAV location and planned future trajectory from the prompt (Strategy A decentralized eval)')
+    parser.add_argument('--v2v_message_score_thresh', type=float, default=None,
+                        help='nq3 only: enable Strategy B V2V perception messaging. Each prompt is augmented with the sender CAV detector boxes whose score >= this threshold. Disabled when unset.')
+    parser.add_argument("--v2v_message_q1", action="store_true",
+                        help="nq3 only: enable Strategy B Q1-edge V2V messaging. Reads sender CAV Q1 merge.jsonl from the standard path computed from nq1sm3w0d + --exp_suffix. Mutually exclusive with --v2v_message_score_thresh.")
     opt = parser.parse_args()
     return opt
 
@@ -83,6 +94,9 @@ def main():
 
     print('Directly use v2v4real test set len_record')
     opencood_dataset_len_record = [147, 261, 405, 603, 783, 1093, 1397, 1618, 1993]
+    if opt.max_frames > 0:
+        opencood_dataset_len_record = [opt.max_frames]
+        print('SUBSET: opencood_dataset_len_record overridden to', opencood_dataset_len_record)
     print("opencood_dataset_len_record: ", opencood_dataset_len_record)
 
     # train set has 32 sequences
@@ -111,7 +125,7 @@ def main():
       else: # input context is from inference result
         input_file = os.path.join(
           '../../LLaVA', 'playground/data/eval', 
-          'v2v4real_3d_grounding_%s_%d_%s_%s' % (opt.model, opt.ckpt, opt.graph, input_qa_dataset), 
+          'v2v4real_3d_grounding_%s_%d_%s_%s%s' % (opt.model, opt.ckpt, opt.graph, input_qa_dataset, opt.exp_suffix), 
           'answers/%s/llava-v1.5-7b' % opt.split,
           'merge.jsonl')
         print('input_file: ', input_file)
@@ -139,7 +153,7 @@ def main():
       # generate inference graph-of-thoughts QA data
       output_folder = os.path.join(
         '../../LLaVA', 'playground/data/eval', 
-        'v2v4real_3d_grounding_%s_%d_%s_%s' % (opt.model, opt.ckpt, opt.graph, opt.output_qa_dataset),
+        'v2v4real_3d_grounding_%s_%d_%s_%s%s' % (opt.model, opt.ckpt, opt.graph, opt.output_qa_dataset, opt.exp_suffix),
         'answers/%s/llava-v1.5-7b' % opt.split)
       print('output_folder: ', output_folder) 
       os.makedirs(output_folder, exist_ok=True)
@@ -153,13 +167,25 @@ def main():
 
 
     if opt.output_qa_dataset == 'nq3sm3w0dc':
-      generate_3d_grounding_qa_dataset_nq3(opencood_dataset_len_record, npy_save_path, ['ego', '1'], downsample_negatives=False, simplified=True, max_num_answer_objects=3, num_future_waypoints=0, double_cavs=True, with_context=True, context_list=input_data_list, output_file=output_file, context_list_from_gt=context_list_from_gt)
+      if opt.v2v_message_score_thresh is not None and opt.v2v_message_q1:
+          raise SystemExit("--v2v_message_score_thresh and --v2v_message_q1 are mutually exclusive")
+      v2v_message_q1_data = None
+      if opt.v2v_message_q1:
+          q1_file = os.path.join(
+              "../../LLaVA", "playground/data/eval",
+              "v2v4real_3d_grounding_%s_%d_%s_%s%s" % (opt.model, opt.ckpt, opt.graph, "nq1sm3w0d", opt.exp_suffix),
+              "answers/%s/llava-v1.5-7b" % opt.split,
+              "merge.jsonl")
+          print("v2v_message_q1 source: ", q1_file)
+          with open(q1_file, "r") as f:
+              v2v_message_q1_data = [json.loads(line) for line in f]
+      generate_3d_grounding_qa_dataset_nq3(opencood_dataset_len_record, npy_save_path, ['ego', '1'], downsample_negatives=False, simplified=True, max_num_answer_objects=3, num_future_waypoints=0, double_cavs=True, with_context=True, context_list=input_data_list, output_file=output_file, context_list_from_gt=context_list_from_gt, v2v_message_score_thresh=opt.v2v_message_score_thresh, v2v_message_q1_data=v2v_message_q1_data)
     elif opt.output_qa_dataset == 'nq4sm3w0dc':
       generate_3d_grounding_qa_dataset_nq4(opencood_dataset_len_record, npy_save_path, ['ego', '1'], downsample_negatives=False, simplified=True, max_num_answer_objects=3, num_future_waypoints=0, double_cavs=True, with_context=True, context_list=input_data_list, output_file=output_file, context_list_from_gt=context_list_from_gt)
     elif opt.output_qa_dataset == 'nq5sm3w1dc':
       generate_3d_grounding_qa_dataset_nq5(opencood_dataset_len_record, npy_save_path, ['ego', '1'], downsample_negatives=False, simplified=True, max_num_answer_objects=3, num_future_waypoints=1, double_cavs=True, with_context=True, context_list=input_data_list, output_file=output_file, context_list_from_gt=context_list_from_gt)
     elif opt.output_qa_dataset == 'nq6sm3w1dc':
-      generate_3d_grounding_qa_dataset_nq6(opencood_dataset_len_record, npy_save_path, ['ego', '1'], downsample_negatives=False, simplified=True, max_num_answer_objects=3, num_future_waypoints=1, double_cavs=True, with_context=True, context_list=input_data_list, output_file=output_file, context_list_from_gt=context_list_from_gt)
+      generate_3d_grounding_qa_dataset_nq6(opencood_dataset_len_record, npy_save_path, ['ego', '1'], downsample_negatives=False, simplified=True, max_num_answer_objects=3, num_future_waypoints=1, double_cavs=True, with_context=True, context_list=input_data_list, output_file=output_file, context_list_from_gt=context_list_from_gt, strip_other_cav_context=opt.strip_other_cav_context)
     elif opt.output_qa_dataset == 'nq7sm3w1dc':
       generate_3d_grounding_qa_dataset_nq7(opencood_dataset_len_record, npy_save_path, ['ego', '1'], downsample_negatives=False, simplified=True, max_num_answer_objects=3, num_future_waypoints=1, double_cavs=True, with_context=True, context_list=input_data_list, output_file=output_file, context_list_from_gt=context_list_from_gt)
     elif opt.output_qa_dataset == 'nq8sm3w6dc':
