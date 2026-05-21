@@ -160,8 +160,13 @@ def build_records(q9_records, q8_gt_ids, q8_llm, scope_ids, args):
     """Process Q9 records and replace Q8 context where possible.
 
     Returns (results, stats, examples).
-    Every input record appears in results (records are never dropped).
+
+    scope_ids=None (scope=all):  every input record appears in results.
+    scope_ids set  (scope=ids):  only selected records appear in results
+                                 (subset mode — use merge_llm_outputs.py to merge back).
+    IDs are normalized to str for all scope comparisons.
     """
+    is_subset = scope_ids is not None
     stats = {
         'total': len(q9_records),
         'replaced': 0,
@@ -184,20 +189,20 @@ def build_records(q9_records, q8_gt_ids, q8_llm, scope_ids, args):
             cid = rec['asker_cav_id']
             prompt = rec['conversations'][0]['value']
             assert isinstance(prompt, str)
-            rec_id = rec['id']
+            rec_id = str(rec['id'])   # normalize to str for scope comparison
         except (KeyError, IndexError, TypeError, AssertionError):
-            rec['q9_from_q8_replaced'] = False
-            rec['q9_from_q8_skipped_reason'] = 'invalid_record'
-            result.append(rec)
+            if not is_subset:
+                rec['q9_from_q8_replaced'] = False
+                rec['q9_from_q8_skipped_reason'] = 'invalid_record'
+                result.append(rec)
             continue
 
-        # --- scope filter (subset: exclude, but still add to result for scope=all) ---
-        if scope_ids is not None and rec_id not in scope_ids:
+        # --- scope filter ---
+        # scope_ids contains str values (loaded from text file).
+        # rec_id is already str-normalized above.
+        if is_subset and rec_id not in scope_ids:
             stats['skipped_scope'] += 1
-            rec['q9_from_q8_replaced'] = False
-            rec['q9_from_q8_skipped_reason'] = 'scope_excluded'
-            result.append(rec)
-            continue
+            continue  # subset mode: do not include out-of-scope records
 
         # --- look up Q8 GT record id ---
         q8_key = (ts, cid)
@@ -259,7 +264,13 @@ def build_records(q9_records, q8_gt_ids, q8_llm, scope_ids, args):
 
 # ── Printing ──────────────────────────────────────────────────────────────────
 
-def print_stats(stats, dry_run, out_path):
+def print_stats(stats, dry_run, out_path, scope):
+    is_subset = stats['skipped_scope'] > 0 or scope == 'ids'
+    mode_str = f"subset output (scope={scope})" if scope != 'all' else "full output (scope=all)"
+    print()
+    print(f"Output mode: {mode_str}")
+    if scope != 'all':
+        print("  -> Use merge_llm_outputs.py to merge subset LLM outputs back before phase4_eval.")
     print()
     print("=== Statistics ===")
     print(f"  total                : {stats['total']}")
@@ -351,16 +362,29 @@ def main():
     result, stats, examples = build_records(q9_records, q8_gt_ids, q8_llm, scope_ids, args)
 
     print_examples(examples)
-    print_stats(stats, args.dry_run, args.out)
+    print_stats(stats, args.dry_run, args.out, args.scope)
 
     if args.dry_run:
         return
 
-    # Validate output length for scope=all
-    if args.scope == 'all' and len(result) != len(q9_records):
-        print(f"VALIDATION FAILED: output count {len(result)} != input count {len(q9_records)}",
-              file=sys.stderr)
-        sys.exit(1)
+    # Validate output
+    if args.scope == 'all':
+        if len(result) != len(q9_records):
+            print(f"VALIDATION FAILED: output count {len(result)} != input count {len(q9_records)}",
+                  file=sys.stderr)
+            sys.exit(1)
+    else:
+        # Subset: all result IDs must come from the original set; no duplicates
+        original_ids = {str(r.get('id', '')) for r in q9_records}
+        result_ids = [str(r.get('id', '')) for r in result]
+        bad = [rid for rid in result_ids if rid not in original_ids]
+        if bad:
+            print(f"VALIDATION FAILED: {len(bad)} result IDs not in original set",
+                  file=sys.stderr)
+            sys.exit(1)
+        if len(result_ids) != len(set(result_ids)):
+            print("VALIDATION FAILED: duplicate IDs in result", file=sys.stderr)
+            sys.exit(1)
 
     out_dir = os.path.dirname(args.out)
     if out_dir:
