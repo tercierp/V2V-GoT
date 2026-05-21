@@ -167,9 +167,12 @@ def parse_q6_intent(q6_text):
         if m:
             fields['neighbor_position'] = '(' + m.group(1).replace(' ', '') + ')'
 
-        m = re.search(r'moving ([^.]+)', text)
-        if m:
-            fields['neighbor_motion'] = m.group(1).split()[0]
+        if re.search(r'stay(?:ing|s) at the same location|stationary|stopped', text, re.IGNORECASE):
+            fields['neighbor_motion'] = 'stationary'
+        else:
+            m = re.search(r'moving ([^.]+)', text)
+            if m:
+                fields['neighbor_motion'] = m.group(1).split()[0]
 
         m = re.search(r'planned future trajectory is \[\(([^)]+)\)', text)
         if m:
