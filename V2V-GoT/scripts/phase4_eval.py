@@ -30,7 +30,9 @@ import sys
 from collections import defaultdict
 from typing import Optional
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+_HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(_HERE, '..'))
+sys.path.insert(0, os.path.join(_HERE, '..', 'DMSTrack', 'V2V4Real'))
 
 from v2vgotd.resolver import (
     EgoDecision, resolve, _trajectory_conflict,
@@ -113,8 +115,17 @@ def _scale(traj, old_idx, new_idx):
 
 def analyse(ts: int, sc: int,
             nq8_gt: dict, nq9_gt: dict,
-            nq8_llm: dict, nq9_llm: dict) -> Optional[dict]:
-
+            nq8_llm: dict, nq9_llm: dict,
+            nq8_llm_cav1ref: dict | None = None,
+            nq9_llm_cav1ref: dict | None = None) -> Optional[dict]:
+    """
+    nq8_llm / nq9_llm         : ego-frame inference outputs (both asker roles).
+    nq8_llm_cav1ref / ...     : cav1-frame inference outputs produced by
+                                 slurm/infer_cav1.sh (optional).  When provided,
+                                 cav1's predicted trajectory is taken from the
+                                 cav1-reference run rather than the ego-frame run,
+                                 giving a true peer-symmetric comparison.
+    """
     r8e = nq8_gt.get((ts, 'ego')); r8c = nq8_gt.get((ts, '1'))
     r9e = nq9_gt.get((ts, 'ego')); r9c = nq9_gt.get((ts, '1'))
     if not (r8e and r8c and r9e and r9c):
@@ -122,6 +133,14 @@ def analyse(ts: int, sc: int,
 
     l8e = nq8_llm.get(r8e['id'], {}); l8c = nq8_llm.get(r8c['id'], {})
     l9e = nq9_llm.get(r9e['id'], {}); l9c = nq9_llm.get(r9c['id'], {})
+
+    # cav1-reference outputs (if available) override the ego-frame cav1 records
+    have_cav1ref = bool(nq8_llm_cav1ref and nq9_llm_cav1ref)
+    if have_cav1ref:
+        l8c_ref = nq8_llm_cav1ref.get(r8c['id'], {})
+        l9c_ref = nq9_llm_cav1ref.get(r9c['id'], {})
+    else:
+        l8c_ref = l9c_ref = {}
     if not (l8e and l8c and l9e and l9c):
         return None
 
@@ -166,6 +185,48 @@ def analyse(ts: int, sc: int,
         res_traj_ego  = llm_traj_ego
         res_traj_cav1 = llm_traj_cav1
 
+    # ── (B2) True peer-symmetric: ego ego-frame, cav1 cav1-frame ─────────────
+    # Only computed when cav1-reference LLM outputs are available.
+    # cav1's trajectory comes from running inference with cav1 at (0,0); all
+    # coordinates are then in cav1's own frame and need to be transformed back
+    # to ego's frame for conflict detection (using the GT lidar poses).
+    conflict_B2_before = conflict_B2_after = None
+    if have_cav1ref and l8c_ref and l9c_ref:
+        llm_sp_cav1_ref, llm_st_cav1_ref = parse_nq8(l8c_ref.get('text', ''))
+        llm_traj_cav1_ref_self = parse_nq9(l9c_ref.get('text', ''))
+
+        # transform cav1's self-frame trajectory back to ego's frame for comparison
+        import numpy as np
+        from opencood.utils.transformation_utils import x1_to_x2 as _x1x2
+        pose_ego_arr  = np.array(r9e['cav_ego_lidar_pose']).reshape(4, 4)
+        pose_cav1_arr = np.array(r9e['cav_1_lidar_pose']).reshape(4, 4)
+        T_cav1_to_ego = _x1x2(pose_cav1_arr, pose_ego_arr)  # inv(pose_ego) @ pose_cav1
+
+        def _to_ego(pts):
+            out = []
+            for x, z in pts:
+                p = T_cav1_to_ego @ np.array([x, z, 0.0, 1.0])
+                out.append((round(float(p[0]), 1), round(float(p[1]), 1)))
+            return out
+
+        llm_traj_cav1_ref_ego = _to_ego(llm_traj_cav1_ref_self)
+
+        conflict_B2_before, _, _ = _trajectory_conflict(
+            llm_traj_ego, llm_traj_cav1_ref_ego, SAFETY_M)
+
+        if (llm_sp_ego is not None and llm_sp_cav1_ref is not None
+                and llm_st_ego is not None and llm_st_cav1_ref is not None
+                and llm_traj_ego and llm_traj_cav1_ref_ego):
+            dec_ego2  = EgoDecision('ego', llm_sp_ego,      llm_st_ego,      llm_traj_ego)
+            dec_cav12 = EgoDecision('1',   llm_sp_cav1_ref, llm_st_cav1_ref, llm_traj_cav1_ref_ego)
+            res2 = resolve(dec_ego2, dec_cav12, osm=None, safety_threshold_m=SAFETY_M)
+            res2_traj_ego  = _scale(llm_traj_ego,          llm_sp_ego,      res2.ego_speed_idx)
+            res2_traj_cav1 = _scale(llm_traj_cav1_ref_ego, llm_sp_cav1_ref, res2.cav1_speed_idx)
+            conflict_B2_after, _, _ = _trajectory_conflict(
+                res2_traj_ego, res2_traj_cav1, SAFETY_M)
+        else:
+            conflict_B2_after = conflict_B2_before
+
     # ── (C) Ablation: peer-symmetric, ego always yields ───────────────────────
     if conflict_B_before and llm_sp_ego is not None and llm_traj_ego:
         ab_sp = _SPEED_FALLBACK[llm_sp_ego]
@@ -189,7 +250,7 @@ def analyse(ts: int, sc: int,
         # A
         'conflict_A': conflict_A,
         'min_dist_A': round(min_dist_A, 3) if min_dist_A != float('inf') else None,
-        # B
+        # B (ego-frame inference for both roles)
         'natural_agree':       natural_agree,
         'conflict_B_before':   conflict_B_before,
         'min_dist_B_before':   round(min_dist_B_before, 3) if min_dist_B_before != float('inf') else None,
@@ -197,6 +258,9 @@ def analyse(ts: int, sc: int,
         'min_dist_B_after':    round(min_dist_B_after, 3)  if min_dist_B_after  != float('inf') else None,
         'resolver_rule':       resolver_rule,
         'resolver_yield':      resolver_yield,
+        # B2 (true peer-symmetric: ego in ego-frame, cav1 in cav1-frame)
+        'conflict_B2_before':  conflict_B2_before,
+        'conflict_B2_after':   conflict_B2_after,
         # C
         'conflict_C':          conflict_C,
         # accuracy
@@ -244,6 +308,10 @@ def agg(records: list) -> dict:
         if r['conflict_B_before']:
             by_sc[r['sc']] += 1
 
+    b2_before = [r['conflict_B2_before'] for r in records if r.get('conflict_B2_before') is not None]
+    b2_after  = [r['conflict_B2_after']  for r in records if r.get('conflict_B2_after')  is not None]
+    have_b2   = bool(b2_before)
+
     return {
         'n_frames': n,
         # (A) centralized
@@ -253,7 +321,7 @@ def agg(records: list) -> dict:
         'speed_acc_pct':         pct([r['sp_acc_ego']  for r in records]),
         'steer_acc_pct':         pct([r['st_acc_ego']  for r in records]),
         'mean_ep_err_m':         mean_f([r['ep_err_ego'] for r in records]),
-        # (B) peer-symmetric + resolver
+        # (B) peer-symmetric + resolver (ego-frame inference for both roles)
         'natural_agree_pct':     pct([r['natural_agree'] for r in records]),
         'conflict_B_before_pct': pct(cb),
         'conflict_B_after_pct':  pct(ca_B),
@@ -261,6 +329,11 @@ def agg(records: list) -> dict:
         'n_conflicts_B_after':   n_ca_B,
         'n_conflicts_resolved':  resolved,
         'resolution_rate_pct':   round(100 * resolved / n_cb, 1) if n_cb else None,
+        # (B2) true peer-symmetric: ego in ego-frame, cav1 in cav1-frame + resolver
+        'conflict_B2_before_pct': pct(b2_before) if have_b2 else None,
+        'conflict_B2_after_pct':  pct(b2_after)  if have_b2 else None,
+        'n_conflicts_B2_before':  sum(1 for x in b2_before if x) if have_b2 else None,
+        'n_conflicts_B2_after':   sum(1 for x in b2_after  if x) if have_b2 else None,
         # (C) ablation
         'conflict_C_pct':        pct([r['conflict_C'] for r in records]),
         'n_conflicts_C':         sum(1 for r in records if r['conflict_C']),
@@ -287,6 +360,10 @@ def main():
     parser.add_argument('--nq9_gt',    default=f'{PLAY}_nq9sm3w6dc/answers/val/llava-v1.5-7b/nq9sm3w6dc.json')
     parser.add_argument('--nq8_llm',   default=f'{EVAL_DIR}/nq8sm3w6dc_merge.jsonl')
     parser.add_argument('--nq9_llm',   default=f'{EVAL_DIR}/nq9sm3w6dc_merge.jsonl')
+    parser.add_argument('--nq8_llm_cav1ref', default=None,
+                        help='nq8 merge.jsonl from slurm/infer_cav1.sh (optional)')
+    parser.add_argument('--nq9_llm_cav1ref', default=None,
+                        help='nq9 merge.jsonl from slurm/infer_cav1.sh (optional)')
     parser.add_argument('--output_dir', default='outputs/phase4')
     args = parser.parse_args()
 
@@ -299,10 +376,23 @@ def main():
     ts_to_sc = {ts: r['scenario_index']
                 for (ts, cav), r in nq9_gt.items() if cav == 'ego'}
 
+    nq8_llm_cav1ref = load_llm(args.nq8_llm_cav1ref) if args.nq8_llm_cav1ref else None
+    nq9_llm_cav1ref = load_llm(args.nq9_llm_cav1ref) if args.nq9_llm_cav1ref else None
+    if nq8_llm_cav1ref:
+        print(f'  cav1-ref LLM records: {len(nq8_llm_cav1ref)} nq8, {len(nq9_llm_cav1ref)} nq9')
+        # sanity: how many cav1ref nq9 outputs actually parse as trajectories?
+        n_parse = sum(1 for r in nq9_llm_cav1ref.values()
+                      if len(parse_nq9(r.get('text', ''))) >= 6)
+        parse_pct = 100 * n_parse / len(nq9_llm_cav1ref) if nq9_llm_cav1ref else 0
+        if parse_pct < 50:
+            print(f'  ⚠  WARNING: only {parse_pct:.1f}% of cav1-ref nq9 outputs are valid '
+                  f'trajectories.\n     B2 results will be unreliable — check checkpoint match.')
+
     print(f'Analysing {len(ts_to_sc)} frames...')
     records, skipped = [], 0
     for ts in sorted(ts_to_sc):
-        r = analyse(ts, ts_to_sc[ts], nq8_gt, nq9_gt, nq8_llm, nq9_llm)
+        r = analyse(ts, ts_to_sc[ts], nq8_gt, nq9_gt, nq8_llm, nq9_llm,
+                    nq8_llm_cav1ref, nq9_llm_cav1ref)
         if r is None:
             skipped += 1
         else:
@@ -356,6 +446,11 @@ def main():
 ║    Conflict rate BEFORE resolver        {str(ov['conflict_B_before_pct']):>5}%  ({ov['n_conflicts_B_before']} frames)   ║
 ║    Conflict rate AFTER  resolver        {str(ov['conflict_B_after_pct']):>5}%  ({ov['n_conflicts_B_after']} frames)   ║
 ║    Conflicts resolved                   {ov['n_conflicts_resolved']:>3}    ({ov['resolution_rate_pct']}%)           ║
+╠══════════════════════════════════════════════════════════════════════════════╣
+║  (B2) True peer-symmetric: ego ego-frame, cav1 cav1-frame + resolver        ║
+║    (run slurm/infer_cav1.sh first, then pass --nq8_llm_cav1ref)            ║
+║    Conflict rate BEFORE resolver  {('pending' if ov.get('conflict_B2_before_pct') is None else f'{ov["conflict_B2_before_pct"]}%'):>8}  ({ov.get('n_conflicts_B2_before') if ov.get('n_conflicts_B2_before') is not None else 'N/A'} frames)   ║
+║    Conflict rate AFTER  resolver  {('pending' if ov.get('conflict_B2_after_pct') is None else f'{ov["conflict_B2_after_pct"]}%'):>8}  ({ov.get('n_conflicts_B2_after') if ov.get('n_conflicts_B2_after') is not None else 'N/A'} frames)   ║
 ╠══════════════════════════════════════════════════════════════════════════════╣
 ║  (C) Ablation: peer-symmetric, no resolver (ego always yields)              ║
 ║    Conflict rate AFTER ablation         {str(ov['conflict_C_pct']):>5}%  ({ov['n_conflicts_C']} frames)   ║
