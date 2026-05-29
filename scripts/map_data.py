@@ -3,8 +3,8 @@ import os
 import glob
 
 # --- 1. Define your exact paths ---
-JSON_PATH = JSON_PATH = "V2V-GoT-QA/V2V_GoT_JSONS/DMSTrack/V2V4Real/official_models/train_no_fusion_keep_all/npy/co_llm/v2v4real_3d_grounding_qa_dataset_v2vllmq1.json"
-RAW_DATA_ROOT = "V2V4REAL/V2V4REAL/Data"
+JSON_PATH = "data/V2V_GoT_JSONS/DMSTrack/V2V4Real/official_models/train_no_fusion_keep_all/npy/co_llm/v2v4real_3d_grounding_qa_dataset_v2vllmq1.json"
+RAW_DATA_ROOT = "../../../data/V2V4REAL/V2V4REAL/Data"
 
 # Load the JSON
 print("Loading JSON file...")

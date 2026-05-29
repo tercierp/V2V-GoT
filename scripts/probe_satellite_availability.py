@@ -14,7 +14,7 @@ from PIL import Image
 # USER SETTINGS
 # ============================================================
 
-DATA_ROOT = "V2V4REAL/V2V4REAL/Data"
+DATA_ROOT = "../../../data/V2V4REAL/V2V4REAL/Data"
 SPLITS = ["train_07", "train_08"]
 FRAME_STEP = 30
 FRAME_RANGE_MODE = "full"  # "full" or "range"

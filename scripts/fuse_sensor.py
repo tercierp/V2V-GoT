@@ -4,7 +4,7 @@ import yaml
 import copy
 
 # --- 1. Define Paths ---
-pcd_path = "V2V4REAL/V2V4REAL/Data/train_01/testoutput_CAV_data_2022-03-15-09-54-40_0/0/000000.pcd"
+pcd_path = "../../../data/V2V4REAL/V2V4REAL/Data/train_01/testoutput_CAV_data_2022-03-15-09-54-40_0/0/000000.pcd"
 yaml_path = pcd_path.replace('.pcd', '.yaml')
 
 # --- 2. Load YAML Data ---

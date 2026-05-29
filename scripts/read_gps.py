@@ -2,7 +2,7 @@ import yaml
 import numpy as np # NumPy must be imported so PyYAML knows how to decode the objects
 
 # 1. Define the path to the YAML file
-yaml_path = "V2V4REAL/V2V4REAL/Data/train_01/testoutput_CAV_data_2022-03-15-09-54-40_0/0/000000.yaml"
+yaml_path = "../../../data/V2V4REAL/V2V4REAL/Data/train_01/testoutput_CAV_data_2022-03-15-09-54-40_0/0/000000.yaml"
 
 # 2. Load the YAML file
 print("Decoding binary NumPy data...")

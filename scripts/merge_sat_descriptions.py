@@ -29,7 +29,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--data-root",
-        default="/scratch/izar/faresse/v2v-got/data/V2V4REAL/V2V4REAL/Data",
+        default="../../../data/V2V4REAL/V2V4REAL/Data",
         help="V2V4Real Data root containing split folders (train_01/test_01/etc.)",
     )
     parser.add_argument(

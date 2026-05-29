@@ -14,7 +14,7 @@ from folium.plugins import MousePosition, MeasureControl, MiniMap
 # USER SETTINGS
 # ============================================================
 
-DATA_ROOT = "V2V4REAL/V2V4REAL/Data"
+DATA_ROOT = "../../../data/V2V4REAL/V2V4REAL/Data"
 SPLITS = ["train_01"]
 FRAME_STEP = 30
 FRAME_RANGE_MODE = "full"  # "full" or "range"
