@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/scripts/eval_v2vgot_unified.py", line 12, in <module>
+    from eval_metrics import (
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/scripts/eval_metrics.py", line 7, in <module>
+    from eval_v2v4real_3d_grounding import (
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/scripts/eval_v2v4real_3d_grounding.py", line 35, in <module>
+    from V2V4Real.opencood.utils.box_utils import boxes_to_corners_3d, corner_to_center, project_points_by_matrix_torch
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/V2V4Real/opencood/utils/box_utils.py", line 10, in <module>
+    import opencood.utils.common_utils as common_utils
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/V2V4Real/opencood/utils/common_utils.py", line 7, in <module>
+    from shapely.geometry import Polygon
+ModuleNotFoundError: No module named 'shapely'

@@ -1,0 +1,49 @@
+=== Job info ===
+Job ID:    2944260
+Nodes:     2
+Nodelist:  i[26,41]
+Started:   sam 23 mai 2026 03:08:25 CEST
+GPUs:      0,1
+
+Generated DeepSpeed hostfile at /scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/hostfile_ds_2944260:
+i26 slots=2
+i41 slots=2
+
+Sat May 23 03:08:57 2026       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 535.154.05             Driver Version: 535.154.05   CUDA Version: 12.2     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  Tesla V100-PCIE-32GB           On  | 00000000:86:00.0 Off |                  Off |
+| N/A   34C    P0              25W / 250W |      0MiB / 32768MiB |      0%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+|   1  Tesla V100-PCIE-32GB           On  | 00000000:D8:00.0 Off |                  Off |
+| N/A   32C    P0              24W / 250W |      0MiB / 32768MiB |      0%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+                                                                                         
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|  No running processes found                                                           |
++---------------------------------------------------------------------------------------+
+
+PYTHONPATH: :/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA
+HF_HOME:    /scratch/izar/faresse/hf_cache
+ulimit -n:  65536
+
+=== Starting V2V-GoT Finetuning pipeline (with sat descriptions) ===
+Time: sam 23 mai 2026 03:08:57 CEST
+
+[2026-05-23 03:10:02,418] [INFO] [real_accelerator.py:161:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2026-05-23 03:11:00,504] [INFO] [runner.py:463:main] Using IP address of 10.91.27.26 for node i26
+[2026-05-23 03:11:00,507] [INFO] [runner.py:571:main] cmd = srun -n 4 --export=ALL,PYTHONPATH=/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA::/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA /home/faresse/miniconda3/envs/v2v/bin/python3.10 -u llava/train/train_mem.py --lora_enable True --lora_r 128 --lora_alpha 256 --mm_projector_lr 2e-5 --deepspeed ./scripts/zero2.json --model_name_or_path liuhaotian/llava-v1.5-7b --version v1 --data_path /scratch/izar/faresse/v2v-got/data/V2V-GoT-QA/V2V_GoT_JSONS/DMSTrack/V2V4Real/official_models/no_fusion_keep_all/npy/co_llm/v2v4real_3d_grounding_qa_dataset_v2vgot_satdesc.json --image_folder /scratch/izar/faresse/v2v-got/data/V2V4REAL/V2V4REAL/Data --vision_tower openai/clip-vit-large-patch14-336 --mm_projector_type mlp2x_gelu --mm_vision_select_layer -2 --mm_use_im_start_end False --mm_use_im_patch_token False --image_aspect_ratio pad --group_by_modality_length True --fp16 True --output_dir ./checkpoints/llava-v1.5-7b-task-lora_v2v4real_3d_grounding_v2vgot_satdesc --num_train_epochs 10 --per_device_train_batch_size 2 --per_device_eval_batch_size 4 --gradient_accumulation_steps 8 --evaluation_strategy no --save_strategy steps --save_steps 1000 --save_total_limit 3 --learning_rate 2e-4 --weight_decay 0. --warmup_ratio 0.03 --lr_scheduler_type cosine --logging_steps 1 --tf32 False --model_max_length 2048 --gradient_checkpointing True --dataloader_num_workers 4 --lazy_preprocess True --report_to none --mm_scene_projector_input_size 3072 --scene_level_only False --object_level_only False --scene_feature_mode shallow --object_feature_mode shallow --num_input_frames 2 --ego_only False --feature_source no_fusion_keep_all
+
+=== Pipeline finished ===
+Time: sam 23 mai 2026 03:11:05 CEST

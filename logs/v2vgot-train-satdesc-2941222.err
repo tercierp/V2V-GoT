@@ -1,0 +1,2 @@
+/var/spool/slurmd/job2941222/slurm_script: line 62: cd: /scratch/izar/V2V-GoT/LLaVA: No such file or directory
+bash: scripts/v1_5/finetune_v2vgot_satdesc.sh: No such file or directory

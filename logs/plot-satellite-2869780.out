@@ -1,0 +1,432 @@
+=== Job info ===
+Job ID:    2869780
+Node:      i21
+Started:   mar 05 mai 2026 11:43:18 CEST
+
+=== Running plot_satellite.py ===
+
+=== SCENARIO testoutput_CAV_data_2022-03-15-09-54-40_0 (train_01) ===
+Ego lat/lon source: yaml_gps
+Frame count: 5 | step=30
+--- Frame 000000 ---
+Ego heading/yaw: 297.941 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=149.360 (true_ego_pos)
+Agent 1: yaw=132.704 (true_ego_pos)
+--- Frame 000030 ---
+Ego heading/yaw: 304.459 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=145.751 (true_ego_pos)
+Agent 1: yaw=148.353 (true_ego_pos)
+--- Frame 000060 ---
+Ego heading/yaw: 320.158 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=133.123 (true_ego_pos)
+Agent 1: yaw=149.186 (true_ego_pos)
+--- Frame 000090 ---
+Ego heading/yaw: 335.021 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=115.123 (true_ego_pos)
+Agent 1: yaw=139.115 (true_ego_pos)
+--- Frame 000120 ---
+Ego heading/yaw: 343.372 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=105.701 (true_ego_pos)
+Agent 1: yaw=121.032 (true_ego_pos)
+Saved map to: maps/train_01/fused_lidar_map_testoutput_CAV_data_2022-03-15-09-54-40_0.html
+
+=== SCENARIO testoutput_CAV_data_2022-03-15-09-54-40_1 (train_01) ===
+Ego lat/lon source: yaml_gps
+Frame count: 14 | step=30
+--- Frame 000000 ---
+Ego heading/yaw: 327.974 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=119.010 (true_ego_pos)
+Agent 1: yaw=118.889 (true_ego_pos)
+--- Frame 000030 ---
+Ego heading/yaw: 330.626 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=117.160 (true_ego_pos)
+Agent 1: yaw=119.777 (true_ego_pos)
+--- Frame 000060 ---
+Ego heading/yaw: 332.499 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=115.781 (true_ego_pos)
+Agent 1: yaw=119.276 (true_ego_pos)
+--- Frame 000090 ---
+Ego heading/yaw: 340.085 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=109.752 (true_ego_pos)
+Agent 1: yaw=116.843 (true_ego_pos)
+--- Frame 000120 ---
+Ego heading/yaw: 348.425 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=101.012 (true_ego_pos)
+Agent 1: yaw=108.665 (true_ego_pos)
+--- Frame 000150 ---
+Ego heading/yaw: 357.119 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=92.202 (true_ego_pos)
+Agent 1: yaw=101.605 (true_ego_pos)
+--- Frame 000180 ---
+Ego heading/yaw: 5.431 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=84.032 (true_ego_pos)
+Agent 1: yaw=93.098 (true_ego_pos)
+--- Frame 000210 ---
+Ego heading/yaw: 10.869 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=76.571 (true_ego_pos)
+Agent 1: yaw=83.785 (true_ego_pos)
+--- Frame 000240 ---
+Ego heading/yaw: 10.470 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=75.930 (true_ego_pos)
+Agent 1: yaw=76.934 (true_ego_pos)
+--- Frame 000270 ---
+Ego heading/yaw: 6.641 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=79.040 (true_ego_pos)
+Agent 1: yaw=76.997 (true_ego_pos)
+--- Frame 000300 ---
+Ego heading/yaw: 3.307 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=82.960 (true_ego_pos)
+Agent 1: yaw=81.037 (true_ego_pos)
+--- Frame 000330 ---
+Ego heading/yaw: 2.675 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=84.409 (true_ego_pos)
+Agent 1: yaw=84.011 (true_ego_pos)
+--- Frame 000360 ---
+Ego heading/yaw: 1.806 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=84.609 (true_ego_pos)
+Agent 1: yaw=84.856 (true_ego_pos)
+--- Frame 000390 ---
+Ego heading/yaw: 358.443 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=15)
+Agent 0: yaw=87.319 (true_ego_pos)
+Agent 1: yaw=85.547 (true_ego_pos)
+Saved map to: maps/train_01/fused_lidar_map_testoutput_CAV_data_2022-03-15-09-54-40_1.html
+
+=== SCENARIO testoutput_CAV_data_2022-03-15-09-54-40_2 (train_01) ===
+Ego lat/lon source: yaml_gps
+Frame count: 6 | step=30
+--- Frame 000000 ---
+Ego heading/yaw: 352.724 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=94.360 (true_ego_pos)
+Agent 1: yaw=94.890 (true_ego_pos)
+--- Frame 000030 ---
+Ego heading/yaw: 352.742 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=94.330 (true_ego_pos)
+Agent 1: yaw=95.059 (true_ego_pos)
+--- Frame 000060 ---
+Ego heading/yaw: 352.916 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=94.230 (true_ego_pos)
+Agent 1: yaw=94.885 (true_ego_pos)
+--- Frame 000090 ---
+Ego heading/yaw: 352.863 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=94.230 (true_ego_pos)
+Agent 1: yaw=94.895 (true_ego_pos)
+--- Frame 000120 ---
+Ego heading/yaw: 352.725 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=94.250 (true_ego_pos)
+Agent 1: yaw=94.836 (true_ego_pos)
+--- Frame 000150 ---
+Ego heading/yaw: 352.565 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=7)
+Agent 0: yaw=94.430 (true_ego_pos)
+Agent 1: yaw=94.689 (true_ego_pos)
+Saved map to: maps/train_01/fused_lidar_map_testoutput_CAV_data_2022-03-15-09-54-40_2.html
+
+=== SCENARIO testoutput_CAV_data_2022-03-15-10-09-50_0 (train_01) ===
+Ego lat/lon source: yaml_gps
+Frame count: 42 | step=30
+--- Frame 000000 ---
+Ego heading/yaw: 93.062 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=-5.980 (true_ego_pos)
+Agent 1: yaw=-5.491 (true_ego_pos)
+--- Frame 000030 ---
+Ego heading/yaw: 92.974 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=-6.110 (true_ego_pos)
+Agent 1: yaw=-5.443 (true_ego_pos)
+--- Frame 000060 ---
+Ego heading/yaw: 93.093 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=-6.161 (true_ego_pos)
+Agent 1: yaw=-5.433 (true_ego_pos)
+--- Frame 000090 ---
+Ego heading/yaw: 92.850 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=-5.761 (true_ego_pos)
+Agent 1: yaw=-5.724 (true_ego_pos)
+--- Frame 000120 ---
+Ego heading/yaw: 93.216 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=-6.141 (true_ego_pos)
+Agent 1: yaw=-5.463 (true_ego_pos)
+--- Frame 000150 ---
+Ego heading/yaw: 93.098 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=-6.151 (true_ego_pos)
+Agent 1: yaw=-5.620 (true_ego_pos)
+--- Frame 000180 ---
+Ego heading/yaw: 93.098 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=-6.071 (true_ego_pos)
+Agent 1: yaw=-5.655 (true_ego_pos)
+--- Frame 000210 ---
+Ego heading/yaw: 93.963 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=-6.130 (true_ego_pos)
+Agent 1: yaw=-5.646 (true_ego_pos)
+--- Frame 000240 ---
+Ego heading/yaw: 94.949 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=-8.620 (true_ego_pos)
+Agent 1: yaw=-6.196 (true_ego_pos)
+--- Frame 000270 ---
+Ego heading/yaw: 93.057 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=-6.380 (true_ego_pos)
+Agent 1: yaw=-7.414 (true_ego_pos)
+--- Frame 000300 ---
+Ego heading/yaw: 92.974 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=-5.870 (true_ego_pos)
+Agent 1: yaw=-6.014 (true_ego_pos)
+--- Frame 000330 ---
+Ego heading/yaw: 92.846 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=-5.969 (true_ego_pos)
+Agent 1: yaw=-5.678 (true_ego_pos)
+--- Frame 000360 ---
+Ego heading/yaw: 93.098 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=-6.030 (true_ego_pos)
+Agent 1: yaw=-5.583 (true_ego_pos)
+--- Frame 000390 ---
+Ego heading/yaw: 93.047 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=-6.140 (true_ego_pos)
+Agent 1: yaw=-5.440 (true_ego_pos)
+--- Frame 000420 ---
+Ego heading/yaw: 93.093 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=-6.139 (true_ego_pos)
+Agent 1: yaw=-5.696 (true_ego_pos)
+--- Frame 000450 ---
+Ego heading/yaw: 93.098 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=-6.150 (true_ego_pos)
+Agent 1: yaw=-5.589 (true_ego_pos)
+--- Frame 000480 ---
+Ego heading/yaw: 93.093 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=-6.110 (true_ego_pos)
+Agent 1: yaw=-5.618 (true_ego_pos)
+--- Frame 000510 ---
+Ego heading/yaw: 92.940 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=-6.120 (true_ego_pos)
+Agent 1: yaw=-5.526 (true_ego_pos)
+--- Frame 000540 ---
+Ego heading/yaw: 93.024 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=-6.039 (true_ego_pos)
+Agent 1: yaw=-5.230 (true_ego_pos)
+--- Frame 000570 ---
+Ego heading/yaw: 93.166 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=-6.169 (true_ego_pos)
+Agent 1: yaw=-5.485 (true_ego_pos)
+--- Frame 000600 ---
+Ego heading/yaw: 93.430 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=-6.259 (true_ego_pos)
+Agent 1: yaw=-5.542 (true_ego_pos)
+--- Frame 000630 ---
+Ego heading/yaw: 94.735 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=-7.539 (true_ego_pos)
+Agent 1: yaw=-6.153 (true_ego_pos)
+--- Frame 000660 ---
+Ego heading/yaw: 94.672 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=-7.669 (true_ego_pos)
+Agent 1: yaw=-7.085 (true_ego_pos)
+--- Frame 000690 ---
+Ego heading/yaw: 94.391 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=-7.589 (true_ego_pos)
+Agent 1: yaw=-7.080 (true_ego_pos)
+--- Frame 000720 ---
+Ego heading/yaw: 94.106 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=-7.339 (true_ego_pos)
+Agent 1: yaw=-6.923 (true_ego_pos)
+--- Frame 000750 ---
+Ego heading/yaw: 93.227 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=-6.199 (true_ego_pos)
+Agent 1: yaw=-6.383 (true_ego_pos)
+--- Frame 000780 ---
+Ego heading/yaw: 96.035 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=-6.669 (true_ego_pos)
+Agent 1: yaw=-5.741 (true_ego_pos)
+--- Frame 000810 ---
+Ego heading/yaw: 108.038 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=-17.098 (true_ego_pos)
+Agent 1: yaw=-6.898 (true_ego_pos)
+--- Frame 000840 ---
+Ego heading/yaw: 122.099 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=-31.178 (true_ego_pos)
+Agent 1: yaw=-17.976 (true_ego_pos)
+--- Frame 000870 ---
+Ego heading/yaw: 129.268 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=-41.619 (true_ego_pos)
+Agent 1: yaw=-32.584 (true_ego_pos)
+--- Frame 000900 ---
+Ego heading/yaw: 129.659 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=-42.550 (true_ego_pos)
+Agent 1: yaw=-41.486 (true_ego_pos)
+--- Frame 000930 ---
+Ego heading/yaw: 129.999 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=-42.820 (true_ego_pos)
+Agent 1: yaw=-41.763 (true_ego_pos)
+--- Frame 000960 ---
+Ego heading/yaw: 130.031 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=-42.810 (true_ego_pos)
+Agent 1: yaw=-42.511 (true_ego_pos)
+--- Frame 000990 ---
+Ego heading/yaw: 129.997 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=-42.570 (true_ego_pos)
+Agent 1: yaw=-42.405 (true_ego_pos)
+--- Frame 001020 ---
+Ego heading/yaw: 137.710 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=-46.579 (true_ego_pos)
+Agent 1: yaw=-42.134 (true_ego_pos)
+--- Frame 001050 ---
+Ego heading/yaw: 155.626 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=-63.189 (true_ego_pos)
+Agent 1: yaw=-47.403 (true_ego_pos)
+--- Frame 001080 ---
+Ego heading/yaw: 172.600 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=-80.909 (true_ego_pos)
+Agent 1: yaw=-65.257 (true_ego_pos)
+--- Frame 001110 ---
+Ego heading/yaw: 189.250 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=-97.608 (true_ego_pos)
+Agent 1: yaw=-83.319 (true_ego_pos)
+--- Frame 001140 ---
+Ego heading/yaw: 202.321 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=-113.298 (true_ego_pos)
+Agent 1: yaw=-100.562 (true_ego_pos)
+--- Frame 001170 ---
+Ego heading/yaw: 206.964 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=-118.960 (true_ego_pos)
+Agent 1: yaw=-115.230 (true_ego_pos)
+--- Frame 001200 ---
+Ego heading/yaw: 207.289 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=20)
+Agent 0: yaw=-120.620 (true_ego_pos)
+Agent 1: yaw=-119.052 (true_ego_pos)
+--- Frame 001230 ---
+Ego heading/yaw: 204.361 deg (source=gps_track_20)
+Ego transform source: true_ego_pos
+Pose-to-GPS fit: ok (frames=14)
+Agent 0: yaw=-117.770 (true_ego_pos)
+Agent 1: yaw=-120.154 (true_ego_pos)
+Saved map to: maps/train_01/fused_lidar_map_testoutput_CAV_data_2022-03-15-10-09-50_0.html
+Done.
+
+=== Finished ===
+Ended: mar 05 mai 2026 11:48:46 CEST

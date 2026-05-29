@@ -1,0 +1,85 @@
+/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+You are using a model of type llava to instantiate a model of type llava_llama. This is not supported for all configurations of models and can yield errors.
+You are using a model of type llava to instantiate a model of type llava_llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:  50%|█████     | 1/2 [00:22<00:22, 22.86s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:46<00:46, 46.90s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:55<00:00, 28.88s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:55<00:00, 27.98s/it]
+Some weights of LlavaLlamaForCausalLM were not initialized from the model checkpoint at liuhaotian/llava-v1.5-7b and are newly initialized: ['model.mm_scene_projector.0.bias', 'model.mm_scene_projector.0.weight', 'model.mm_scene_projector.2.bias', 'model.mm_scene_projector.2.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Loading checkpoint shards: 100%|██████████| 2/2 [00:56<00:00, 24.87s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:56<00:00, 28.17s/it]
+Some weights of LlavaLlamaForCausalLM were not initialized from the model checkpoint at liuhaotian/llava-v1.5-7b and are newly initialized: ['model.mm_scene_projector.0.bias', 'model.mm_scene_projector.0.weight', 'model.mm_scene_projector.2.bias', 'model.mm_scene_projector.2.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/transformers/deepspeed.py:23: FutureWarning: transformers.deepspeed module is deprecated and will be removed in a future version. Please import deepspeed modules directly from transformers.integrations
+  warnings.warn(
+/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/transformers/deepspeed.py:23: FutureWarning: transformers.deepspeed module is deprecated and will be removed in a future version. Please import deepspeed modules directly from transformers.integrations
+  warnings.warn(
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/faresse/.netrc.
+wandb: Currently logged in as: ilyas-faresse (ilyas-faresse-epfl) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run u8q0t13s
+wandb: Tracking run with wandb version 0.27.0
+wandb: Run data is saved locally in /scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/wandb/run-20260521_171034-u8q0t13s
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run spring-river-2
+wandb: ⭐️ View project at https://wandb.ai/ilyas-faresse-epfl/huggingface
+wandb: 🚀 View run at https://wandb.ai/ilyas-faresse-epfl/huggingface/runs/u8q0t13s
+  0%|          | 0/9700 [00:00<?, ?it/s]/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+Traceback (most recent call last):
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/llava/train/train_mem.py", line 4, in <module>
+    train()
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/llava/train/train.py", line 2213, in train
+    trainer.train()
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/transformers/trainer.py", line 1539, in train
+    return inner_training_loop(
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/transformers/trainer.py", line 1869, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs)
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/transformers/trainer.py", line 2772, in training_step
+    loss = self.compute_loss(model, inputs)
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/transformers/trainer.py", line 2795, in compute_loss
+    outputs = model(**inputs)
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 15, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/deepspeed/runtime/engine.py", line 1833, in forward
+    loss = self.module(*inputs, **kwargs)
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1568, in _call_impl
+    result = forward_call(*args, **kwargs)
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/peft/peft_model.py", line 922, in forward
+    return self.base_model(
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1568, in _call_impl
+    result = forward_call(*args, **kwargs)
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/llava/model/language_model/llava_llama.py", line 257, in forward
+    return super().forward(
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 1215, in forward
+    loss = loss_fct(shift_logits, shift_labels)
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/torch/nn/modules/loss.py", line 1179, in forward
+    return F.cross_entropy(input, target, weight=self.weight,
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/torch/nn/functional.py", line 3053, in cross_entropy
+    return torch._C._nn.cross_entropy_loss(input, target, weight, _Reduction.get_enum(reduction), ignore_index, label_smoothing)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.86 GiB. GPU 1 has a total capacty of 31.74 GiB of which 2.22 GiB is free. Including non-PyTorch memory, this process has 29.51 GiB memory in use. Of the allocated memory 22.38 GiB is allocated by PyTorch, and 6.68 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

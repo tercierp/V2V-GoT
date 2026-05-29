@@ -19,7 +19,8 @@ import torch
 import torch.nn as nn
 
 from .multimodal_encoder.builder import build_vision_tower
-from .multimodal_projector.builder import build_vision_projector, build_scene_vision_projector
+from .multimodal_encoder.osm_encoder import OSMCLIPEncoder
+from .multimodal_projector.builder import build_vision_projector, build_scene_vision_projector, build_osm_projector
 
 from llava.constants import IGNORE_INDEX, IMAGE_TOKEN_INDEX, DEFAULT_IMAGE_PATCH_TOKEN, DEFAULT_IM_START_TOKEN, DEFAULT_IM_END_TOKEN
 
@@ -61,6 +62,20 @@ class LlavaMetaModel:
                 #print('p: ', p)
                 # tensor([], device='cuda:0', dtype=torch.bfloat16, requires_grad=True)
             #assert False
+
+            # MY_CODE: OSM map encoder + projector
+            # OSMCLIPEncoder wraps the existing vision_tower — no new weights loaded
+            if getattr(config, 'use_osm', False):
+                osm_num_tokens = getattr(config, 'osm_num_tokens', 64)
+                self.mm_osm_encoder = OSMCLIPEncoder(
+                    vision_tower=self.vision_tower,
+                    num_output_tokens=osm_num_tokens,
+                )
+                self.mm_osm_projector = build_osm_projector(
+                    self.mm_osm_encoder.hidden_size, config.hidden_size
+                )
+                for p in self.mm_osm_projector.parameters():
+                    p.requires_grad = True
 
             if 'unpad' in getattr(config, 'mm_patch_merge_type', ''):
                 print('here unpad')
@@ -222,6 +237,17 @@ class LlavaMetaForCausalLM(ABC):
         # [1, 576, 4096]
         #assert False
         return image_features
+
+    # MY_CODE
+    def generate_osm_features(self, osm_image):
+        '''
+        Input:  osm_image [batch_size, 3, 224, 224]
+        Output: osm_features [batch_size, num_osm_tokens=64, hidden_size=4096]
+        '''
+        osm_tokens = self.get_model().mm_osm_encoder(osm_image)
+        # cast to projector dtype (bf16 during training)
+        proj_dtype = self.get_model().mm_osm_projector[0].weight.dtype
+        return self.get_model().mm_osm_projector(osm_tokens.to(dtype=proj_dtype))
 
     def generate_scene_level_features_option_3(self, scene_point_feature_map):
         #print('scene_point_feature_map.shape: ', scene_point_feature_map.shape)
@@ -696,7 +722,7 @@ class LlavaMetaForCausalLM(ABC):
         return point_features
 
 
-    def generate_point_features(self, my_model_config, scene_point_feature_map, regression_map, classification_map, detection_box_score, object_features, active_agent_mask):
+    def generate_point_features(self, my_model_config, scene_point_feature_map, regression_map, classification_map, detection_box_score, object_features, active_agent_mask, osm_image=None):
         #print("my_model_config['ego_only']: ", my_model_config['ego_only'])
         if my_model_config['ego_only']:
           cav_ids = ['ego']
@@ -765,12 +791,17 @@ class LlavaMetaForCausalLM(ABC):
           #
           # v2xreal [32, 1456 * num_input_frames, 4096]
 
+          # MY_CODE: append OSM tokens if available
+          if osm_image is not None and my_model_config.get('use_osm', False):
+              osm_features = self.generate_osm_features(osm_image)  # [B, 64, 4096]
+              point_features = torch.cat([point_features, osm_features], dim=1)
+
           return point_features
 
 
     def prepare_inputs_labels_for_multimodal(
         self, input_ids, position_ids, attention_mask, past_key_values, labels,
-        images, image_sizes=None, my_model_config=None, scene_point_feature_map=None, regression_map=None, classification_map=None, detection_box_score=None, object_features=None, active_agent_mask=None
+        images, image_sizes=None, my_model_config=None, scene_point_feature_map=None, regression_map=None, classification_map=None, detection_box_score=None, object_features=None, active_agent_mask=None, osm_image=None
     ):
 
 
@@ -837,7 +868,7 @@ class LlavaMetaForCausalLM(ABC):
                 #print('my_model_config: ', my_model_config)
                 #assert False
                 #print('scene_point_feature_map.shape: ', scene_point_feature_map.shape)
-                point_features = self.generate_point_features(my_model_config, scene_point_feature_map, regression_map, classification_map,  detection_box_score, object_features, active_agent_mask)
+                point_features = self.generate_point_features(my_model_config, scene_point_feature_map, regression_map, classification_map,  detection_box_score, object_features, active_agent_mask, osm_image=osm_image)
                 # and still call it image_features for now, 
                 # so that we do not need to change the remaining code in this function
                 image_features = point_features

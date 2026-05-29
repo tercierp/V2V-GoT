@@ -1,0 +1,67 @@
+{
+  "bev_injection": {
+    "Q1": {
+      "prefixed": 3446,
+      "total": 3446,
+      "rate": 1.0,
+      "dud_captions": 260,
+      "file": "v2v4real_3d_grounding_qa_dataset_nq1sm3w0d_satdesc.json"
+    },
+    "Q2": {
+      "prefixed": 3446,
+      "total": 3446,
+      "rate": 1.0,
+      "dud_captions": 260,
+      "file": "v2v4real_3d_grounding_qa_dataset_nq2sm3w0d_satdesc.json"
+    },
+    "Q3": {
+      "prefixed": 3446,
+      "total": 3446,
+      "rate": 1.0,
+      "dud_captions": 260,
+      "file": "v2v4real_3d_grounding_qa_dataset_nq3sm3w0d_satdesc.json"
+    },
+    "Q4": {
+      "prefixed": 3446,
+      "total": 3446,
+      "rate": 1.0,
+      "dud_captions": 260,
+      "file": "v2v4real_3d_grounding_qa_dataset_nq4sm3w0d_satdesc.json"
+    },
+    "Q5": {
+      "prefixed": 3446,
+      "total": 3446,
+      "rate": 1.0,
+      "dud_captions": 260,
+      "file": "v2v4real_3d_grounding_qa_dataset_nq5sm3w1dc_satdesc.json"
+    },
+    "Q6": {
+      "prefixed": 3446,
+      "total": 3446,
+      "rate": 1.0,
+      "dud_captions": 260,
+      "file": "v2v4real_3d_grounding_qa_dataset_nq6sm3w1dc_satdesc.json"
+    },
+    "Q7": {
+      "prefixed": 3446,
+      "total": 3446,
+      "rate": 1.0,
+      "dud_captions": 260,
+      "file": "v2v4real_3d_grounding_qa_dataset_nq7sm3w1d_satdesc.json"
+    },
+    "Q8": {
+      "prefixed": 3446,
+      "total": 3446,
+      "rate": 1.0,
+      "dud_captions": 260,
+      "file": "v2v4real_3d_grounding_qa_dataset_nq8sm3w6dc_satdesc.json"
+    },
+    "Q9": {
+      "prefixed": 3446,
+      "total": 3446,
+      "rate": 1.0,
+      "dud_captions": 260,
+      "file": "v2v4real_3d_grounding_qa_dataset_nq9sm3w6d_satdesc.json"
+    }
+  }
+}

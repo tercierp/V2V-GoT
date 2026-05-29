@@ -1,0 +1,41 @@
+=== Job info ===
+Job ID:    2941222
+Node:      i41
+Started:   jeu 21 mai 2026 11:54:17 CEST
+GPUs:      0,1
+
+Thu May 21 11:54:33 2026       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 535.154.05             Driver Version: 535.154.05   CUDA Version: 12.2     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  Tesla V100-PCIE-32GB           On  | 00000000:86:00.0 Off |                  Off |
+| N/A   33C    P0              24W / 250W |      0MiB / 32768MiB |      0%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+|   1  Tesla V100-PCIE-32GB           On  | 00000000:D8:00.0 Off |                  Off |
+| N/A   32C    P0              23W / 250W |      0MiB / 32768MiB |      0%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+                                                                                         
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|  No running processes found                                                           |
++---------------------------------------------------------------------------------------+
+
+PYTHONPATH: :/scratch/izar/V2V-GoT/DMSTrack/AB3DMOT:/scratch/izar/V2V-GoT/DMSTrack/AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/V2V-GoT/DMSTrack/V2V4Real:/scratch/izar/V2V-GoT/DMSTrack:/scratch/izar/V2V-GoT/LLaVA
+HF_HOME:    /scratch/izar/faresse/hf_cache
+ulimit -n:  65536
+
+=== Starting V2V-GoT Finetuning pipeline (with sat descriptions) ===
+Time: jeu 21 mai 2026 11:54:33 CEST
+
+
+=== Pipeline finished ===
+Time: jeu 21 mai 2026 11:54:33 CEST

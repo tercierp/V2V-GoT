@@ -814,7 +814,16 @@ def evaluate_future_trajectory(num_future_waypoints, data, npy_save_path, qa_typ
     PDMS_sample_average = sum_local_pdms /  len(data)
     print('PDMS_sample_average: ', PDMS_sample_average)
 
-    return
+    res = {}
+    res['l2_error_avg_1s'] = locals().get('l2_error_avg_1s', None)
+    res['l2_error_avg_2s'] = locals().get('l2_error_avg_2s', None)
+    res['l2_error_avg_3s'] = locals().get('l2_error_avg_3s', None)
+    res['l2_error_avg_all'] = locals().get('l2_error_avg_all', None)
+    res['collision_rate_1s'] = locals().get('collision_rate_1s', None)
+    res['collision_rate_2s'] = locals().get('collision_rate_2s', None)
+    res['collision_rate_3s'] = locals().get('collision_rate_3s', None)
+    res['collision_rate_avg_all'] = locals().get('collision_rate_avg_all', None)
+    return res
 
 
 def parse_suggested_speed_steering_idx(answer):
@@ -1196,7 +1205,15 @@ def evaluate_notable_objects_prediction(max_num_answer_objects, num_future_waypo
     print('gt_parse_error_rate: ', gt_parse_error_rate)
     print('output_parse_error_rate: ', output_parse_error_rate)
 
-    return
+    res = {}
+    res['f1_per_threshold'] = {}
+    for i, t in enumerate(thresholds):
+        p = 1.0 * num_matched_gt_output[i] / num_outputs if num_outputs > 0 else 0.0
+        r = 1.0 * num_matched_gt_output[i] / num_gts if num_gts > 0 else 0.0
+        res['f1_per_threshold'][t] = 2 * p * r / (p + r) if (p + r) > 0 else 0.0
+    res['l2_error_avg_03_all'] = locals().get('l2_error_avg_03_all', None)
+    res['l2_error_avg_3s'] = locals().get('l2_error_avg_3s', None)
+    return res
 
 
 def evaluate_is_another_cav_notable_object(data):
@@ -1213,7 +1230,8 @@ def evaluate_is_another_cav_notable_object(data):
     accuracy = 1.0 * correct_count / len(data)
     print('evaluate_is_another_cav_notable_object')
     print('binary classification accuracy: ', accuracy)
-    return
+    acc = 1.0 * correct_count / len(data) if len(data) > 0 else 0.0
+    return acc
 
 
 def eval_model_v2v4real_3d_grounding_v6(args):

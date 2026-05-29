@@ -55,7 +55,14 @@ def build_vision_projector(config, delay_load=False, **kwargs):
 
     raise ValueError(f'Unknown projector type: {projector_type}')
 
-# MY_CODE
+# OSM map image projector: hidden_size -> LLM hidden_size (4096)
+def build_osm_projector(input_dim, hidden_size):
+    return nn.Sequential(
+        nn.Linear(input_dim, hidden_size),
+        nn.GELU(),
+        nn.Linear(hidden_size, hidden_size)
+    )
+
 # create another projector for scene level feature
 def build_scene_vision_projector(config, delay_load=False, **kwargs):
 
