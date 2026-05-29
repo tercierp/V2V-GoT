@@ -1,2 +1,0 @@
-/var/spool/slurmd/job2949062/slurm_script: line 53: cd: /scratch/izar/V2V-GoT: No such file or directory
-/var/spool/slurmd/job2949062/slurm_script: line 108: LLaVA/scripts/v1_5/inference_v2vgot_satdesc.sh: No such file or directory

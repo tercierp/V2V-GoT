@@ -1,88 +1,0 @@
-/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
-  import pynvml  # type: ignore[import]
-/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
-  import pynvml  # type: ignore[import]
-/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
-  import pynvml  # type: ignore[import]
-/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
-  import pynvml  # type: ignore[import]
-/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
-  import pynvml  # type: ignore[import]
-/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
-  warnings.warn(
-/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
-  warnings.warn(
-You are using a model of type llava to instantiate a model of type llava_llama. This is not supported for all configurations of models and can yield errors.
-You are using a model of type llava to instantiate a model of type llava_llama. This is not supported for all configurations of models and can yield errors.
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
-  return self.fget.__get__(instance, owner)()
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
-  return self.fget.__get__(instance, owner)()
-/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
-  warnings.warn(
-/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
-  warnings.warn(
-You are using a model of type llava to instantiate a model of type llava_llama. This is not supported for all configurations of models and can yield errors.
-You are using a model of type llava to instantiate a model of type llava_llama. This is not supported for all configurations of models and can yield errors.
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
-  return self.fget.__get__(instance, owner)()
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
-  return self.fget.__get__(instance, owner)()
-Loading checkpoint shards:  50%|█████     | 1/2 [02:30<02:30, 150.23s/it]Loading checkpoint shards: 100%|██████████| 2/2 [03:19<00:00, 91.04s/it] Loading checkpoint shards: 100%|██████████| 2/2 [03:19<00:00, 99.92s/it]
-Some weights of LlavaLlamaForCausalLM were not initialized from the model checkpoint at liuhaotian/llava-v1.5-7b and are newly initialized: ['model.mm_scene_projector.0.bias', 'model.mm_scene_projector.0.weight', 'model.mm_scene_projector.2.bias', 'model.mm_scene_projector.2.weight']
-You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
-Loading checkpoint shards:  50%|█████     | 1/2 [02:30<02:30, 150.32s/it]Loading checkpoint shards: 100%|██████████| 2/2 [03:19<00:00, 91.04s/it] Loading checkpoint shards: 100%|██████████| 2/2 [03:19<00:00, 99.93s/it]
-Some weights of LlavaLlamaForCausalLM were not initialized from the model checkpoint at liuhaotian/llava-v1.5-7b and are newly initialized: ['model.mm_scene_projector.0.bias', 'model.mm_scene_projector.0.weight', 'model.mm_scene_projector.2.bias', 'model.mm_scene_projector.2.weight']
-You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
-Loading checkpoint shards:  50%|█████     | 1/2 [02:02<02:02, 122.14s/it]Loading checkpoint shards: 100%|██████████| 2/2 [02:44<00:00, 75.04s/it] Loading checkpoint shards: 100%|██████████| 2/2 [02:44<00:00, 82.11s/it]
-Some weights of LlavaLlamaForCausalLM were not initialized from the model checkpoint at liuhaotian/llava-v1.5-7b and are newly initialized: ['model.mm_scene_projector.0.bias', 'model.mm_scene_projector.0.weight', 'model.mm_scene_projector.2.bias', 'model.mm_scene_projector.2.weight']
-You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
-Loading checkpoint shards:  50%|█████     | 1/2 [02:02<02:02, 122.24s/it]Loading checkpoint shards: 100%|██████████| 2/2 [02:44<00:00, 75.05s/it] Loading checkpoint shards: 100%|██████████| 2/2 [02:44<00:00, 82.13s/it]
-Some weights of LlavaLlamaForCausalLM were not initialized from the model checkpoint at liuhaotian/llava-v1.5-7b and are newly initialized: ['model.mm_scene_projector.0.bias', 'model.mm_scene_projector.0.weight', 'model.mm_scene_projector.2.bias', 'model.mm_scene_projector.2.weight']
-You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
-  0%|          | 0/9690 [00:00<?, ?it/s]Traceback (most recent call last):
-  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/llava/train/train_mem.py", line 4, in <module>
-    train()
-  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/llava/train/train.py", line 2213, in train
-    trainer.train()
-  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/transformers/trainer.py", line 1539, in train
-    return inner_training_loop(
-  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/transformers/trainer.py", line 1869, in _inner_training_loop
-    tr_loss_step = self.training_step(model, inputs)
-  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/transformers/trainer.py", line 2772, in training_step
-    loss = self.compute_loss(model, inputs)
-  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/transformers/trainer.py", line 2795, in compute_loss
-    outputs = model(**inputs)
-  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
-  0%|          | 0/9690 [00:00<?, ?it/s]Traceback (most recent call last):
-  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/llava/train/train_mem.py", line 4, in <module>
-    train()
-  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/llava/train/train.py", line 2213, in train
-    trainer.train()
-  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/transformers/trainer.py", line 1539, in train
-    return inner_training_loop(
-  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/transformers/trainer.py", line 1869, in _inner_training_loop
-    tr_loss_step = self.training_step(model, inputs)
-  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/transformers/trainer.py", line 2772, in training_step
-    loss = self.compute_loss(model, inputs)
-  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/transformers/trainer.py", line 2795, in compute_loss
-    outputs = model(**inputs)
-  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
-    return self._call_impl(*args, **kwargs)
-  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/torch/nn/parallel/data_parallel.py", line 171, in forward
-    return forward_call(*args, **kwargs)
-  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/torch/nn/parallel/data_parallel.py", line 171, in forward
-    raise RuntimeError("module must have its parameters and buffers "
-RuntimeError: module must have its parameters and buffers on device cuda:0 (device_ids[0]) but found one of them on device: cpu
-    raise RuntimeError("module must have its parameters and buffers "
-RuntimeError: module must have its parameters and buffers on device cuda:0 (device_ids[0]) but found one of them on device: cpu
-  0%|          | 0/9690 [00:04<?, ?it/s]
-  0%|          | 0/9690 [00:04<?, ?it/s]
-srun: error: i08: tasks 0-1: Exited with exit code 1
-srun: Terminating StepId=2944683.0
-srun: error: i23: tasks 2-3: Terminated
-srun: Force Terminated StepId=2944683.0
