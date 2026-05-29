@@ -3,13 +3,13 @@
 #SBATCH --time=01:00:00
 #SBATCH --partition=gpu
 #SBATCH --gres=gpu:1
-#SBATCH --output=/scratch/izar/faresse/v2v-got/logs/eval_satdesc_%j.out
-#SBATCH --error=/scratch/izar/faresse/v2v-got/logs/eval_satdesc_%j.err
+#SBATCH --output=/scratch/izar/%u/v2v-got/logs/eval_satdesc_%j.out
+#SBATCH --error=/scratch/izar/%u/v2v-got/logs/eval_satdesc_%j.err
 
-source /home/faresse/miniconda3/etc/profile.d/conda.sh
+source /home/$USER/miniconda3/etc/profile.d/conda.sh
 conda activate v2v
 
-cd /scratch/izar/faresse/v2v-got/_v2vgot_repo_tmp/DMSTrack/DMSTrack
+cd /scratch/izar/$USER/v2v-got/_v2vgot_repo_tmp/DMSTrack/DMSTrack
 export MY_PROJECT=$PWD/../
 export PYTHONPATH=${PYTHONPATH}:${MY_PROJECT}/AB3DMOT
 export PYTHONPATH=${PYTHONPATH}:${MY_PROJECT}/AB3DMOT/Xinshuo_PyToolbox

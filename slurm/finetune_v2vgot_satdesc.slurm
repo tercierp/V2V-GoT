@@ -34,7 +34,7 @@ ulimit -n 65536
 export HF_HOME=/scratch/izar/$USER/hf_cache
 
 # Resolve repo root explicitly to avoid issues depending on where sbatch is run from
-V2VGOT_ROOT="/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT"
+V2VGOT_ROOT="/scratch/izar/$USER/v2v-got/cs503-v2v-project/code/V2V-GoT"
 
 # PYTHONPATH
 export PYTHONPATH=${PYTHONPATH:-}:$V2VGOT_ROOT/DMSTrack/AB3DMOT
