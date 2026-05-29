@@ -173,6 +173,44 @@ V2V-GoT
 │   │   │   │   │   │   │   │   ├── visualization
 ```
 
+## Decentralized Satellite-Grounded Pipeline (Best Result)
+
+To reproduce our best result, which combines textual satellite imagery descriptions with decentralized text-messaging inference, follow these steps. This approach achieves the lowest planning L2 error and lowest collision rate while minimizing cross-CAV communication overhead.
+
+### 1. Data Preparation
+First, export satellite imagery corresponding to the GPS coordinates of the vehicles:
+```shell
+python scripts/export_satellite_images.py
+```
+
+Next, use a Vision Language Model to parse the exported satellite images into text descriptions (e.g., number of lanes):
+```shell
+python scripts/sat_images_to_text.py
+```
+
+Finally, merge these text descriptions back into the main QA JSON datasets:
+```shell
+python scripts/merge_sat_descriptions.py
+```
+
+### 2. Training (Fine-tuning)
+To fine-tune the model using the generated satellite descriptions, submit the fine-tuning job:
+```shell
+sbatch slurm/finetune_v2vgot_satdesc.slurm
+```
+
+### 3. Inference
+To perform decentralized inference using the fine-tuned model and textual satellite context:
+```shell
+sbatch slurm/inference_v2vgot_satdesc.slurm
+```
+
+### 4. Evaluation
+To evaluate the model's predictions and planning performance across the V2V4Real validation split:
+```shell
+sbatch slurm/eval_satdesc_unified.slurm
+```
+
 ## Training
 ### V2V-GoT
 If you want to train the V2V-GoT model (finetune from the pre-trained LLaVA 1.5 model checkpoint), first modify the script ```LLaVA/scripts/v1_5/train_task_lora_7b_my_v2v4real_3d_grounding_v2vgot_10ep_both_shallow_f2.sh```, 
