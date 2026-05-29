@@ -34,7 +34,7 @@ export PYTHONPATH=$V2VGOT_ROOT/DMSTrack/AB3DMOT:$V2VGOT_ROOT/DMSTrack/AB3DMOT/Xi
 RUN_NAME="v2vgot_satdesc_4000_full"
 COMM_MB="0.0"
 
-QA_DIR="/scratch/izar/$USER/v2v-got/data/V2V-GoT-QA/V2V_GoT_JSONS/DMSTrack/V2V4Real/official_models/no_fusion_keep_all/npy/co_llm"
+QA_DIR="$V2VGOT_ROOT/data/V2V_GoT_JSONS/DMSTrack/V2V4Real/official_models/no_fusion_keep_all/npy/co_llm"
 
 python LLaVA/scripts/eval_v2vgot_unified.py \
   --inference_root LLaVA/playground/data/eval \

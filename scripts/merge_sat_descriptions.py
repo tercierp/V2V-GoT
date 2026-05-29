@@ -11,13 +11,15 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--sat-jsonl",
-        default="/scratch/izar/faresse/v2v-got/data/sat_images_descriptions.jsonl",
-        help="Path to sat_images_descriptions.jsonl",
+        type=str,
+        default="data/sat_images_descriptions.jsonl",
+        help="Path to JSONL descriptions file.",
     )
     parser.add_argument(
         "--qa-dir",
-        default="/scratch/izar/faresse/v2v-got/data/V2V-GoT-QA/V2V_GoT_JSONS/DMSTrack/V2V4Real/official_models/no_fusion_keep_all/npy/co_llm",
-        help="Directory containing v2v4real_3d_grounding_qa_dataset_*.json",
+        type=str,
+        default="data/V2V_GoT_JSONS/DMSTrack/V2V4Real/official_models/no_fusion_keep_all/npy/co_llm",
+        help="Directory containing V2V-GoT QA JSONs to modify.",
     )
     parser.add_argument(
         "--qa-datasets",
@@ -27,7 +29,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--data-root",
-        required=True,
+        default="/scratch/izar/faresse/v2v-got/data/V2V4REAL/V2V4REAL/Data",
         help="V2V4Real Data root containing split folders (train_01/test_01/etc.)",
     )
     parser.add_argument(

@@ -209,14 +209,16 @@ def main() -> None:
         description="Generate lane-count descriptions from sat_images via a vision model."
     )
     parser.add_argument(
-        "--input-root",
-        default=os.path.join(script_dir, "sat_images"),
+        "--image_dir",
+        type=str,
+        default=os.path.join(repo_root, "data", "sat_images"),
         help="Root folder containing sat_images splits.",
     )
     parser.add_argument(
         "--output",
-        default=os.path.join(script_dir, "sat_images_descriptions.jsonl"),
-        help="Path to JSONL output file.",
+        type=str,
+        default=os.path.join(repo_root, "data", "sat_images_descriptions.jsonl"),
+        help="Path to output JSONL file.",
     )
     parser.add_argument(
         "--model",

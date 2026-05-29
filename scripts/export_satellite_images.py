@@ -14,7 +14,7 @@ from PIL import Image
 # USER SETTINGS
 # ============================================================
 
-DATA_ROOT = "V2V4REAL/V2V4REAL/Data"
+DATA_ROOT = "/scratch/izar/faresse/v2v-got/data/V2V4REAL/V2V4REAL/Data"
 SPLITS = [
     "train_01",
     "train_02",
