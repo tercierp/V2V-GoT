@@ -8,8 +8,8 @@
 #SBATCH --time=1:00:00
 #SBATCH --account=cs-503
 #SBATCH --qos=cs-503
-#SBATCH --output=/scratch/izar/%u/v2v-got/logs/%x-%j.out
-#SBATCH --error=/scratch/izar/%u/v2v-got/logs/%x-%j.err
+#SBATCH --output=logs/%x-%j.out
+#SBATCH --error=logs/%x-%j.err
 
 set -euo pipefail
 
@@ -26,12 +26,12 @@ conda activate v2v
 
 ulimit -n 65536
 
-export HF_HOME=/scratch/izar/$USER/hf_cache
+export HF_HOME="$PWD/../hf_cache"
 export TOKENIZERS_PARALLELISM=false
 export PYTHONUNBUFFERED=1
 
-cd /scratch/izar/$USER/v2v-got/data
-mkdir -p /scratch/izar/$USER/v2v-got/logs
+cd $V2VGOT_ROOT/../data
+mkdir -p logs
 
 echo "=== Running plot_satellite.py ==="
 python -u plot_satellite.py

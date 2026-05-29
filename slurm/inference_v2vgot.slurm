@@ -8,8 +8,8 @@
 #SBATCH --time=18:00:00
 #SBATCH --account=cs-503
 #SBATCH --qos=cs-503
-#SBATCH --output=/scratch/izar/%u/v2v-got/logs/%x-%j.out
-#SBATCH --error=/scratch/izar/%u/v2v-got/logs/%x-%j.err
+#SBATCH --output=logs/%x-%j.out
+#SBATCH --error=logs/%x-%j.err
 
 # set -euo pipefail  # disabled: inner script has harmless conda errors
 
@@ -32,7 +32,7 @@ source "$(conda info --base)/etc/profile.d/conda.sh"
 ulimit -n 65536
 
 # HuggingFace cache on scratch
-export HF_HOME=/scratch/izar/$USER/hf_cache
+export HF_HOME="$PWD/../hf_cache"
 
 # Resolve repo root from submission directory (SLURM runs from a spool dir)
 BASE_DIR="${SLURM_SUBMIT_DIR:-$PWD}"
@@ -58,10 +58,10 @@ echo
 
 # --- Run full 9-stage GoT inference pipeline ---
 cd "$V2VGOT_ROOT"
-mkdir -p /scratch/izar/$USER/v2v-got/logs
+mkdir -p logs
 
 # Swap in satellite-description QA files if available (restored on exit)
-QA_DIR="/scratch/izar/$USER/v2v-got/data/V2V-GoT-QA/V2V_GoT_JSONS/DMSTrack/V2V4Real/official_models/no_fusion_keep_all/npy/co_llm"
+QA_DIR="$V2VGOT_ROOT/../data/V2V-GoT-QA/V2V_GoT_JSONS/DMSTrack/V2V4Real/official_models/no_fusion_keep_all/npy/co_llm"
 QA_DATASETS=(
 	nq1sm3w0d
 	nq2sm3w0d

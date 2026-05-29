@@ -8,8 +8,8 @@
 #SBATCH --time=18:00:00
 #SBATCH --account=cs-503
 #SBATCH --qos=cs-503
-#SBATCH --output=/scratch/izar/%u/v2v-got/logs/%x-%j.out
-#SBATCH --error=/scratch/izar/%u/v2v-got/logs/%x-%j.err
+#SBATCH --output=logs/%x-%j.out
+#SBATCH --error=logs/%x-%j.err
 
 echo "=== Job info ==="
 echo "Job ID:    $SLURM_JOB_ID"
@@ -29,10 +29,10 @@ source "$(conda info --base)/etc/profile.d/conda.sh"
 ulimit -n 65536
 
 # HuggingFace cache
-export HF_HOME=/scratch/izar/$USER/hf_cache
+export HF_HOME="$PWD/../hf_cache"
 
 # Resolve repo root
-V2VGOT_ROOT="/scratch/izar/$USER/v2v-got/cs503-v2v-project/code/V2V-GoT"
+V2VGOT_ROOT="$PWD"
 
 export PYTHONPATH=${PYTHONPATH:-}:$V2VGOT_ROOT/DMSTrack/AB3DMOT
 export PYTHONPATH=${PYTHONPATH}:$V2VGOT_ROOT/DMSTrack/AB3DMOT/Xinshuo_PyToolbox
@@ -42,7 +42,7 @@ export PYTHONPATH=${PYTHONPATH}:$V2VGOT_ROOT/DMSTrack
 export TOKENIZERS_PARALLELISM=false
 
 # Point to the actual npy feature data (not in the code tree — scratch policy deleted them)
-export V2V_LLM_DATA_ROOT="/scratch/izar/$USER/v2v-got/data/V2V-GoT-QA/dataset_processed_features_and_gt"
+export V2V_LLM_DATA_ROOT="$V2VGOT_ROOT/../data/V2V-GoT-QA/dataset_processed_features_and_gt"
 
 echo "=== Sanity checks ==="
 nvidia-smi
@@ -52,10 +52,10 @@ echo "ulimit -n:  $(ulimit -n)"
 echo
 
 cd "$V2VGOT_ROOT"
-mkdir -p /scratch/izar/$USER/v2v-got/logs
+mkdir -p logs
 
 # Swap in satellite-description QA files
-QA_DIR="$V2VGOT_ROOT/data/V2V_GoT_JSONS/DMSTrack/V2V4Real/official_models/no_fusion_keep_all/npy/co_llm"
+QA_DIR="$V2VGOT_ROOT/../data/V2V-GoT-QA/V2V_GoT_JSONS/DMSTrack/V2V4Real/official_models/no_fusion_keep_all/npy/co_llm"
 QA_DATASETS=(
 	nq1sm3w0d
 	nq2sm3w0d

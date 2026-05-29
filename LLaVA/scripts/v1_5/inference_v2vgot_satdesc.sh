@@ -4,7 +4,7 @@
 
 set -e  # Exit on first error so we don't waste GPU time
 
-V2VGOT_ROOT="/scratch/izar/$USER/v2v-got/cs503-v2v-project/code/V2V-GoT"
+V2VGOT_ROOT="$PWD"
 LLAVA_DIR="$V2VGOT_ROOT/LLaVA"
 DMSTRACK_DIR="$V2VGOT_ROOT/DMSTrack/DMSTrack"
 V2V4REAL_DIR="$V2VGOT_ROOT/DMSTrack/V2V4Real"

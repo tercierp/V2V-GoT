@@ -8,8 +8,8 @@
 #SBATCH --time=48:00:00
 #SBATCH --account=cs-503
 #SBATCH --qos=cs-503
-#SBATCH --output=/scratch/izar/%u/v2v-got/logs/%x-%j.out
-#SBATCH --error=/scratch/izar/%u/v2v-got/logs/%x-%j.err
+#SBATCH --output=logs/%x-%j.out
+#SBATCH --error=logs/%x-%j.err
 
 echo "=== Job info ==="
 echo "Job ID:    $SLURM_JOB_ID"
@@ -31,10 +31,10 @@ conda activate v2v
 ulimit -n 65536
 
 # HuggingFace cache on scratch
-export HF_HOME=/scratch/izar/$USER/hf_cache
+export HF_HOME="$PWD/../hf_cache"
 
 # Resolve repo root explicitly to avoid issues depending on where sbatch is run from
-V2VGOT_ROOT="/scratch/izar/$USER/v2v-got/cs503-v2v-project/code/V2V-GoT"
+V2VGOT_ROOT="$PWD"
 
 # PYTHONPATH
 export PYTHONPATH=${PYTHONPATH:-}:$V2VGOT_ROOT/DMSTrack/AB3DMOT

@@ -8,8 +8,8 @@
 #SBATCH --time=06:00:00
 #SBATCH --account=cs-503
 #SBATCH --qos=cs-503
-#SBATCH --output=/scratch/izar/%u/v2v-got/logs/%x-%j.out
-#SBATCH --error=/scratch/izar/%u/v2v-got/logs/%x-%j.err
+#SBATCH --output=logs/%x-%j.out
+#SBATCH --error=logs/%x-%j.err
 #
 # Run LLM inference on the cav1-perspective QA files produced by gen_cav1_qa.py.
 #
@@ -39,7 +39,7 @@ echo "Node:    $(hostname)"
 echo "Started: $(date)"
 echo
 
-SCRATCH=/scratch/izar/$USER/v2v-got
+SCRATCH="$PWD/.."
 REPO=$SCRATCH/V2V-GoT
 # Real v2vgot_10ep baseline weights — re-downloaded from
 # huggingface.co/datasets/eddyhkchiu/V2V-GoT-QA  (model_ckpt.zip, ~37 GB).

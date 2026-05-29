@@ -23,7 +23,7 @@ do
       QUESTION_FILE="./playground/data/eval/$EXP/answers/$SPLIT/$CKPT/${DATA}.json"
     else
       # Fixed the path to correctly point to where the JSON QA datasets actually reside
-      QUESTION_FILE="/scratch/izar/$USER/v2v-got/data/V2V-GoT-QA/V2V_GoT_JSONS/DMSTrack/V2V4Real/official_models/no_fusion_keep_all/npy/co_llm/v2v4real_3d_grounding_qa_dataset_${DATA}.json"
+      QUESTION_FILE="$V2VGOT_ROOT/../data/V2V-GoT-QA/V2V_GoT_JSONS/DMSTrack/V2V4Real/official_models/no_fusion_keep_all/npy/co_llm/v2v4real_3d_grounding_qa_dataset_${DATA}.json"
     fi
     echo $QUESTION_FILE
 

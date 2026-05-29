@@ -6,8 +6,8 @@ NUM_INPUT_FRAMES=2
 FEATURE_SOURCE="no_fusion_keep_all"
 
 # Paths
-DATA_PATH="$V2VGOT_ROOT/data/V2V_GoT_JSONS/DMSTrack/V2V4Real/official_models/no_fusion_keep_all/npy/co_llm/v2v4real_3d_grounding_qa_dataset_v2vgot_satdesc.json"
-IMAGE_FOLDER="/scratch/izar/$USER/v2v-got/data/V2V4REAL/V2V4REAL/Data"
+DATA_PATH="$V2VGOT_ROOT/../data/V2V-GoT-QA/V2V_GoT_JSONS/DMSTrack/V2V4Real/official_models/no_fusion_keep_all/npy/co_llm/v2v4real_3d_grounding_qa_dataset_v2vgot_satdesc.json"
+IMAGE_FOLDER="$V2VGOT_ROOT/../data/V2V4REAL/V2V4REAL/Data"
 
 # Output checkpoint directory
 OUTPUT_DIR="./checkpoints/llava-v1.5-7b-task-lora_v2v4real_3d_grounding_v2vgot_satdesc"

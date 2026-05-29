@@ -8,8 +8,8 @@
 #SBATCH --time=02:00:00
 #SBATCH --account=cs-503
 #SBATCH --qos=cs-503
-#SBATCH --output=/scratch/izar/%u/v2v-got/logs/%x-%j.out
-#SBATCH --error=/scratch/izar/%u/v2v-got/logs/%x-%j.err
+#SBATCH --output=logs/%x-%j.out
+#SBATCH --error=logs/%x-%j.err
 
 # set -euo pipefail  # disabled: conda activate may emit harmless warnings
 
@@ -35,7 +35,7 @@ cd "$V2VGOT_ROOT"
 RUN_NAME="v2vgot_10ep_both_shallow_f2_4330_full"
 COMM_MB="0.4068"
 
-QA_DIR="/scratch/izar/$USER/v2v-got/data/V2V-GoT-QA/V2V_GoT_JSONS/DMSTrack/V2V4Real/official_models/no_fusion_keep_all/npy/co_llm"
+QA_DIR="$V2VGOT_ROOT/../data/V2V-GoT-QA/V2V_GoT_JSONS/DMSTrack/V2V4Real/official_models/no_fusion_keep_all/npy/co_llm"
 
 python LLaVA/scripts/eval_v2vgot_unified.py \
   --inference_root LLaVA/playground/data/eval \
