@@ -1,0 +1,70 @@
+Traceback (most recent call last):
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/scripts/eval_v2vgot_unified.py", line 581, in <module>
+    main()
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/scripts/eval_v2vgot_unified.py", line 471, in main
+    metrics = evaluate_future_trajectory(
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/scripts/eval_v2v4real_3d_grounding.py", line 753, in evaluate_future_trajectory
+    has_collision = check_has_collision(future_cav_location_in_current_ego_coordinate, global_timestamp_index, future_global_timestamp_index, npy_save_path, data_sample['asker_cav_id'])
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/scripts/eval_v2v4real_3d_grounding.py", line 628, in check_has_collision
+    iou_nd = iou(future_cav_box_ab3dmot[0], gt_boxes_ab3dmot[i], iou_type)
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/AB3DMOT/AB3DMOT_libs/dist_metrics.py", line 143, in iou
+    boxa_bot, boxb_bot = compute_bottom(box_a, box_b)
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/AB3DMOT/AB3DMOT_libs/dist_metrics.py", line 93, in compute_bottom
+    corners1 = Box3D.box2corners3d_camcoord(box_a) 	# 8 x 3
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/AB3DMOT/AB3DMOT_libs/box.py", line 116, in box2corners3d_camcoord
+    R = roty(bbox.ry)   
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/numba/core/dispatcher.py", line 443, in _compile_for_args
+    raise e
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/numba/core/dispatcher.py", line 376, in _compile_for_args
+    return_val = self.compile(tuple(argtypes))
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/numba/core/dispatcher.py", line 908, in compile
+    cres = self._compiler.compile(args, return_type)
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/numba/core/dispatcher.py", line 80, in compile
+    status, retval = self._compile_cached(args, return_type)
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/numba/core/dispatcher.py", line 94, in _compile_cached
+    retval = self._compile_core(args, return_type)
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/numba/core/dispatcher.py", line 107, in _compile_core
+    cres = compiler.compile_extra(self.targetdescr.typing_context,
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/numba/core/compiler.py", line 739, in compile_extra
+    return pipeline.compile_extra(func)
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/numba/core/compiler.py", line 439, in compile_extra
+    return self._compile_bytecode()
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/numba/core/compiler.py", line 505, in _compile_bytecode
+    return self._compile_core()
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/numba/core/compiler.py", line 481, in _compile_core
+    raise e
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/numba/core/compiler.py", line 473, in _compile_core
+    pm.run(self.state)
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/numba/core/compiler_machinery.py", line 363, in run
+    raise e
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/numba/core/compiler_machinery.py", line 356, in run
+    self._runPass(idx, pass_inst, state)
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/numba/core/compiler_lock.py", line 35, in _acquire_compile_lock
+    return func(*args, **kwargs)
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/numba/core/compiler_machinery.py", line 311, in _runPass
+    mutated |= check(pss.run_pass, internal_state)
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/numba/core/compiler_machinery.py", line 272, in check
+    mangled = func(compiler_state)
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/numba/core/typed_passes.py", line 472, in run_pass
+    lower.lower()
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/numba/core/lowering.py", line 193, in lower
+    self.lower_normal_function(self.fndesc)
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/numba/core/lowering.py", line 232, in lower_normal_function
+    entry_block_tail = self.lower_function_body()
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/numba/core/lowering.py", line 262, in lower_function_body
+    self.lower_block(block)
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/numba/core/lowering.py", line 276, in lower_block
+    self.lower_inst(inst)
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/numba/core/lowering.py", line 462, in lower_inst
+    val = self.lower_assign(ty, inst)
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/numba/core/lowering.py", line 674, in lower_assign
+    return self.lower_expr(ty, value)
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/numba/core/lowering.py", line 1428, in lower_expr
+    castvals = [self.context.cast(self.builder, val, fromty,
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/numba/core/lowering.py", line 1428, in <listcomp>
+    castvals = [self.context.cast(self.builder, val, fromty,
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/numba/core/base.py", line 710, in cast
+    return impl(self, builder, fromty, toty, val)
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/numba/cpython/listobj.py", line 1131, in list_to_list
+    assert fromty.dtype == toty.dtype
+AssertionError

@@ -1,0 +1,579 @@
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:  50%|█████     | 1/2 [00:24<00:24, 24.94s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:36<00:00, 17.09s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:36<00:00, 18.27s/it]
+Some weights of LlavaLlamaForCausalLM were not initialized from the model checkpoint at liuhaotian/llava-v1.5-7b and are newly initialized: ['model.mm_scene_projector.0.bias', 'model.mm_scene_projector.0.weight', 'model.mm_scene_projector.2.bias', 'model.mm_scene_projector.2.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Loading checkpoint shards:  50%|█████     | 1/2 [00:25<00:25, 25.01s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:36<00:00, 17.10s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:36<00:00, 18.28s/it]
+Some weights of LlavaLlamaForCausalLM were not initialized from the model checkpoint at liuhaotian/llava-v1.5-7b and are newly initialized: ['model.mm_scene_projector.0.bias', 'model.mm_scene_projector.0.weight', 'model.mm_scene_projector.2.bias', 'model.mm_scene_projector.2.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Loading checkpoint shards:  50%|█████     | 1/2 [00:44<00:44, 44.98s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:57<00:00, 25.94s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:57<00:00, 28.80s/it]
+Some weights of LlavaLlamaForCausalLM were not initialized from the model checkpoint at liuhaotian/llava-v1.5-7b and are newly initialized: ['model.mm_scene_projector.0.bias', 'model.mm_scene_projector.0.weight', 'model.mm_scene_projector.2.bias', 'model.mm_scene_projector.2.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Loading checkpoint shards:  50%|█████     | 1/2 [00:44<00:44, 44.88s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:57<00:00, 25.99s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:57<00:00, 28.83s/it]
+Some weights of LlavaLlamaForCausalLM were not initialized from the model checkpoint at liuhaotian/llava-v1.5-7b and are newly initialized: ['model.mm_scene_projector.0.bias', 'model.mm_scene_projector.0.weight', 'model.mm_scene_projector.2.bias', 'model.mm_scene_projector.2.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Traceback (most recent call last):
+  File "/home/faresse/miniconda3/envs/llava/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/faresse/miniconda3/envs/llava/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/llava/eval/model_vqa_loader.py", line 855, in <module>
+    inference_v2v4real_3d_grounding(args)
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/llava/eval/model_vqa_loader.py", line 722, in inference_v2v4real_3d_grounding
+    list_data_dict = json.load(open(args.question_file, "r"))
+FileNotFoundError: [Errno 2] No such file or directory: '../DMSTrack/V2V4Real/official_models/no_fusion_keep_all/npy/co_llm/v2v4real_3d_grounding_qa_dataset_nq1sm3w0d.json'
+Traceback (most recent call last):
+  File "/home/faresse/miniconda3/envs/llava/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/faresse/miniconda3/envs/llava/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/llava/eval/model_vqa_loader.py", line 855, in <module>
+    inference_v2v4real_3d_grounding(args)
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/llava/eval/model_vqa_loader.py", line 722, in inference_v2v4real_3d_grounding
+    list_data_dict = json.load(open(args.question_file, "r"))
+FileNotFoundError: [Errno 2] No such file or directory: '../DMSTrack/V2V4Real/official_models/no_fusion_keep_all/npy/co_llm/v2v4real_3d_grounding_qa_dataset_nq1sm3w0d.json'
+srun: error: i36: tasks 2-3: Exited with exit code 1
+srun: Terminating StepId=2948839.0
+slurmstepd: error: *** STEP 2948839.0 ON i14 CANCELLED AT 2026-05-26T17:41:00 ***
+srun: error: i14: tasks 0-1: Terminated
+srun: Force Terminated StepId=2948839.0
+cat: ./playground/data/eval/v2v4real_3d_grounding_v2vgot_satdesc_4000_full_nq1sm3w0d/answers/val/llava-v1.5-7b/4_0.jsonl: No such file or directory
+cat: ./playground/data/eval/v2v4real_3d_grounding_v2vgot_satdesc_4000_full_nq1sm3w0d/answers/val/llava-v1.5-7b/4_1.jsonl: No such file or directory
+cat: ./playground/data/eval/v2v4real_3d_grounding_v2vgot_satdesc_4000_full_nq1sm3w0d/answers/val/llava-v1.5-7b/4_2.jsonl: No such file or directory
+cat: ./playground/data/eval/v2v4real_3d_grounding_v2vgot_satdesc_4000_full_nq1sm3w0d/answers/val/llava-v1.5-7b/4_3.jsonl: No such file or directory
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:  50%|█████     | 1/2 [00:23<00:23, 23.36s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:28<00:00, 12.54s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:28<00:00, 14.16s/it]
+Some weights of LlavaLlamaForCausalLM were not initialized from the model checkpoint at liuhaotian/llava-v1.5-7b and are newly initialized: ['model.mm_scene_projector.0.bias', 'model.mm_scene_projector.0.weight', 'model.mm_scene_projector.2.bias', 'model.mm_scene_projector.2.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Loading checkpoint shards:  50%|█████     | 1/2 [00:23<00:23, 23.42s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:28<00:00, 12.58s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:28<00:00, 14.21s/it]
+Some weights of LlavaLlamaForCausalLM were not initialized from the model checkpoint at liuhaotian/llava-v1.5-7b and are newly initialized: ['model.mm_scene_projector.0.bias', 'model.mm_scene_projector.0.weight', 'model.mm_scene_projector.2.bias', 'model.mm_scene_projector.2.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Loading checkpoint shards:  50%|█████     | 1/2 [00:23<00:23, 23.33s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:29<00:00, 13.17s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:29<00:00, 14.70s/it]
+Some weights of LlavaLlamaForCausalLM were not initialized from the model checkpoint at liuhaotian/llava-v1.5-7b and are newly initialized: ['model.mm_scene_projector.0.bias', 'model.mm_scene_projector.0.weight', 'model.mm_scene_projector.2.bias', 'model.mm_scene_projector.2.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Loading checkpoint shards:  50%|█████     | 1/2 [00:23<00:23, 23.57s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:29<00:00, 13.14s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:29<00:00, 14.70s/it]
+Some weights of LlavaLlamaForCausalLM were not initialized from the model checkpoint at liuhaotian/llava-v1.5-7b and are newly initialized: ['model.mm_scene_projector.0.bias', 'model.mm_scene_projector.0.weight', 'model.mm_scene_projector.2.bias', 'model.mm_scene_projector.2.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Traceback (most recent call last):
+  File "/home/faresse/miniconda3/envs/llava/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/faresse/miniconda3/envs/llava/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/llava/eval/model_vqa_loader.py", line 855, in <module>
+    inference_v2v4real_3d_grounding(args)
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/llava/eval/model_vqa_loader.py", line 722, in inference_v2v4real_3d_grounding
+    list_data_dict = json.load(open(args.question_file, "r"))
+FileNotFoundError: [Errno 2] No such file or directory: '../DMSTrack/V2V4Real/official_models/no_fusion_keep_all/npy/co_llm/v2v4real_3d_grounding_qa_dataset_nq2sm3w0d.json'
+Traceback (most recent call last):
+  File "/home/faresse/miniconda3/envs/llava/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/faresse/miniconda3/envs/llava/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/llava/eval/model_vqa_loader.py", line 855, in <module>
+    inference_v2v4real_3d_grounding(args)
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/llava/eval/model_vqa_loader.py", line 722, in inference_v2v4real_3d_grounding
+    list_data_dict = json.load(open(args.question_file, "r"))
+FileNotFoundError: [Errno 2] No such file or directory: '../DMSTrack/V2V4Real/official_models/no_fusion_keep_all/npy/co_llm/v2v4real_3d_grounding_qa_dataset_nq2sm3w0d.json'
+srun: error: i36: tasks 2-3: Exited with exit code 1
+srun: Terminating StepId=2948839.1
+slurmstepd: error: *** STEP 2948839.1 ON i14 CANCELLED AT 2026-05-26T17:41:55 ***
+srun: error: i14: tasks 0-1: Terminated
+srun: Force Terminated StepId=2948839.1
+cat: ./playground/data/eval/v2v4real_3d_grounding_v2vgot_satdesc_4000_full_nq2sm3w0d/answers/val/llava-v1.5-7b/4_0.jsonl: No such file or directory
+cat: ./playground/data/eval/v2v4real_3d_grounding_v2vgot_satdesc_4000_full_nq2sm3w0d/answers/val/llava-v1.5-7b/4_1.jsonl: No such file or directory
+cat: ./playground/data/eval/v2v4real_3d_grounding_v2vgot_satdesc_4000_full_nq2sm3w0d/answers/val/llava-v1.5-7b/4_2.jsonl: No such file or directory
+cat: ./playground/data/eval/v2v4real_3d_grounding_v2vgot_satdesc_4000_full_nq2sm3w0d/answers/val/llava-v1.5-7b/4_3.jsonl: No such file or directory
+python: can't open file '/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/V2V4Real/opencood/tools/temp_qa_generation.py': [Errno 2] No such file or directory
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:  50%|█████     | 1/2 [00:27<00:27, 27.03s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:31<00:00, 14.00s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:31<00:00, 15.95s/it]
+Some weights of LlavaLlamaForCausalLM were not initialized from the model checkpoint at liuhaotian/llava-v1.5-7b and are newly initialized: ['model.mm_scene_projector.0.bias', 'model.mm_scene_projector.0.weight', 'model.mm_scene_projector.2.bias', 'model.mm_scene_projector.2.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Loading checkpoint shards:  50%|█████     | 1/2 [00:26<00:26, 26.89s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:31<00:00, 14.05s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:31<00:00, 15.98s/it]
+Some weights of LlavaLlamaForCausalLM were not initialized from the model checkpoint at liuhaotian/llava-v1.5-7b and are newly initialized: ['model.mm_scene_projector.0.bias', 'model.mm_scene_projector.0.weight', 'model.mm_scene_projector.2.bias', 'model.mm_scene_projector.2.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Loading checkpoint shards:  50%|█████     | 1/2 [00:31<00:31, 31.78s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:40<00:00, 18.41s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:40<00:00, 20.42s/it]
+Some weights of LlavaLlamaForCausalLM were not initialized from the model checkpoint at liuhaotian/llava-v1.5-7b and are newly initialized: ['model.mm_scene_projector.0.bias', 'model.mm_scene_projector.0.weight', 'model.mm_scene_projector.2.bias', 'model.mm_scene_projector.2.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Loading checkpoint shards:  50%|█████     | 1/2 [00:31<00:31, 31.68s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:40<00:00, 18.45s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:40<00:00, 20.44s/it]
+Some weights of LlavaLlamaForCausalLM were not initialized from the model checkpoint at liuhaotian/llava-v1.5-7b and are newly initialized: ['model.mm_scene_projector.0.bias', 'model.mm_scene_projector.0.weight', 'model.mm_scene_projector.2.bias', 'model.mm_scene_projector.2.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Traceback (most recent call last):
+  File "/home/faresse/miniconda3/envs/llava/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/faresse/miniconda3/envs/llava/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/llava/eval/model_vqa_loader.py", line 855, in <module>
+    inference_v2v4real_3d_grounding(args)
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/llava/eval/model_vqa_loader.py", line 722, in inference_v2v4real_3d_grounding
+    list_data_dict = json.load(open(args.question_file, "r"))
+FileNotFoundError: [Errno 2] No such file or directory: './playground/data/eval/v2v4real_3d_grounding_v2vgot_satdesc_4000_full_nq3sm3w0dc/answers/val/llava-v1.5-7b/nq3sm3w0dc.json'
+Traceback (most recent call last):
+  File "/home/faresse/miniconda3/envs/llava/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/faresse/miniconda3/envs/llava/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/llava/eval/model_vqa_loader.py", line 855, in <module>
+    inference_v2v4real_3d_grounding(args)
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/llava/eval/model_vqa_loader.py", line 722, in inference_v2v4real_3d_grounding
+    list_data_dict = json.load(open(args.question_file, "r"))
+FileNotFoundError: [Errno 2] No such file or directory: './playground/data/eval/v2v4real_3d_grounding_v2vgot_satdesc_4000_full_nq3sm3w0dc/answers/val/llava-v1.5-7b/nq3sm3w0dc.json'
+srun: error: i14: tasks 0-1: Exited with exit code 1
+srun: Terminating StepId=2948839.2
+srun: error: i36: tasks 2-3: Terminated
+srun: Force Terminated StepId=2948839.2
+cat: ./playground/data/eval/v2v4real_3d_grounding_v2vgot_satdesc_4000_full_nq3sm3w0dc/answers/val/llava-v1.5-7b/4_0.jsonl: No such file or directory
+cat: ./playground/data/eval/v2v4real_3d_grounding_v2vgot_satdesc_4000_full_nq3sm3w0dc/answers/val/llava-v1.5-7b/4_1.jsonl: No such file or directory
+cat: ./playground/data/eval/v2v4real_3d_grounding_v2vgot_satdesc_4000_full_nq3sm3w0dc/answers/val/llava-v1.5-7b/4_2.jsonl: No such file or directory
+cat: ./playground/data/eval/v2v4real_3d_grounding_v2vgot_satdesc_4000_full_nq3sm3w0dc/answers/val/llava-v1.5-7b/4_3.jsonl: No such file or directory
+python: can't open file '/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/V2V4Real/opencood/tools/temp_qa_generation.py': [Errno 2] No such file or directory
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:  50%|█████     | 1/2 [00:19<00:19, 19.21s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:27<00:00, 12.72s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:27<00:00, 13.70s/it]
+Some weights of LlavaLlamaForCausalLM were not initialized from the model checkpoint at liuhaotian/llava-v1.5-7b and are newly initialized: ['model.mm_scene_projector.0.bias', 'model.mm_scene_projector.0.weight', 'model.mm_scene_projector.2.bias', 'model.mm_scene_projector.2.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Loading checkpoint shards:  50%|█████     | 1/2 [00:19<00:19, 19.32s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:27<00:00, 12.74s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:27<00:00, 13.72s/it]
+Some weights of LlavaLlamaForCausalLM were not initialized from the model checkpoint at liuhaotian/llava-v1.5-7b and are newly initialized: ['model.mm_scene_projector.0.bias', 'model.mm_scene_projector.0.weight', 'model.mm_scene_projector.2.bias', 'model.mm_scene_projector.2.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Loading checkpoint shards:  50%|█████     | 1/2 [00:27<00:27, 27.21s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:42<00:00, 20.32s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:42<00:00, 21.36s/it]
+Some weights of LlavaLlamaForCausalLM were not initialized from the model checkpoint at liuhaotian/llava-v1.5-7b and are newly initialized: ['model.mm_scene_projector.0.bias', 'model.mm_scene_projector.0.weight', 'model.mm_scene_projector.2.bias', 'model.mm_scene_projector.2.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Loading checkpoint shards:  50%|█████     | 1/2 [00:27<00:27, 27.17s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:42<00:00, 20.37s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:42<00:00, 21.39s/it]
+Some weights of LlavaLlamaForCausalLM were not initialized from the model checkpoint at liuhaotian/llava-v1.5-7b and are newly initialized: ['model.mm_scene_projector.0.bias', 'model.mm_scene_projector.0.weight', 'model.mm_scene_projector.2.bias', 'model.mm_scene_projector.2.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Traceback (most recent call last):
+  File "/home/faresse/miniconda3/envs/llava/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/faresse/miniconda3/envs/llava/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/llava/eval/model_vqa_loader.py", line 855, in <module>
+    inference_v2v4real_3d_grounding(args)
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/llava/eval/model_vqa_loader.py", line 722, in inference_v2v4real_3d_grounding
+    list_data_dict = json.load(open(args.question_file, "r"))
+FileNotFoundError: [Errno 2] No such file or directory: './playground/data/eval/v2v4real_3d_grounding_v2vgot_satdesc_4000_full_nq4sm3w0dc/answers/val/llava-v1.5-7b/nq4sm3w0dc.json'
+Traceback (most recent call last):
+  File "/home/faresse/miniconda3/envs/llava/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/faresse/miniconda3/envs/llava/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/llava/eval/model_vqa_loader.py", line 855, in <module>
+    inference_v2v4real_3d_grounding(args)
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/llava/eval/model_vqa_loader.py", line 722, in inference_v2v4real_3d_grounding
+    list_data_dict = json.load(open(args.question_file, "r"))
+FileNotFoundError: [Errno 2] No such file or directory: './playground/data/eval/v2v4real_3d_grounding_v2vgot_satdesc_4000_full_nq4sm3w0dc/answers/val/llava-v1.5-7b/nq4sm3w0dc.json'
+srun: error: i14: tasks 0-1: Exited with exit code 1
+srun: Terminating StepId=2948839.3
+srun: error: i36: tasks 2-3: Terminated
+srun: Force Terminated StepId=2948839.3
+cat: ./playground/data/eval/v2v4real_3d_grounding_v2vgot_satdesc_4000_full_nq4sm3w0dc/answers/val/llava-v1.5-7b/4_0.jsonl: No such file or directory
+cat: ./playground/data/eval/v2v4real_3d_grounding_v2vgot_satdesc_4000_full_nq4sm3w0dc/answers/val/llava-v1.5-7b/4_1.jsonl: No such file or directory
+cat: ./playground/data/eval/v2v4real_3d_grounding_v2vgot_satdesc_4000_full_nq4sm3w0dc/answers/val/llava-v1.5-7b/4_2.jsonl: No such file or directory
+cat: ./playground/data/eval/v2v4real_3d_grounding_v2vgot_satdesc_4000_full_nq4sm3w0dc/answers/val/llava-v1.5-7b/4_3.jsonl: No such file or directory
+python: can't open file '/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/V2V4Real/opencood/tools/temp_qa_generation.py': [Errno 2] No such file or directory
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:  50%|█████     | 1/2 [00:14<00:14, 14.11s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:18<00:00,  8.55s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:18<00:00,  9.39s/it]
+Some weights of LlavaLlamaForCausalLM were not initialized from the model checkpoint at liuhaotian/llava-v1.5-7b and are newly initialized: ['model.mm_scene_projector.0.bias', 'model.mm_scene_projector.0.weight', 'model.mm_scene_projector.2.bias', 'model.mm_scene_projector.2.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Loading checkpoint shards:  50%|█████     | 1/2 [00:14<00:14, 14.22s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:18<00:00,  8.59s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:18<00:00,  9.43s/it]
+Some weights of LlavaLlamaForCausalLM were not initialized from the model checkpoint at liuhaotian/llava-v1.5-7b and are newly initialized: ['model.mm_scene_projector.0.bias', 'model.mm_scene_projector.0.weight', 'model.mm_scene_projector.2.bias', 'model.mm_scene_projector.2.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Loading checkpoint shards:  50%|█████     | 1/2 [00:21<00:21, 21.33s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:29<00:00, 13.71s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:29<00:00, 14.86s/it]
+Some weights of LlavaLlamaForCausalLM were not initialized from the model checkpoint at liuhaotian/llava-v1.5-7b and are newly initialized: ['model.mm_scene_projector.0.bias', 'model.mm_scene_projector.0.weight', 'model.mm_scene_projector.2.bias', 'model.mm_scene_projector.2.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Loading checkpoint shards:  50%|█████     | 1/2 [00:21<00:21, 21.47s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:29<00:00, 13.69s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:29<00:00, 14.86s/it]
+Some weights of LlavaLlamaForCausalLM were not initialized from the model checkpoint at liuhaotian/llava-v1.5-7b and are newly initialized: ['model.mm_scene_projector.0.bias', 'model.mm_scene_projector.0.weight', 'model.mm_scene_projector.2.bias', 'model.mm_scene_projector.2.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Traceback (most recent call last):
+  File "/home/faresse/miniconda3/envs/llava/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/faresse/miniconda3/envs/llava/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/llava/eval/model_vqa_loader.py", line 855, in <module>
+    inference_v2v4real_3d_grounding(args)
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/llava/eval/model_vqa_loader.py", line 722, in inference_v2v4real_3d_grounding
+    list_data_dict = json.load(open(args.question_file, "r"))
+FileNotFoundError: [Errno 2] No such file or directory: './playground/data/eval/v2v4real_3d_grounding_v2vgot_satdesc_4000_full_nq5sm3w1dc/answers/val/llava-v1.5-7b/nq5sm3w1dc.json'
+Traceback (most recent call last):
+  File "/home/faresse/miniconda3/envs/llava/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/faresse/miniconda3/envs/llava/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/llava/eval/model_vqa_loader.py", line 855, in <module>
+    inference_v2v4real_3d_grounding(args)
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/llava/eval/model_vqa_loader.py", line 722, in inference_v2v4real_3d_grounding
+    list_data_dict = json.load(open(args.question_file, "r"))
+FileNotFoundError: [Errno 2] No such file or directory: './playground/data/eval/v2v4real_3d_grounding_v2vgot_satdesc_4000_full_nq5sm3w1dc/answers/val/llava-v1.5-7b/nq5sm3w1dc.json'
+srun: error: i14: tasks 0-1: Exited with exit code 1
+srun: Terminating StepId=2948839.4
+srun: error: i36: tasks 2-3: Terminated
+srun: Force Terminated StepId=2948839.4
+cat: ./playground/data/eval/v2v4real_3d_grounding_v2vgot_satdesc_4000_full_nq5sm3w1dc/answers/val/llava-v1.5-7b/4_0.jsonl: No such file or directory
+cat: ./playground/data/eval/v2v4real_3d_grounding_v2vgot_satdesc_4000_full_nq5sm3w1dc/answers/val/llava-v1.5-7b/4_1.jsonl: No such file or directory
+cat: ./playground/data/eval/v2v4real_3d_grounding_v2vgot_satdesc_4000_full_nq5sm3w1dc/answers/val/llava-v1.5-7b/4_2.jsonl: No such file or directory
+cat: ./playground/data/eval/v2v4real_3d_grounding_v2vgot_satdesc_4000_full_nq5sm3w1dc/answers/val/llava-v1.5-7b/4_3.jsonl: No such file or directory
+python: can't open file '/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/V2V4Real/opencood/tools/temp_qa_generation.py': [Errno 2] No such file or directory
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:  50%|█████     | 1/2 [00:30<00:30, 30.53s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:37<00:00, 16.62s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:37<00:00, 18.71s/it]
+Some weights of LlavaLlamaForCausalLM were not initialized from the model checkpoint at liuhaotian/llava-v1.5-7b and are newly initialized: ['model.mm_scene_projector.0.bias', 'model.mm_scene_projector.0.weight', 'model.mm_scene_projector.2.bias', 'model.mm_scene_projector.2.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Loading checkpoint shards:  50%|█████     | 1/2 [00:30<00:30, 30.61s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:37<00:00, 16.63s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:37<00:00, 18.73s/it]
+Some weights of LlavaLlamaForCausalLM were not initialized from the model checkpoint at liuhaotian/llava-v1.5-7b and are newly initialized: ['model.mm_scene_projector.0.bias', 'model.mm_scene_projector.0.weight', 'model.mm_scene_projector.2.bias', 'model.mm_scene_projector.2.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Traceback (most recent call last):
+  File "/home/faresse/miniconda3/envs/llava/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/faresse/miniconda3/envs/llava/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/llava/eval/model_vqa_loader.py", line 855, in <module>
+    inference_v2v4real_3d_grounding(args)
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/llava/eval/model_vqa_loader.py", line 722, in inference_v2v4real_3d_grounding
+    list_data_dict = json.load(open(args.question_file, "r"))
+FileNotFoundError: [Errno 2] No such file or directory: './playground/data/eval/v2v4real_3d_grounding_v2vgot_satdesc_4000_full_nq6sm3w1dc/answers/val/llava-v1.5-7b/nq6sm3w1dc.json'
+Traceback (most recent call last):
+  File "/home/faresse/miniconda3/envs/llava/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/faresse/miniconda3/envs/llava/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/llava/eval/model_vqa_loader.py", line 855, in <module>
+    inference_v2v4real_3d_grounding(args)
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/llava/eval/model_vqa_loader.py", line 722, in inference_v2v4real_3d_grounding
+    list_data_dict = json.load(open(args.question_file, "r"))
+FileNotFoundError: [Errno 2] No such file or directory: './playground/data/eval/v2v4real_3d_grounding_v2vgot_satdesc_4000_full_nq6sm3w1dc/answers/val/llava-v1.5-7b/nq6sm3w1dc.json'
+Loading checkpoint shards:  50%|█████     | 1/2 [00:36<00:36, 36.69s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:46<00:00, 20.72s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:46<00:00, 23.12s/it]
+Some weights of LlavaLlamaForCausalLM were not initialized from the model checkpoint at liuhaotian/llava-v1.5-7b and are newly initialized: ['model.mm_scene_projector.0.bias', 'model.mm_scene_projector.0.weight', 'model.mm_scene_projector.2.bias', 'model.mm_scene_projector.2.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Loading checkpoint shards:  50%|█████     | 1/2 [00:36<00:36, 36.56s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:46<00:00, 20.79s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:46<00:00, 23.15s/it]
+Some weights of LlavaLlamaForCausalLM were not initialized from the model checkpoint at liuhaotian/llava-v1.5-7b and are newly initialized: ['model.mm_scene_projector.0.bias', 'model.mm_scene_projector.0.weight', 'model.mm_scene_projector.2.bias', 'model.mm_scene_projector.2.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+srun: error: i14: tasks 0-1: Exited with exit code 1
+srun: Terminating StepId=2948839.5
+srun: error: i36: tasks 2-3: Terminated
+srun: Force Terminated StepId=2948839.5
+cat: ./playground/data/eval/v2v4real_3d_grounding_v2vgot_satdesc_4000_full_nq6sm3w1dc/answers/val/llava-v1.5-7b/4_0.jsonl: No such file or directory
+cat: ./playground/data/eval/v2v4real_3d_grounding_v2vgot_satdesc_4000_full_nq6sm3w1dc/answers/val/llava-v1.5-7b/4_1.jsonl: No such file or directory
+cat: ./playground/data/eval/v2v4real_3d_grounding_v2vgot_satdesc_4000_full_nq6sm3w1dc/answers/val/llava-v1.5-7b/4_2.jsonl: No such file or directory
+cat: ./playground/data/eval/v2v4real_3d_grounding_v2vgot_satdesc_4000_full_nq6sm3w1dc/answers/val/llava-v1.5-7b/4_3.jsonl: No such file or directory
+python: can't open file '/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/V2V4Real/opencood/tools/temp_qa_generation.py': [Errno 2] No such file or directory
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:  50%|█████     | 1/2 [00:15<00:15, 15.27s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:21<00:00,  9.91s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:21<00:00, 10.72s/it]
+Some weights of LlavaLlamaForCausalLM were not initialized from the model checkpoint at liuhaotian/llava-v1.5-7b and are newly initialized: ['model.mm_scene_projector.0.bias', 'model.mm_scene_projector.0.weight', 'model.mm_scene_projector.2.bias', 'model.mm_scene_projector.2.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Loading checkpoint shards:  50%|█████     | 1/2 [00:15<00:15, 15.33s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:21<00:00,  9.95s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:21<00:00, 10.76s/it]
+Some weights of LlavaLlamaForCausalLM were not initialized from the model checkpoint at liuhaotian/llava-v1.5-7b and are newly initialized: ['model.mm_scene_projector.0.bias', 'model.mm_scene_projector.0.weight', 'model.mm_scene_projector.2.bias', 'model.mm_scene_projector.2.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Loading checkpoint shards:  50%|█████     | 1/2 [00:23<00:23, 23.36s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:33<00:00, 15.42s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:33<00:00, 16.61s/it]
+Some weights of LlavaLlamaForCausalLM were not initialized from the model checkpoint at liuhaotian/llava-v1.5-7b and are newly initialized: ['model.mm_scene_projector.0.bias', 'model.mm_scene_projector.0.weight', 'model.mm_scene_projector.2.bias', 'model.mm_scene_projector.2.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Loading checkpoint shards:  50%|█████     | 1/2 [00:23<00:23, 23.59s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:33<00:00, 15.38s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:33<00:00, 16.61s/it]
+Some weights of LlavaLlamaForCausalLM were not initialized from the model checkpoint at liuhaotian/llava-v1.5-7b and are newly initialized: ['model.mm_scene_projector.0.bias', 'model.mm_scene_projector.0.weight', 'model.mm_scene_projector.2.bias', 'model.mm_scene_projector.2.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Traceback (most recent call last):
+  File "/home/faresse/miniconda3/envs/llava/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/faresse/miniconda3/envs/llava/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/llava/eval/model_vqa_loader.py", line 855, in <module>
+    inference_v2v4real_3d_grounding(args)
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/llava/eval/model_vqa_loader.py", line 722, in inference_v2v4real_3d_grounding
+    list_data_dict = json.load(open(args.question_file, "r"))
+FileNotFoundError: [Errno 2] No such file or directory: './playground/data/eval/v2v4real_3d_grounding_v2vgot_satdesc_4000_full_nq7sm3w1dc/answers/val/llava-v1.5-7b/nq7sm3w1dc.json'
+Traceback (most recent call last):
+  File "/home/faresse/miniconda3/envs/llava/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/faresse/miniconda3/envs/llava/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/llava/eval/model_vqa_loader.py", line 855, in <module>
+    inference_v2v4real_3d_grounding(args)
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/llava/eval/model_vqa_loader.py", line 722, in inference_v2v4real_3d_grounding
+    list_data_dict = json.load(open(args.question_file, "r"))
+FileNotFoundError: [Errno 2] No such file or directory: './playground/data/eval/v2v4real_3d_grounding_v2vgot_satdesc_4000_full_nq7sm3w1dc/answers/val/llava-v1.5-7b/nq7sm3w1dc.json'
+srun: error: i14: tasks 0-1: Exited with exit code 1
+srun: Terminating StepId=2948839.6
+srun: error: i36: tasks 2-3: Terminated
+srun: Force Terminated StepId=2948839.6
+cat: ./playground/data/eval/v2v4real_3d_grounding_v2vgot_satdesc_4000_full_nq7sm3w1dc/answers/val/llava-v1.5-7b/4_0.jsonl: No such file or directory
+cat: ./playground/data/eval/v2v4real_3d_grounding_v2vgot_satdesc_4000_full_nq7sm3w1dc/answers/val/llava-v1.5-7b/4_1.jsonl: No such file or directory
+cat: ./playground/data/eval/v2v4real_3d_grounding_v2vgot_satdesc_4000_full_nq7sm3w1dc/answers/val/llava-v1.5-7b/4_2.jsonl: No such file or directory
+cat: ./playground/data/eval/v2v4real_3d_grounding_v2vgot_satdesc_4000_full_nq7sm3w1dc/answers/val/llava-v1.5-7b/4_3.jsonl: No such file or directory
+python: can't open file '/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/V2V4Real/opencood/tools/temp_qa_generation.py': [Errno 2] No such file or directory
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:  50%|█████     | 1/2 [00:16<00:16, 16.18s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:21<00:00,  9.99s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:21<00:00, 10.92s/it]
+Some weights of LlavaLlamaForCausalLM were not initialized from the model checkpoint at liuhaotian/llava-v1.5-7b and are newly initialized: ['model.mm_scene_projector.0.bias', 'model.mm_scene_projector.0.weight', 'model.mm_scene_projector.2.bias', 'model.mm_scene_projector.2.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Loading checkpoint shards:  50%|█████     | 1/2 [00:16<00:16, 16.24s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:21<00:00, 10.02s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:21<00:00, 10.95s/it]
+Some weights of LlavaLlamaForCausalLM were not initialized from the model checkpoint at liuhaotian/llava-v1.5-7b and are newly initialized: ['model.mm_scene_projector.0.bias', 'model.mm_scene_projector.0.weight', 'model.mm_scene_projector.2.bias', 'model.mm_scene_projector.2.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Traceback (most recent call last):
+  File "/home/faresse/miniconda3/envs/llava/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/faresse/miniconda3/envs/llava/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/llava/eval/model_vqa_loader.py", line 855, in <module>
+    inference_v2v4real_3d_grounding(args)
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/llava/eval/model_vqa_loader.py", line 722, in inference_v2v4real_3d_grounding
+    list_data_dict = json.load(open(args.question_file, "r"))
+FileNotFoundError: [Errno 2] No such file or directory: './playground/data/eval/v2v4real_3d_grounding_v2vgot_satdesc_4000_full_nq8sm3w6dc/answers/val/llava-v1.5-7b/nq8sm3w6dc.json'
+Traceback (most recent call last):
+  File "/home/faresse/miniconda3/envs/llava/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/faresse/miniconda3/envs/llava/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/llava/eval/model_vqa_loader.py", line 855, in <module>
+    inference_v2v4real_3d_grounding(args)
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/llava/eval/model_vqa_loader.py", line 722, in inference_v2v4real_3d_grounding
+    list_data_dict = json.load(open(args.question_file, "r"))
+FileNotFoundError: [Errno 2] No such file or directory: './playground/data/eval/v2v4real_3d_grounding_v2vgot_satdesc_4000_full_nq8sm3w6dc/answers/val/llava-v1.5-7b/nq8sm3w6dc.json'
+srun: error: i14: tasks 0-1: Exited with exit code 1
+srun: Terminating StepId=2948839.7
+Loading checkpoint shards:  50%|█████     | 1/2 [00:25<00:25, 25.87s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:25<00:25, 25.91s/it]srun: error: i36: tasks 2-3: Terminated
+srun: Force Terminated StepId=2948839.7
+cat: ./playground/data/eval/v2v4real_3d_grounding_v2vgot_satdesc_4000_full_nq8sm3w6dc/answers/val/llava-v1.5-7b/4_0.jsonl: No such file or directory
+cat: ./playground/data/eval/v2v4real_3d_grounding_v2vgot_satdesc_4000_full_nq8sm3w6dc/answers/val/llava-v1.5-7b/4_1.jsonl: No such file or directory
+cat: ./playground/data/eval/v2v4real_3d_grounding_v2vgot_satdesc_4000_full_nq8sm3w6dc/answers/val/llava-v1.5-7b/4_2.jsonl: No such file or directory
+cat: ./playground/data/eval/v2v4real_3d_grounding_v2vgot_satdesc_4000_full_nq8sm3w6dc/answers/val/llava-v1.5-7b/4_3.jsonl: No such file or directory
+python: can't open file '/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/V2V4Real/opencood/tools/temp_qa_generation.py': [Errno 2] No such file or directory
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/home/faresse/miniconda3/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:  50%|█████     | 1/2 [00:32<00:32, 32.77s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:39<00:00, 17.21s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:39<00:00, 19.55s/it]
+Some weights of LlavaLlamaForCausalLM were not initialized from the model checkpoint at liuhaotian/llava-v1.5-7b and are newly initialized: ['model.mm_scene_projector.0.bias', 'model.mm_scene_projector.0.weight', 'model.mm_scene_projector.2.bias', 'model.mm_scene_projector.2.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Loading checkpoint shards:  50%|█████     | 1/2 [00:32<00:32, 32.65s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:39<00:00, 17.27s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:39<00:00, 19.57s/it]
+Some weights of LlavaLlamaForCausalLM were not initialized from the model checkpoint at liuhaotian/llava-v1.5-7b and are newly initialized: ['model.mm_scene_projector.0.bias', 'model.mm_scene_projector.0.weight', 'model.mm_scene_projector.2.bias', 'model.mm_scene_projector.2.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Loading checkpoint shards:  50%|█████     | 1/2 [00:35<00:35, 35.61s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:43<00:00, 19.22s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:43<00:00, 21.67s/it]
+Some weights of LlavaLlamaForCausalLM were not initialized from the model checkpoint at liuhaotian/llava-v1.5-7b and are newly initialized: ['model.mm_scene_projector.0.bias', 'model.mm_scene_projector.0.weight', 'model.mm_scene_projector.2.bias', 'model.mm_scene_projector.2.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Loading checkpoint shards:  50%|█████     | 1/2 [00:35<00:35, 35.74s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:43<00:00, 19.20s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:43<00:00, 21.68s/it]
+Some weights of LlavaLlamaForCausalLM were not initialized from the model checkpoint at liuhaotian/llava-v1.5-7b and are newly initialized: ['model.mm_scene_projector.0.bias', 'model.mm_scene_projector.0.weight', 'model.mm_scene_projector.2.bias', 'model.mm_scene_projector.2.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Traceback (most recent call last):
+  File "/home/faresse/miniconda3/envs/llava/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/faresse/miniconda3/envs/llava/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/llava/eval/model_vqa_loader.py", line 855, in <module>
+    inference_v2v4real_3d_grounding(args)
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/llava/eval/model_vqa_loader.py", line 722, in inference_v2v4real_3d_grounding
+    list_data_dict = json.load(open(args.question_file, "r"))
+FileNotFoundError: [Errno 2] No such file or directory: './playground/data/eval/v2v4real_3d_grounding_v2vgot_satdesc_4000_full_nq9sm3w6dc/answers/val/llava-v1.5-7b/nq9sm3w6dc.json'
+Traceback (most recent call last):
+  File "/home/faresse/miniconda3/envs/llava/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/faresse/miniconda3/envs/llava/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/llava/eval/model_vqa_loader.py", line 855, in <module>
+    inference_v2v4real_3d_grounding(args)
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/llava/eval/model_vqa_loader.py", line 722, in inference_v2v4real_3d_grounding
+    list_data_dict = json.load(open(args.question_file, "r"))
+FileNotFoundError: [Errno 2] No such file or directory: './playground/data/eval/v2v4real_3d_grounding_v2vgot_satdesc_4000_full_nq9sm3w6dc/answers/val/llava-v1.5-7b/nq9sm3w6dc.json'
+srun: error: i14: tasks 0-1: Exited with exit code 1
+srun: Terminating StepId=2948839.8
+srun: error: i36: tasks 2-3: Terminated
+srun: Force Terminated StepId=2948839.8
+cat: ./playground/data/eval/v2v4real_3d_grounding_v2vgot_satdesc_4000_full_nq9sm3w6dc/answers/val/llava-v1.5-7b/4_0.jsonl: No such file or directory
+cat: ./playground/data/eval/v2v4real_3d_grounding_v2vgot_satdesc_4000_full_nq9sm3w6dc/answers/val/llava-v1.5-7b/4_1.jsonl: No such file or directory
+cat: ./playground/data/eval/v2v4real_3d_grounding_v2vgot_satdesc_4000_full_nq9sm3w6dc/answers/val/llava-v1.5-7b/4_2.jsonl: No such file or directory
+cat: ./playground/data/eval/v2v4real_3d_grounding_v2vgot_satdesc_4000_full_nq9sm3w6dc/answers/val/llava-v1.5-7b/4_3.jsonl: No such file or directory

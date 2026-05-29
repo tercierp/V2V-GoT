@@ -1,0 +1,4 @@
+/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+srun: warning: can't honor --ntasks-per-node set to 1 which doesn't match the requested tasks 4 with the number of requested nodes 2. Ignoring --ntasks-per-node.
+srun: error: Unable to create step for job 2944260: More processors requested than permitted

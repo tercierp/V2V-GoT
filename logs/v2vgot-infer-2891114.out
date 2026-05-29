@@ -1,0 +1,37 @@
+=== Job info ===
+Job ID:    2891114
+Node:      i42
+Started:   dim 10 mai 2026 08:52:16 CEST
+GPUs:      0
+
+Sun May 10 08:52:24 2026       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 535.154.05             Driver Version: 535.154.05   CUDA Version: 12.2     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  Tesla V100-PCIE-32GB           On  | 00000000:D8:00.0 Off |                  Off |
+| N/A   31C    P0              24W / 250W |      0MiB / 32768MiB |      0%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+                                                                                         
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|  No running processes found                                                           |
++---------------------------------------------------------------------------------------+
+
+PYTHONPATH: :/scratch/izar/faresse/v2v-got/V2V-GoT/DMSTrack/AB3DMOT:/scratch/izar/faresse/v2v-got/V2V-GoT/DMSTrack/AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/V2V-GoT/DMSTrack/V2V4Real:/scratch/izar/faresse/v2v-got/V2V-GoT/DMSTrack
+HF_HOME:    /scratch/izar/faresse/hf_cache
+ulimit -n:  65536
+
+=== Starting full V2V-GoT inference pipeline ===
+Time: dim 10 mai 2026 08:52:24 CEST
+
+
+=== Pipeline finished ===
+Time: dim 10 mai 2026 08:52:24 CEST

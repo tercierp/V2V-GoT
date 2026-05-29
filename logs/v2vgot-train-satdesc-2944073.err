@@ -1,0 +1,8 @@
+/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Traceback (most recent call last):
+  File "/home/faresse/miniconda3/envs/v2v/bin/deepspeed", line 6, in <module>
+    main()
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/deepspeed/launcher/runner.py", line 533, in main
+    raise RuntimeError(f"launcher '{args.launcher}' not installed.")
+RuntimeError: launcher 'pdsh' not installed.

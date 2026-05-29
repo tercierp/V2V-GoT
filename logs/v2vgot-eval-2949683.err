@@ -1,0 +1,2 @@
+/var/spool/slurmd/job2949683/slurm_script: line 33: cd: /scratch/izar/faresse/V2V-GoT: No such file or directory
+python: can't open file '/scratch/izar/faresse/v2v-got/LLaVA/scripts/eval_v2vgot_unified.py': [Errno 2] No such file or directory

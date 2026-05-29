@@ -1,0 +1,30 @@
+/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/llava/train/train_mem.py", line 4, in <module>
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/llava/train/train_mem.py", line 4, in <module>
+        train(attn_implementation="flash_attention_2")train(attn_implementation="flash_attention_2")
+
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/llava/train/train.py", line 1911, in train
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/llava/train/train.py", line 1911, in train
+    model_args, data_args, training_args = parser.parse_args_into_dataclasses()
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/transformers/hf_argparser.py", line 338, in parse_args_into_dataclasses
+    model_args, data_args, training_args = parser.parse_args_into_dataclasses()
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/transformers/hf_argparser.py", line 338, in parse_args_into_dataclasses
+    obj = dtype(**inputs)    
+  File "<string>", line 137, in __init__
+obj = dtype(**inputs)
+  File "<string>", line 137, in __init__
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/transformers/training_args.py", line 1437, in __post_init__
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/transformers/training_args.py", line 1437, in __post_init__
+        raise ValueError(raise ValueError(
+
+ValueErrorValueError: : Your setup doesn't support bf16/gpu. You need torch>=1.10, using Ampere GPU with cuda>=11.0Your setup doesn't support bf16/gpu. You need torch>=1.10, using Ampere GPU with cuda>=11.0
+

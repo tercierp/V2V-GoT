@@ -1,0 +1,1288 @@
+=== Job info ===
+Job ID:    2891795
+Node:      i08
+Started:   lun 11 mai 2026 08:55:28 CEST
+GPUs:      0
+
+Mon May 11 08:55:29 2026       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 535.154.05             Driver Version: 535.154.05   CUDA Version: 12.2     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  Tesla V100-PCIE-32GB           On  | 00000000:D8:00.0 Off |                  Off |
+| N/A   27C    P0              23W / 250W |      0MiB / 32768MiB |      0%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+                                                                                         
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|  No running processes found                                                           |
++---------------------------------------------------------------------------------------+
+
+PYTHONPATH: :/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack
+HF_HOME:    /scratch/izar/faresse/hf_cache
+ulimit -n:  65536
+
+=== Satellite description swap status ===
+  nq1sm3w0d: SWAPPED → /scratch/izar/faresse/v2v-got/data/V2V-GoT-QA/V2V_GoT_JSONS/DMSTrack/V2V4Real/official_models/no_fusion_keep_all/npy/co_llm/v2v4real_3d_grounding_qa_dataset_nq1sm3w0d_satdesc.json
+  nq2sm3w0d: SWAPPED → /scratch/izar/faresse/v2v-got/data/V2V-GoT-QA/V2V_GoT_JSONS/DMSTrack/V2V4Real/official_models/no_fusion_keep_all/npy/co_llm/v2v4real_3d_grounding_qa_dataset_nq2sm3w0d_satdesc.json
+  nq3sm3w0dc: SWAPPED → /scratch/izar/faresse/v2v-got/data/V2V-GoT-QA/V2V_GoT_JSONS/DMSTrack/V2V4Real/official_models/no_fusion_keep_all/npy/co_llm/v2v4real_3d_grounding_qa_dataset_nq3sm3w0dc_satdesc.json
+  nq4sm3w0dc: SWAPPED → /scratch/izar/faresse/v2v-got/data/V2V-GoT-QA/V2V_GoT_JSONS/DMSTrack/V2V4Real/official_models/no_fusion_keep_all/npy/co_llm/v2v4real_3d_grounding_qa_dataset_nq4sm3w0dc_satdesc.json
+  nq5sm3w1dc: SWAPPED → /scratch/izar/faresse/v2v-got/data/V2V-GoT-QA/V2V_GoT_JSONS/DMSTrack/V2V4Real/official_models/no_fusion_keep_all/npy/co_llm/v2v4real_3d_grounding_qa_dataset_nq5sm3w1dc_satdesc.json
+  nq6sm3w1dc: SWAPPED → /scratch/izar/faresse/v2v-got/data/V2V-GoT-QA/V2V_GoT_JSONS/DMSTrack/V2V4Real/official_models/no_fusion_keep_all/npy/co_llm/v2v4real_3d_grounding_qa_dataset_nq6sm3w1dc_satdesc.json
+  nq7sm3w1dc: SWAPPED → /scratch/izar/faresse/v2v-got/data/V2V-GoT-QA/V2V_GoT_JSONS/DMSTrack/V2V4Real/official_models/no_fusion_keep_all/npy/co_llm/v2v4real_3d_grounding_qa_dataset_nq7sm3w1dc_satdesc.json
+  nq8sm3w6dc: SWAPPED → /scratch/izar/faresse/v2v-got/data/V2V-GoT-QA/V2V_GoT_JSONS/DMSTrack/V2V4Real/official_models/no_fusion_keep_all/npy/co_llm/v2v4real_3d_grounding_qa_dataset_nq8sm3w6dc_satdesc.json
+  nq9sm3w6dc: SWAPPED → /scratch/izar/faresse/v2v-got/data/V2V-GoT-QA/V2V_GoT_JSONS/DMSTrack/V2V4Real/official_models/no_fusion_keep_all/npy/co_llm/v2v4real_3d_grounding_qa_dataset_nq9sm3w6dc_satdesc.json
+=========================================
+=== Starting full V2V-GoT inference pipeline ===
+Time: lun 11 mai 2026 08:55:29 CEST
+
+nq1 inference
+Mon May 11 08:55:30 2026       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 535.154.05             Driver Version: 535.154.05   CUDA Version: 12.2     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  Tesla V100-PCIE-32GB           On  | 00000000:D8:00.0 Off |                  Off |
+| N/A   27C    P0              23W / 250W |      0MiB / 32768MiB |      0%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+                                                                                         
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|  No running processes found                                                           |
++---------------------------------------------------------------------------------------+
+/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA::/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack
+0
+0
+v2v4real_3d_grounding_v2vgot_10ep_both_shallow_f2_4330_full_nq1sm3w0d
+./checkpoints/llava-v1.5-7b-task-lora/llava-v1.5-7b-task-lora_v2v4real_3d_grounding_v2vgot_10ep_both_shallow_f2/checkpoint-4330
+../DMSTrack/V2V4Real/official_models/no_fusion_keep_all/npy/co_llm/v2v4real_3d_grounding_qa_dataset_nq1sm3w0d.json
+./playground/data/eval/v2v4real_3d_grounding_v2vgot_10ep_both_shallow_f2_4330_full_nq1sm3w0d/answers/val/llava-v1.5-7b/1_0.jsonl
+[2026-05-11 08:55:40,126] [INFO] [real_accelerator.py:161:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+kwargs:  {'device_map': 'auto', 'my_model_config': {'mm_scene_projector_input_size': 3072, 'scene_level_only': False, 'object_level_only': False, 'scene_feature_mode': 'shallow', 'object_feature_mode': 'shallow', 'num_input_frames': 2, 'ego_only': False, 'feature_source': 'no_fusion_keep_all', 'dataset_source': 'v2v4real', 'num_latency_frames': 0, 'positional_error_std': 0.0}}
+Loading LLaVA from base model...
+kwargs["my_model_config"]:  {'mm_scene_projector_input_size': 3072, 'scene_level_only': False, 'object_level_only': False, 'scene_feature_mode': 'shallow', 'object_feature_mode': 'shallow', 'num_input_frames': 2, 'ego_only': False, 'feature_source': 'no_fusion_keep_all', 'dataset_source': 'v2v4real', 'num_latency_frames': 0, 'positional_error_std': 0.0}
+my_model_config:  {'mm_scene_projector_input_size': 3072, 'scene_level_only': False, 'object_level_only': False, 'scene_feature_mode': 'shallow', 'object_feature_mode': 'shallow', 'num_input_frames': 2, 'ego_only': False, 'feature_source': 'no_fusion_keep_all', 'dataset_source': 'v2v4real', 'num_latency_frames': 0, 'positional_error_std': 0.0}
+config:  LlavaConfig {
+  "_name_or_path": "liuhaotian/llava-v1.5-7b",
+  "architectures": [
+    "LlavaLlamaForCausalLM"
+  ],
+  "attention_bias": false,
+  "attention_dropout": 0.0,
+  "bos_token_id": 1,
+  "ego_only": false,
+  "eos_token_id": 2,
+  "freeze_mm_mlp_adapter": false,
+  "freeze_mm_vision_resampler": false,
+  "hidden_act": "silu",
+  "hidden_size": 4096,
+  "image_aspect_ratio": "pad",
+  "initializer_range": 0.02,
+  "intermediate_size": 11008,
+  "max_length": 4096,
+  "max_position_embeddings": 4096,
+  "mm_hidden_size": 1024,
+  "mm_patch_merge_type": "flat",
+  "mm_projector_lr": 2e-05,
+  "mm_projector_type": "mlp2x_gelu",
+  "mm_resampler_type": null,
+  "mm_scene_projector_input_size": 3072,
+  "mm_use_im_patch_token": false,
+  "mm_use_im_start_end": false,
+  "mm_vision_select_feature": "patch",
+  "mm_vision_select_layer": -2,
+  "mm_vision_tower": "openai/clip-vit-large-patch14-336",
+  "model_type": "llava_llama",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 32,
+  "object_feature_mode": "shallow",
+  "object_level_only": false,
+  "pad_token_id": 0,
+  "pretraining_tp": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": null,
+  "rope_theta": 10000.0,
+  "scene_feature_mode": "shallow",
+  "tie_word_embeddings": false,
+  "tokenizer_model_max_length": 2048,
+  "tokenizer_padding_side": "right",
+  "torch_dtype": "float16",
+  "transformers_version": "4.37.2",
+  "tune_mm_mlp_adapter": false,
+  "tune_mm_vision_resampler": false,
+  "unfreeze_mm_vision_tower": false,
+  "use_cache": false,
+  "use_mm_proj": true,
+  "vocab_size": 32000
+}
+
+mm_scene_projector_input_size:  3072
+Loading additional LLaVA weights...
+model_path:  ./checkpoints/llava-v1.5-7b-task-lora/llava-v1.5-7b-task-lora_v2v4real_3d_grounding_v2vgot_10ep_both_shallow_f2/checkpoint-4330
+name:  model.mm_projector.0.weight
+param.data.shape:  torch.Size([4096, 1024])
+torch.sum(param.data):  tensor(-749.5000, device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.0.bias
+param.data.shape:  torch.Size([4096])
+torch.sum(param.data):  tensor(-17.5938, device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.2.weight
+param.data.shape:  torch.Size([4096, 4096])
+torch.sum(param.data):  tensor(228.8750, device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.2.bias
+param.data.shape:  torch.Size([4096])
+torch.sum(param.data):  tensor(-12.2578, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.0.weight
+param.data.shape:  torch.Size([4096, 3072])
+torch.sum(param.data):  tensor(53.5625, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.0.bias
+param.data.shape:  torch.Size([4096])
+torch.sum(param.data):  tensor(0., device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.2.weight
+param.data.shape:  torch.Size([4096, 4096])
+torch.sum(param.data):  tensor(-35.6250, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.2.bias
+param.data.shape:  torch.Size([4096])
+torch.sum(param.data):  tensor(0., device='cuda:0', dtype=torch.float16)
+After loading non_lora_trainables
+
+name:  model.mm_projector.0.weight
+torch.sum(param.data):  tensor(-824., device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.0.bias
+torch.sum(param.data):  tensor(-17.6719, device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.2.weight
+torch.sum(param.data):  tensor(117.1875, device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.2.bias
+torch.sum(param.data):  tensor(-12.2656, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.0.weight
+torch.sum(param.data):  tensor(-10.2969, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.0.bias
+torch.sum(param.data):  tensor(0., device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.2.weight
+torch.sum(param.data):  tensor(-4.1016, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.2.bias
+torch.sum(param.data):  tensor(0., device='cuda:0', dtype=torch.float16)
+Loading LoRA weights...
+Merging LoRA weights...
+Model is loaded...
+self.llm_data_path:  ../DMSTrack/V2V4Real/official_models/no_fusion_keep_all/npy/co_llm
+nq2 inference
+Mon May 11 10:05:49 2026       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 535.154.05             Driver Version: 535.154.05   CUDA Version: 12.2     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  Tesla V100-PCIE-32GB           On  | 00000000:D8:00.0 Off |                  Off |
+| N/A   45C    P0              45W / 250W |      0MiB / 32768MiB |      0%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+                                                                                         
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|  No running processes found                                                           |
++---------------------------------------------------------------------------------------+
+/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA::/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack
+0
+0
+v2v4real_3d_grounding_v2vgot_10ep_both_shallow_f2_4330_full_nq2sm3w0d
+./checkpoints/llava-v1.5-7b-task-lora/llava-v1.5-7b-task-lora_v2v4real_3d_grounding_v2vgot_10ep_both_shallow_f2/checkpoint-4330
+../DMSTrack/V2V4Real/official_models/no_fusion_keep_all/npy/co_llm/v2v4real_3d_grounding_qa_dataset_nq2sm3w0d.json
+./playground/data/eval/v2v4real_3d_grounding_v2vgot_10ep_both_shallow_f2_4330_full_nq2sm3w0d/answers/val/llava-v1.5-7b/1_0.jsonl
+[2026-05-11 10:05:54,700] [INFO] [real_accelerator.py:161:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+kwargs:  {'device_map': 'auto', 'my_model_config': {'mm_scene_projector_input_size': 3072, 'scene_level_only': False, 'object_level_only': False, 'scene_feature_mode': 'shallow', 'object_feature_mode': 'shallow', 'num_input_frames': 2, 'ego_only': False, 'feature_source': 'no_fusion_keep_all', 'dataset_source': 'v2v4real', 'num_latency_frames': 0, 'positional_error_std': 0.0}}
+Loading LLaVA from base model...
+kwargs["my_model_config"]:  {'mm_scene_projector_input_size': 3072, 'scene_level_only': False, 'object_level_only': False, 'scene_feature_mode': 'shallow', 'object_feature_mode': 'shallow', 'num_input_frames': 2, 'ego_only': False, 'feature_source': 'no_fusion_keep_all', 'dataset_source': 'v2v4real', 'num_latency_frames': 0, 'positional_error_std': 0.0}
+my_model_config:  {'mm_scene_projector_input_size': 3072, 'scene_level_only': False, 'object_level_only': False, 'scene_feature_mode': 'shallow', 'object_feature_mode': 'shallow', 'num_input_frames': 2, 'ego_only': False, 'feature_source': 'no_fusion_keep_all', 'dataset_source': 'v2v4real', 'num_latency_frames': 0, 'positional_error_std': 0.0}
+config:  LlavaConfig {
+  "_name_or_path": "liuhaotian/llava-v1.5-7b",
+  "architectures": [
+    "LlavaLlamaForCausalLM"
+  ],
+  "attention_bias": false,
+  "attention_dropout": 0.0,
+  "bos_token_id": 1,
+  "ego_only": false,
+  "eos_token_id": 2,
+  "freeze_mm_mlp_adapter": false,
+  "freeze_mm_vision_resampler": false,
+  "hidden_act": "silu",
+  "hidden_size": 4096,
+  "image_aspect_ratio": "pad",
+  "initializer_range": 0.02,
+  "intermediate_size": 11008,
+  "max_length": 4096,
+  "max_position_embeddings": 4096,
+  "mm_hidden_size": 1024,
+  "mm_patch_merge_type": "flat",
+  "mm_projector_lr": 2e-05,
+  "mm_projector_type": "mlp2x_gelu",
+  "mm_resampler_type": null,
+  "mm_scene_projector_input_size": 3072,
+  "mm_use_im_patch_token": false,
+  "mm_use_im_start_end": false,
+  "mm_vision_select_feature": "patch",
+  "mm_vision_select_layer": -2,
+  "mm_vision_tower": "openai/clip-vit-large-patch14-336",
+  "model_type": "llava_llama",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 32,
+  "object_feature_mode": "shallow",
+  "object_level_only": false,
+  "pad_token_id": 0,
+  "pretraining_tp": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": null,
+  "rope_theta": 10000.0,
+  "scene_feature_mode": "shallow",
+  "tie_word_embeddings": false,
+  "tokenizer_model_max_length": 2048,
+  "tokenizer_padding_side": "right",
+  "torch_dtype": "float16",
+  "transformers_version": "4.37.2",
+  "tune_mm_mlp_adapter": false,
+  "tune_mm_vision_resampler": false,
+  "unfreeze_mm_vision_tower": false,
+  "use_cache": false,
+  "use_mm_proj": true,
+  "vocab_size": 32000
+}
+
+mm_scene_projector_input_size:  3072
+Loading additional LLaVA weights...
+model_path:  ./checkpoints/llava-v1.5-7b-task-lora/llava-v1.5-7b-task-lora_v2v4real_3d_grounding_v2vgot_10ep_both_shallow_f2/checkpoint-4330
+name:  model.mm_projector.0.weight
+param.data.shape:  torch.Size([4096, 1024])
+torch.sum(param.data):  tensor(-749.5000, device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.0.bias
+param.data.shape:  torch.Size([4096])
+torch.sum(param.data):  tensor(-17.5938, device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.2.weight
+param.data.shape:  torch.Size([4096, 4096])
+torch.sum(param.data):  tensor(228.8750, device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.2.bias
+param.data.shape:  torch.Size([4096])
+torch.sum(param.data):  tensor(-12.2578, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.0.weight
+param.data.shape:  torch.Size([4096, 3072])
+torch.sum(param.data):  tensor(-30.5000, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.0.bias
+param.data.shape:  torch.Size([4096])
+torch.sum(param.data):  tensor(0., device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.2.weight
+param.data.shape:  torch.Size([4096, 4096])
+torch.sum(param.data):  tensor(54.9688, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.2.bias
+param.data.shape:  torch.Size([4096])
+torch.sum(param.data):  tensor(0., device='cuda:0', dtype=torch.float16)
+After loading non_lora_trainables
+
+name:  model.mm_projector.0.weight
+torch.sum(param.data):  tensor(-824., device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.0.bias
+torch.sum(param.data):  tensor(-17.6719, device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.2.weight
+torch.sum(param.data):  tensor(117.1875, device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.2.bias
+torch.sum(param.data):  tensor(-12.2656, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.0.weight
+torch.sum(param.data):  tensor(-10.2969, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.0.bias
+torch.sum(param.data):  tensor(0., device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.2.weight
+torch.sum(param.data):  tensor(-4.1016, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.2.bias
+torch.sum(param.data):  tensor(0., device='cuda:0', dtype=torch.float16)
+Loading LoRA weights...
+Merging LoRA weights...
+Model is loaded...
+self.llm_data_path:  ../DMSTrack/V2V4Real/official_models/no_fusion_keep_all/npy/co_llm
+nq3 generation
+/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA::/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//
+nq3 inference
+Mon May 11 12:11:33 2026       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 535.154.05             Driver Version: 535.154.05   CUDA Version: 12.2     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  Tesla V100-PCIE-32GB           On  | 00000000:D8:00.0 Off |                  Off |
+| N/A   34C    P0              24W / 250W |      0MiB / 32768MiB |      0%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+                                                                                         
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|  No running processes found                                                           |
++---------------------------------------------------------------------------------------+
+/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA::/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//
+0
+0
+v2v4real_3d_grounding_v2vgot_10ep_both_shallow_f2_4330_full_nq3sm3w0dc
+./checkpoints/llava-v1.5-7b-task-lora/llava-v1.5-7b-task-lora_v2v4real_3d_grounding_v2vgot_10ep_both_shallow_f2/checkpoint-4330
+./playground/data/eval/v2v4real_3d_grounding_v2vgot_10ep_both_shallow_f2_4330_full_nq3sm3w0dc/answers/val/llava-v1.5-7b/nq3sm3w0dc.json
+./playground/data/eval/v2v4real_3d_grounding_v2vgot_10ep_both_shallow_f2_4330_full_nq3sm3w0dc/answers/val/llava-v1.5-7b/1_0.jsonl
+[2026-05-11 12:11:38,486] [INFO] [real_accelerator.py:161:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+kwargs:  {'device_map': 'auto', 'my_model_config': {'mm_scene_projector_input_size': 3072, 'scene_level_only': False, 'object_level_only': False, 'scene_feature_mode': 'shallow', 'object_feature_mode': 'shallow', 'num_input_frames': 2, 'ego_only': False, 'feature_source': 'no_fusion_keep_all', 'dataset_source': 'v2v4real', 'num_latency_frames': 0, 'positional_error_std': 0.0}}
+Loading LLaVA from base model...
+kwargs["my_model_config"]:  {'mm_scene_projector_input_size': 3072, 'scene_level_only': False, 'object_level_only': False, 'scene_feature_mode': 'shallow', 'object_feature_mode': 'shallow', 'num_input_frames': 2, 'ego_only': False, 'feature_source': 'no_fusion_keep_all', 'dataset_source': 'v2v4real', 'num_latency_frames': 0, 'positional_error_std': 0.0}
+my_model_config:  {'mm_scene_projector_input_size': 3072, 'scene_level_only': False, 'object_level_only': False, 'scene_feature_mode': 'shallow', 'object_feature_mode': 'shallow', 'num_input_frames': 2, 'ego_only': False, 'feature_source': 'no_fusion_keep_all', 'dataset_source': 'v2v4real', 'num_latency_frames': 0, 'positional_error_std': 0.0}
+config:  LlavaConfig {
+  "_name_or_path": "liuhaotian/llava-v1.5-7b",
+  "architectures": [
+    "LlavaLlamaForCausalLM"
+  ],
+  "attention_bias": false,
+  "attention_dropout": 0.0,
+  "bos_token_id": 1,
+  "ego_only": false,
+  "eos_token_id": 2,
+  "freeze_mm_mlp_adapter": false,
+  "freeze_mm_vision_resampler": false,
+  "hidden_act": "silu",
+  "hidden_size": 4096,
+  "image_aspect_ratio": "pad",
+  "initializer_range": 0.02,
+  "intermediate_size": 11008,
+  "max_length": 4096,
+  "max_position_embeddings": 4096,
+  "mm_hidden_size": 1024,
+  "mm_patch_merge_type": "flat",
+  "mm_projector_lr": 2e-05,
+  "mm_projector_type": "mlp2x_gelu",
+  "mm_resampler_type": null,
+  "mm_scene_projector_input_size": 3072,
+  "mm_use_im_patch_token": false,
+  "mm_use_im_start_end": false,
+  "mm_vision_select_feature": "patch",
+  "mm_vision_select_layer": -2,
+  "mm_vision_tower": "openai/clip-vit-large-patch14-336",
+  "model_type": "llava_llama",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 32,
+  "object_feature_mode": "shallow",
+  "object_level_only": false,
+  "pad_token_id": 0,
+  "pretraining_tp": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": null,
+  "rope_theta": 10000.0,
+  "scene_feature_mode": "shallow",
+  "tie_word_embeddings": false,
+  "tokenizer_model_max_length": 2048,
+  "tokenizer_padding_side": "right",
+  "torch_dtype": "float16",
+  "transformers_version": "4.37.2",
+  "tune_mm_mlp_adapter": false,
+  "tune_mm_vision_resampler": false,
+  "unfreeze_mm_vision_tower": false,
+  "use_cache": false,
+  "use_mm_proj": true,
+  "vocab_size": 32000
+}
+
+mm_scene_projector_input_size:  3072
+Loading additional LLaVA weights...
+model_path:  ./checkpoints/llava-v1.5-7b-task-lora/llava-v1.5-7b-task-lora_v2v4real_3d_grounding_v2vgot_10ep_both_shallow_f2/checkpoint-4330
+name:  model.mm_projector.0.weight
+param.data.shape:  torch.Size([4096, 1024])
+torch.sum(param.data):  tensor(-749.5000, device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.0.bias
+param.data.shape:  torch.Size([4096])
+torch.sum(param.data):  tensor(-17.5938, device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.2.weight
+param.data.shape:  torch.Size([4096, 4096])
+torch.sum(param.data):  tensor(228.8750, device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.2.bias
+param.data.shape:  torch.Size([4096])
+torch.sum(param.data):  tensor(-12.2578, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.0.weight
+param.data.shape:  torch.Size([4096, 3072])
+torch.sum(param.data):  tensor(80.6250, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.0.bias
+param.data.shape:  torch.Size([4096])
+torch.sum(param.data):  tensor(0., device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.2.weight
+param.data.shape:  torch.Size([4096, 4096])
+torch.sum(param.data):  tensor(-0.1365, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.2.bias
+param.data.shape:  torch.Size([4096])
+torch.sum(param.data):  tensor(0., device='cuda:0', dtype=torch.float16)
+After loading non_lora_trainables
+
+name:  model.mm_projector.0.weight
+torch.sum(param.data):  tensor(-824., device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.0.bias
+torch.sum(param.data):  tensor(-17.6719, device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.2.weight
+torch.sum(param.data):  tensor(117.1875, device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.2.bias
+torch.sum(param.data):  tensor(-12.2656, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.0.weight
+torch.sum(param.data):  tensor(-10.2969, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.0.bias
+torch.sum(param.data):  tensor(0., device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.2.weight
+torch.sum(param.data):  tensor(-4.1016, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.2.bias
+torch.sum(param.data):  tensor(0., device='cuda:0', dtype=torch.float16)
+Loading LoRA weights...
+Merging LoRA weights...
+Model is loaded...
+nq4 generation
+/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA::/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//
+nq4 inference
+Mon May 11 12:12:25 2026       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 535.154.05             Driver Version: 535.154.05   CUDA Version: 12.2     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  Tesla V100-PCIE-32GB           On  | 00000000:D8:00.0 Off |                  Off |
+| N/A   31C    P0              24W / 250W |      0MiB / 32768MiB |      0%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+                                                                                         
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|  No running processes found                                                           |
++---------------------------------------------------------------------------------------+
+/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA::/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//
+0
+0
+v2v4real_3d_grounding_v2vgot_10ep_both_shallow_f2_4330_full_nq4sm3w0dc
+./checkpoints/llava-v1.5-7b-task-lora/llava-v1.5-7b-task-lora_v2v4real_3d_grounding_v2vgot_10ep_both_shallow_f2/checkpoint-4330
+./playground/data/eval/v2v4real_3d_grounding_v2vgot_10ep_both_shallow_f2_4330_full_nq4sm3w0dc/answers/val/llava-v1.5-7b/nq4sm3w0dc.json
+./playground/data/eval/v2v4real_3d_grounding_v2vgot_10ep_both_shallow_f2_4330_full_nq4sm3w0dc/answers/val/llava-v1.5-7b/1_0.jsonl
+[2026-05-11 12:12:28,136] [INFO] [real_accelerator.py:161:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+kwargs:  {'device_map': 'auto', 'my_model_config': {'mm_scene_projector_input_size': 3072, 'scene_level_only': False, 'object_level_only': False, 'scene_feature_mode': 'shallow', 'object_feature_mode': 'shallow', 'num_input_frames': 2, 'ego_only': False, 'feature_source': 'no_fusion_keep_all', 'dataset_source': 'v2v4real', 'num_latency_frames': 0, 'positional_error_std': 0.0}}
+Loading LLaVA from base model...
+kwargs["my_model_config"]:  {'mm_scene_projector_input_size': 3072, 'scene_level_only': False, 'object_level_only': False, 'scene_feature_mode': 'shallow', 'object_feature_mode': 'shallow', 'num_input_frames': 2, 'ego_only': False, 'feature_source': 'no_fusion_keep_all', 'dataset_source': 'v2v4real', 'num_latency_frames': 0, 'positional_error_std': 0.0}
+my_model_config:  {'mm_scene_projector_input_size': 3072, 'scene_level_only': False, 'object_level_only': False, 'scene_feature_mode': 'shallow', 'object_feature_mode': 'shallow', 'num_input_frames': 2, 'ego_only': False, 'feature_source': 'no_fusion_keep_all', 'dataset_source': 'v2v4real', 'num_latency_frames': 0, 'positional_error_std': 0.0}
+config:  LlavaConfig {
+  "_name_or_path": "liuhaotian/llava-v1.5-7b",
+  "architectures": [
+    "LlavaLlamaForCausalLM"
+  ],
+  "attention_bias": false,
+  "attention_dropout": 0.0,
+  "bos_token_id": 1,
+  "ego_only": false,
+  "eos_token_id": 2,
+  "freeze_mm_mlp_adapter": false,
+  "freeze_mm_vision_resampler": false,
+  "hidden_act": "silu",
+  "hidden_size": 4096,
+  "image_aspect_ratio": "pad",
+  "initializer_range": 0.02,
+  "intermediate_size": 11008,
+  "max_length": 4096,
+  "max_position_embeddings": 4096,
+  "mm_hidden_size": 1024,
+  "mm_patch_merge_type": "flat",
+  "mm_projector_lr": 2e-05,
+  "mm_projector_type": "mlp2x_gelu",
+  "mm_resampler_type": null,
+  "mm_scene_projector_input_size": 3072,
+  "mm_use_im_patch_token": false,
+  "mm_use_im_start_end": false,
+  "mm_vision_select_feature": "patch",
+  "mm_vision_select_layer": -2,
+  "mm_vision_tower": "openai/clip-vit-large-patch14-336",
+  "model_type": "llava_llama",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 32,
+  "object_feature_mode": "shallow",
+  "object_level_only": false,
+  "pad_token_id": 0,
+  "pretraining_tp": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": null,
+  "rope_theta": 10000.0,
+  "scene_feature_mode": "shallow",
+  "tie_word_embeddings": false,
+  "tokenizer_model_max_length": 2048,
+  "tokenizer_padding_side": "right",
+  "torch_dtype": "float16",
+  "transformers_version": "4.37.2",
+  "tune_mm_mlp_adapter": false,
+  "tune_mm_vision_resampler": false,
+  "unfreeze_mm_vision_tower": false,
+  "use_cache": false,
+  "use_mm_proj": true,
+  "vocab_size": 32000
+}
+
+mm_scene_projector_input_size:  3072
+Loading additional LLaVA weights...
+model_path:  ./checkpoints/llava-v1.5-7b-task-lora/llava-v1.5-7b-task-lora_v2v4real_3d_grounding_v2vgot_10ep_both_shallow_f2/checkpoint-4330
+name:  model.mm_projector.0.weight
+param.data.shape:  torch.Size([4096, 1024])
+torch.sum(param.data):  tensor(-749.5000, device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.0.bias
+param.data.shape:  torch.Size([4096])
+torch.sum(param.data):  tensor(-17.5938, device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.2.weight
+param.data.shape:  torch.Size([4096, 4096])
+torch.sum(param.data):  tensor(228.8750, device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.2.bias
+param.data.shape:  torch.Size([4096])
+torch.sum(param.data):  tensor(-12.2578, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.0.weight
+param.data.shape:  torch.Size([4096, 3072])
+torch.sum(param.data):  tensor(-20.3906, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.0.bias
+param.data.shape:  torch.Size([4096])
+torch.sum(param.data):  tensor(0., device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.2.weight
+param.data.shape:  torch.Size([4096, 4096])
+torch.sum(param.data):  tensor(-95.3125, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.2.bias
+param.data.shape:  torch.Size([4096])
+torch.sum(param.data):  tensor(0., device='cuda:0', dtype=torch.float16)
+After loading non_lora_trainables
+
+name:  model.mm_projector.0.weight
+torch.sum(param.data):  tensor(-824., device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.0.bias
+torch.sum(param.data):  tensor(-17.6719, device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.2.weight
+torch.sum(param.data):  tensor(117.1875, device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.2.bias
+torch.sum(param.data):  tensor(-12.2656, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.0.weight
+torch.sum(param.data):  tensor(-10.2969, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.0.bias
+torch.sum(param.data):  tensor(0., device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.2.weight
+torch.sum(param.data):  tensor(-4.1016, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.2.bias
+torch.sum(param.data):  tensor(0., device='cuda:0', dtype=torch.float16)
+Loading LoRA weights...
+Merging LoRA weights...
+Model is loaded...
+nq5 generation
+/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA::/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//
+nq5 inference
+Mon May 11 12:12:56 2026       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 535.154.05             Driver Version: 535.154.05   CUDA Version: 12.2     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  Tesla V100-PCIE-32GB           On  | 00000000:D8:00.0 Off |                  Off |
+| N/A   30C    P0              24W / 250W |      0MiB / 32768MiB |      0%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+                                                                                         
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|  No running processes found                                                           |
++---------------------------------------------------------------------------------------+
+/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA::/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//
+0
+0
+v2v4real_3d_grounding_v2vgot_10ep_both_shallow_f2_4330_full_nq5sm3w1dc
+./checkpoints/llava-v1.5-7b-task-lora/llava-v1.5-7b-task-lora_v2v4real_3d_grounding_v2vgot_10ep_both_shallow_f2/checkpoint-4330
+./playground/data/eval/v2v4real_3d_grounding_v2vgot_10ep_both_shallow_f2_4330_full_nq5sm3w1dc/answers/val/llava-v1.5-7b/nq5sm3w1dc.json
+./playground/data/eval/v2v4real_3d_grounding_v2vgot_10ep_both_shallow_f2_4330_full_nq5sm3w1dc/answers/val/llava-v1.5-7b/1_0.jsonl
+[2026-05-11 12:12:59,186] [INFO] [real_accelerator.py:161:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+kwargs:  {'device_map': 'auto', 'my_model_config': {'mm_scene_projector_input_size': 3072, 'scene_level_only': False, 'object_level_only': False, 'scene_feature_mode': 'shallow', 'object_feature_mode': 'shallow', 'num_input_frames': 2, 'ego_only': False, 'feature_source': 'no_fusion_keep_all', 'dataset_source': 'v2v4real', 'num_latency_frames': 0, 'positional_error_std': 0.0}}
+Loading LLaVA from base model...
+kwargs["my_model_config"]:  {'mm_scene_projector_input_size': 3072, 'scene_level_only': False, 'object_level_only': False, 'scene_feature_mode': 'shallow', 'object_feature_mode': 'shallow', 'num_input_frames': 2, 'ego_only': False, 'feature_source': 'no_fusion_keep_all', 'dataset_source': 'v2v4real', 'num_latency_frames': 0, 'positional_error_std': 0.0}
+my_model_config:  {'mm_scene_projector_input_size': 3072, 'scene_level_only': False, 'object_level_only': False, 'scene_feature_mode': 'shallow', 'object_feature_mode': 'shallow', 'num_input_frames': 2, 'ego_only': False, 'feature_source': 'no_fusion_keep_all', 'dataset_source': 'v2v4real', 'num_latency_frames': 0, 'positional_error_std': 0.0}
+config:  LlavaConfig {
+  "_name_or_path": "liuhaotian/llava-v1.5-7b",
+  "architectures": [
+    "LlavaLlamaForCausalLM"
+  ],
+  "attention_bias": false,
+  "attention_dropout": 0.0,
+  "bos_token_id": 1,
+  "ego_only": false,
+  "eos_token_id": 2,
+  "freeze_mm_mlp_adapter": false,
+  "freeze_mm_vision_resampler": false,
+  "hidden_act": "silu",
+  "hidden_size": 4096,
+  "image_aspect_ratio": "pad",
+  "initializer_range": 0.02,
+  "intermediate_size": 11008,
+  "max_length": 4096,
+  "max_position_embeddings": 4096,
+  "mm_hidden_size": 1024,
+  "mm_patch_merge_type": "flat",
+  "mm_projector_lr": 2e-05,
+  "mm_projector_type": "mlp2x_gelu",
+  "mm_resampler_type": null,
+  "mm_scene_projector_input_size": 3072,
+  "mm_use_im_patch_token": false,
+  "mm_use_im_start_end": false,
+  "mm_vision_select_feature": "patch",
+  "mm_vision_select_layer": -2,
+  "mm_vision_tower": "openai/clip-vit-large-patch14-336",
+  "model_type": "llava_llama",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 32,
+  "object_feature_mode": "shallow",
+  "object_level_only": false,
+  "pad_token_id": 0,
+  "pretraining_tp": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": null,
+  "rope_theta": 10000.0,
+  "scene_feature_mode": "shallow",
+  "tie_word_embeddings": false,
+  "tokenizer_model_max_length": 2048,
+  "tokenizer_padding_side": "right",
+  "torch_dtype": "float16",
+  "transformers_version": "4.37.2",
+  "tune_mm_mlp_adapter": false,
+  "tune_mm_vision_resampler": false,
+  "unfreeze_mm_vision_tower": false,
+  "use_cache": false,
+  "use_mm_proj": true,
+  "vocab_size": 32000
+}
+
+mm_scene_projector_input_size:  3072
+Loading additional LLaVA weights...
+model_path:  ./checkpoints/llava-v1.5-7b-task-lora/llava-v1.5-7b-task-lora_v2v4real_3d_grounding_v2vgot_10ep_both_shallow_f2/checkpoint-4330
+name:  model.mm_projector.0.weight
+param.data.shape:  torch.Size([4096, 1024])
+torch.sum(param.data):  tensor(-749.5000, device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.0.bias
+param.data.shape:  torch.Size([4096])
+torch.sum(param.data):  tensor(-17.5938, device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.2.weight
+param.data.shape:  torch.Size([4096, 4096])
+torch.sum(param.data):  tensor(228.8750, device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.2.bias
+param.data.shape:  torch.Size([4096])
+torch.sum(param.data):  tensor(-12.2578, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.0.weight
+param.data.shape:  torch.Size([4096, 3072])
+torch.sum(param.data):  tensor(77.6250, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.0.bias
+param.data.shape:  torch.Size([4096])
+torch.sum(param.data):  tensor(0., device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.2.weight
+param.data.shape:  torch.Size([4096, 4096])
+torch.sum(param.data):  tensor(58.0625, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.2.bias
+param.data.shape:  torch.Size([4096])
+torch.sum(param.data):  tensor(0., device='cuda:0', dtype=torch.float16)
+After loading non_lora_trainables
+
+name:  model.mm_projector.0.weight
+torch.sum(param.data):  tensor(-824., device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.0.bias
+torch.sum(param.data):  tensor(-17.6719, device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.2.weight
+torch.sum(param.data):  tensor(117.1875, device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.2.bias
+torch.sum(param.data):  tensor(-12.2656, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.0.weight
+torch.sum(param.data):  tensor(-10.2969, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.0.bias
+torch.sum(param.data):  tensor(0., device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.2.weight
+torch.sum(param.data):  tensor(-4.1016, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.2.bias
+torch.sum(param.data):  tensor(0., device='cuda:0', dtype=torch.float16)
+Loading LoRA weights...
+Merging LoRA weights...
+Model is loaded...
+nq6 generation
+/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA::/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//
+nq6 inference
+Mon May 11 12:13:28 2026       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 535.154.05             Driver Version: 535.154.05   CUDA Version: 12.2     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  Tesla V100-PCIE-32GB           On  | 00000000:D8:00.0 Off |                  Off |
+| N/A   30C    P0              24W / 250W |      0MiB / 32768MiB |      0%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+                                                                                         
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|  No running processes found                                                           |
++---------------------------------------------------------------------------------------+
+/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA::/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//
+0
+0
+v2v4real_3d_grounding_v2vgot_10ep_both_shallow_f2_4330_full_nq6sm3w1dc
+./checkpoints/llava-v1.5-7b-task-lora/llava-v1.5-7b-task-lora_v2v4real_3d_grounding_v2vgot_10ep_both_shallow_f2/checkpoint-4330
+./playground/data/eval/v2v4real_3d_grounding_v2vgot_10ep_both_shallow_f2_4330_full_nq6sm3w1dc/answers/val/llava-v1.5-7b/nq6sm3w1dc.json
+./playground/data/eval/v2v4real_3d_grounding_v2vgot_10ep_both_shallow_f2_4330_full_nq6sm3w1dc/answers/val/llava-v1.5-7b/1_0.jsonl
+[2026-05-11 12:13:31,271] [INFO] [real_accelerator.py:161:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+kwargs:  {'device_map': 'auto', 'my_model_config': {'mm_scene_projector_input_size': 3072, 'scene_level_only': False, 'object_level_only': False, 'scene_feature_mode': 'shallow', 'object_feature_mode': 'shallow', 'num_input_frames': 2, 'ego_only': False, 'feature_source': 'no_fusion_keep_all', 'dataset_source': 'v2v4real', 'num_latency_frames': 0, 'positional_error_std': 0.0}}
+Loading LLaVA from base model...
+kwargs["my_model_config"]:  {'mm_scene_projector_input_size': 3072, 'scene_level_only': False, 'object_level_only': False, 'scene_feature_mode': 'shallow', 'object_feature_mode': 'shallow', 'num_input_frames': 2, 'ego_only': False, 'feature_source': 'no_fusion_keep_all', 'dataset_source': 'v2v4real', 'num_latency_frames': 0, 'positional_error_std': 0.0}
+my_model_config:  {'mm_scene_projector_input_size': 3072, 'scene_level_only': False, 'object_level_only': False, 'scene_feature_mode': 'shallow', 'object_feature_mode': 'shallow', 'num_input_frames': 2, 'ego_only': False, 'feature_source': 'no_fusion_keep_all', 'dataset_source': 'v2v4real', 'num_latency_frames': 0, 'positional_error_std': 0.0}
+config:  LlavaConfig {
+  "_name_or_path": "liuhaotian/llava-v1.5-7b",
+  "architectures": [
+    "LlavaLlamaForCausalLM"
+  ],
+  "attention_bias": false,
+  "attention_dropout": 0.0,
+  "bos_token_id": 1,
+  "ego_only": false,
+  "eos_token_id": 2,
+  "freeze_mm_mlp_adapter": false,
+  "freeze_mm_vision_resampler": false,
+  "hidden_act": "silu",
+  "hidden_size": 4096,
+  "image_aspect_ratio": "pad",
+  "initializer_range": 0.02,
+  "intermediate_size": 11008,
+  "max_length": 4096,
+  "max_position_embeddings": 4096,
+  "mm_hidden_size": 1024,
+  "mm_patch_merge_type": "flat",
+  "mm_projector_lr": 2e-05,
+  "mm_projector_type": "mlp2x_gelu",
+  "mm_resampler_type": null,
+  "mm_scene_projector_input_size": 3072,
+  "mm_use_im_patch_token": false,
+  "mm_use_im_start_end": false,
+  "mm_vision_select_feature": "patch",
+  "mm_vision_select_layer": -2,
+  "mm_vision_tower": "openai/clip-vit-large-patch14-336",
+  "model_type": "llava_llama",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 32,
+  "object_feature_mode": "shallow",
+  "object_level_only": false,
+  "pad_token_id": 0,
+  "pretraining_tp": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": null,
+  "rope_theta": 10000.0,
+  "scene_feature_mode": "shallow",
+  "tie_word_embeddings": false,
+  "tokenizer_model_max_length": 2048,
+  "tokenizer_padding_side": "right",
+  "torch_dtype": "float16",
+  "transformers_version": "4.37.2",
+  "tune_mm_mlp_adapter": false,
+  "tune_mm_vision_resampler": false,
+  "unfreeze_mm_vision_tower": false,
+  "use_cache": false,
+  "use_mm_proj": true,
+  "vocab_size": 32000
+}
+
+mm_scene_projector_input_size:  3072
+Loading additional LLaVA weights...
+model_path:  ./checkpoints/llava-v1.5-7b-task-lora/llava-v1.5-7b-task-lora_v2v4real_3d_grounding_v2vgot_10ep_both_shallow_f2/checkpoint-4330
+name:  model.mm_projector.0.weight
+param.data.shape:  torch.Size([4096, 1024])
+torch.sum(param.data):  tensor(-749.5000, device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.0.bias
+param.data.shape:  torch.Size([4096])
+torch.sum(param.data):  tensor(-17.5938, device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.2.weight
+param.data.shape:  torch.Size([4096, 4096])
+torch.sum(param.data):  tensor(228.8750, device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.2.bias
+param.data.shape:  torch.Size([4096])
+torch.sum(param.data):  tensor(-12.2578, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.0.weight
+param.data.shape:  torch.Size([4096, 3072])
+torch.sum(param.data):  tensor(-44.3125, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.0.bias
+param.data.shape:  torch.Size([4096])
+torch.sum(param.data):  tensor(0., device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.2.weight
+param.data.shape:  torch.Size([4096, 4096])
+torch.sum(param.data):  tensor(93.8750, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.2.bias
+param.data.shape:  torch.Size([4096])
+torch.sum(param.data):  tensor(0., device='cuda:0', dtype=torch.float16)
+After loading non_lora_trainables
+
+name:  model.mm_projector.0.weight
+torch.sum(param.data):  tensor(-824., device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.0.bias
+torch.sum(param.data):  tensor(-17.6719, device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.2.weight
+torch.sum(param.data):  tensor(117.1875, device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.2.bias
+torch.sum(param.data):  tensor(-12.2656, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.0.weight
+torch.sum(param.data):  tensor(-10.2969, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.0.bias
+torch.sum(param.data):  tensor(0., device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.2.weight
+torch.sum(param.data):  tensor(-4.1016, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.2.bias
+torch.sum(param.data):  tensor(0., device='cuda:0', dtype=torch.float16)
+Loading LoRA weights...
+Merging LoRA weights...
+Model is loaded...
+nq7 generation
+/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA::/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//
+nq7 inference
+Mon May 11 12:13:59 2026       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 535.154.05             Driver Version: 535.154.05   CUDA Version: 12.2     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  Tesla V100-PCIE-32GB           On  | 00000000:D8:00.0 Off |                  Off |
+| N/A   30C    P0              24W / 250W |      0MiB / 32768MiB |      0%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+                                                                                         
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|  No running processes found                                                           |
++---------------------------------------------------------------------------------------+
+/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA::/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//
+0
+0
+v2v4real_3d_grounding_v2vgot_10ep_both_shallow_f2_4330_full_nq7sm3w1dc
+./checkpoints/llava-v1.5-7b-task-lora/llava-v1.5-7b-task-lora_v2v4real_3d_grounding_v2vgot_10ep_both_shallow_f2/checkpoint-4330
+./playground/data/eval/v2v4real_3d_grounding_v2vgot_10ep_both_shallow_f2_4330_full_nq7sm3w1dc/answers/val/llava-v1.5-7b/nq7sm3w1dc.json
+./playground/data/eval/v2v4real_3d_grounding_v2vgot_10ep_both_shallow_f2_4330_full_nq7sm3w1dc/answers/val/llava-v1.5-7b/1_0.jsonl
+[2026-05-11 12:14:02,165] [INFO] [real_accelerator.py:161:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+kwargs:  {'device_map': 'auto', 'my_model_config': {'mm_scene_projector_input_size': 3072, 'scene_level_only': False, 'object_level_only': False, 'scene_feature_mode': 'shallow', 'object_feature_mode': 'shallow', 'num_input_frames': 2, 'ego_only': False, 'feature_source': 'no_fusion_keep_all', 'dataset_source': 'v2v4real', 'num_latency_frames': 0, 'positional_error_std': 0.0}}
+Loading LLaVA from base model...
+kwargs["my_model_config"]:  {'mm_scene_projector_input_size': 3072, 'scene_level_only': False, 'object_level_only': False, 'scene_feature_mode': 'shallow', 'object_feature_mode': 'shallow', 'num_input_frames': 2, 'ego_only': False, 'feature_source': 'no_fusion_keep_all', 'dataset_source': 'v2v4real', 'num_latency_frames': 0, 'positional_error_std': 0.0}
+my_model_config:  {'mm_scene_projector_input_size': 3072, 'scene_level_only': False, 'object_level_only': False, 'scene_feature_mode': 'shallow', 'object_feature_mode': 'shallow', 'num_input_frames': 2, 'ego_only': False, 'feature_source': 'no_fusion_keep_all', 'dataset_source': 'v2v4real', 'num_latency_frames': 0, 'positional_error_std': 0.0}
+config:  LlavaConfig {
+  "_name_or_path": "liuhaotian/llava-v1.5-7b",
+  "architectures": [
+    "LlavaLlamaForCausalLM"
+  ],
+  "attention_bias": false,
+  "attention_dropout": 0.0,
+  "bos_token_id": 1,
+  "ego_only": false,
+  "eos_token_id": 2,
+  "freeze_mm_mlp_adapter": false,
+  "freeze_mm_vision_resampler": false,
+  "hidden_act": "silu",
+  "hidden_size": 4096,
+  "image_aspect_ratio": "pad",
+  "initializer_range": 0.02,
+  "intermediate_size": 11008,
+  "max_length": 4096,
+  "max_position_embeddings": 4096,
+  "mm_hidden_size": 1024,
+  "mm_patch_merge_type": "flat",
+  "mm_projector_lr": 2e-05,
+  "mm_projector_type": "mlp2x_gelu",
+  "mm_resampler_type": null,
+  "mm_scene_projector_input_size": 3072,
+  "mm_use_im_patch_token": false,
+  "mm_use_im_start_end": false,
+  "mm_vision_select_feature": "patch",
+  "mm_vision_select_layer": -2,
+  "mm_vision_tower": "openai/clip-vit-large-patch14-336",
+  "model_type": "llava_llama",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 32,
+  "object_feature_mode": "shallow",
+  "object_level_only": false,
+  "pad_token_id": 0,
+  "pretraining_tp": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": null,
+  "rope_theta": 10000.0,
+  "scene_feature_mode": "shallow",
+  "tie_word_embeddings": false,
+  "tokenizer_model_max_length": 2048,
+  "tokenizer_padding_side": "right",
+  "torch_dtype": "float16",
+  "transformers_version": "4.37.2",
+  "tune_mm_mlp_adapter": false,
+  "tune_mm_vision_resampler": false,
+  "unfreeze_mm_vision_tower": false,
+  "use_cache": false,
+  "use_mm_proj": true,
+  "vocab_size": 32000
+}
+
+mm_scene_projector_input_size:  3072
+Loading additional LLaVA weights...
+model_path:  ./checkpoints/llava-v1.5-7b-task-lora/llava-v1.5-7b-task-lora_v2v4real_3d_grounding_v2vgot_10ep_both_shallow_f2/checkpoint-4330
+name:  model.mm_projector.0.weight
+param.data.shape:  torch.Size([4096, 1024])
+torch.sum(param.data):  tensor(-749.5000, device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.0.bias
+param.data.shape:  torch.Size([4096])
+torch.sum(param.data):  tensor(-17.5938, device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.2.weight
+param.data.shape:  torch.Size([4096, 4096])
+torch.sum(param.data):  tensor(228.8750, device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.2.bias
+param.data.shape:  torch.Size([4096])
+torch.sum(param.data):  tensor(-12.2578, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.0.weight
+param.data.shape:  torch.Size([4096, 3072])
+torch.sum(param.data):  tensor(-25.7344, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.0.bias
+param.data.shape:  torch.Size([4096])
+torch.sum(param.data):  tensor(0., device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.2.weight
+param.data.shape:  torch.Size([4096, 4096])
+torch.sum(param.data):  tensor(105.3125, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.2.bias
+param.data.shape:  torch.Size([4096])
+torch.sum(param.data):  tensor(0., device='cuda:0', dtype=torch.float16)
+After loading non_lora_trainables
+
+name:  model.mm_projector.0.weight
+torch.sum(param.data):  tensor(-824., device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.0.bias
+torch.sum(param.data):  tensor(-17.6719, device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.2.weight
+torch.sum(param.data):  tensor(117.1875, device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.2.bias
+torch.sum(param.data):  tensor(-12.2656, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.0.weight
+torch.sum(param.data):  tensor(-10.2969, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.0.bias
+torch.sum(param.data):  tensor(0., device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.2.weight
+torch.sum(param.data):  tensor(-4.1016, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.2.bias
+torch.sum(param.data):  tensor(0., device='cuda:0', dtype=torch.float16)
+Loading LoRA weights...
+Merging LoRA weights...
+Model is loaded...
+nq8 generation
+/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA::/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//
+nq8 inference
+Mon May 11 12:14:30 2026       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 535.154.05             Driver Version: 535.154.05   CUDA Version: 12.2     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  Tesla V100-PCIE-32GB           On  | 00000000:D8:00.0 Off |                  Off |
+| N/A   29C    P0              24W / 250W |      0MiB / 32768MiB |      0%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+                                                                                         
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|  No running processes found                                                           |
++---------------------------------------------------------------------------------------+
+/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA::/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//
+0
+0
+v2v4real_3d_grounding_v2vgot_10ep_both_shallow_f2_4330_full_nq8sm3w6dc
+./checkpoints/llava-v1.5-7b-task-lora/llava-v1.5-7b-task-lora_v2v4real_3d_grounding_v2vgot_10ep_both_shallow_f2/checkpoint-4330
+./playground/data/eval/v2v4real_3d_grounding_v2vgot_10ep_both_shallow_f2_4330_full_nq8sm3w6dc/answers/val/llava-v1.5-7b/nq8sm3w6dc.json
+./playground/data/eval/v2v4real_3d_grounding_v2vgot_10ep_both_shallow_f2_4330_full_nq8sm3w6dc/answers/val/llava-v1.5-7b/1_0.jsonl
+[2026-05-11 12:14:33,355] [INFO] [real_accelerator.py:161:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+kwargs:  {'device_map': 'auto', 'my_model_config': {'mm_scene_projector_input_size': 3072, 'scene_level_only': False, 'object_level_only': False, 'scene_feature_mode': 'shallow', 'object_feature_mode': 'shallow', 'num_input_frames': 2, 'ego_only': False, 'feature_source': 'no_fusion_keep_all', 'dataset_source': 'v2v4real', 'num_latency_frames': 0, 'positional_error_std': 0.0}}
+Loading LLaVA from base model...
+kwargs["my_model_config"]:  {'mm_scene_projector_input_size': 3072, 'scene_level_only': False, 'object_level_only': False, 'scene_feature_mode': 'shallow', 'object_feature_mode': 'shallow', 'num_input_frames': 2, 'ego_only': False, 'feature_source': 'no_fusion_keep_all', 'dataset_source': 'v2v4real', 'num_latency_frames': 0, 'positional_error_std': 0.0}
+my_model_config:  {'mm_scene_projector_input_size': 3072, 'scene_level_only': False, 'object_level_only': False, 'scene_feature_mode': 'shallow', 'object_feature_mode': 'shallow', 'num_input_frames': 2, 'ego_only': False, 'feature_source': 'no_fusion_keep_all', 'dataset_source': 'v2v4real', 'num_latency_frames': 0, 'positional_error_std': 0.0}
+config:  LlavaConfig {
+  "_name_or_path": "liuhaotian/llava-v1.5-7b",
+  "architectures": [
+    "LlavaLlamaForCausalLM"
+  ],
+  "attention_bias": false,
+  "attention_dropout": 0.0,
+  "bos_token_id": 1,
+  "ego_only": false,
+  "eos_token_id": 2,
+  "freeze_mm_mlp_adapter": false,
+  "freeze_mm_vision_resampler": false,
+  "hidden_act": "silu",
+  "hidden_size": 4096,
+  "image_aspect_ratio": "pad",
+  "initializer_range": 0.02,
+  "intermediate_size": 11008,
+  "max_length": 4096,
+  "max_position_embeddings": 4096,
+  "mm_hidden_size": 1024,
+  "mm_patch_merge_type": "flat",
+  "mm_projector_lr": 2e-05,
+  "mm_projector_type": "mlp2x_gelu",
+  "mm_resampler_type": null,
+  "mm_scene_projector_input_size": 3072,
+  "mm_use_im_patch_token": false,
+  "mm_use_im_start_end": false,
+  "mm_vision_select_feature": "patch",
+  "mm_vision_select_layer": -2,
+  "mm_vision_tower": "openai/clip-vit-large-patch14-336",
+  "model_type": "llava_llama",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 32,
+  "object_feature_mode": "shallow",
+  "object_level_only": false,
+  "pad_token_id": 0,
+  "pretraining_tp": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": null,
+  "rope_theta": 10000.0,
+  "scene_feature_mode": "shallow",
+  "tie_word_embeddings": false,
+  "tokenizer_model_max_length": 2048,
+  "tokenizer_padding_side": "right",
+  "torch_dtype": "float16",
+  "transformers_version": "4.37.2",
+  "tune_mm_mlp_adapter": false,
+  "tune_mm_vision_resampler": false,
+  "unfreeze_mm_vision_tower": false,
+  "use_cache": false,
+  "use_mm_proj": true,
+  "vocab_size": 32000
+}
+
+mm_scene_projector_input_size:  3072
+Loading additional LLaVA weights...
+model_path:  ./checkpoints/llava-v1.5-7b-task-lora/llava-v1.5-7b-task-lora_v2v4real_3d_grounding_v2vgot_10ep_both_shallow_f2/checkpoint-4330
+name:  model.mm_projector.0.weight
+param.data.shape:  torch.Size([4096, 1024])
+torch.sum(param.data):  tensor(-749.5000, device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.0.bias
+param.data.shape:  torch.Size([4096])
+torch.sum(param.data):  tensor(-17.5938, device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.2.weight
+param.data.shape:  torch.Size([4096, 4096])
+torch.sum(param.data):  tensor(228.8750, device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.2.bias
+param.data.shape:  torch.Size([4096])
+torch.sum(param.data):  tensor(-12.2578, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.0.weight
+param.data.shape:  torch.Size([4096, 3072])
+torch.sum(param.data):  tensor(6.1797, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.0.bias
+param.data.shape:  torch.Size([4096])
+torch.sum(param.data):  tensor(0., device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.2.weight
+param.data.shape:  torch.Size([4096, 4096])
+torch.sum(param.data):  tensor(63.7188, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.2.bias
+param.data.shape:  torch.Size([4096])
+torch.sum(param.data):  tensor(0., device='cuda:0', dtype=torch.float16)
+After loading non_lora_trainables
+
+name:  model.mm_projector.0.weight
+torch.sum(param.data):  tensor(-824., device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.0.bias
+torch.sum(param.data):  tensor(-17.6719, device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.2.weight
+torch.sum(param.data):  tensor(117.1875, device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.2.bias
+torch.sum(param.data):  tensor(-12.2656, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.0.weight
+torch.sum(param.data):  tensor(-10.2969, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.0.bias
+torch.sum(param.data):  tensor(0., device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.2.weight
+torch.sum(param.data):  tensor(-4.1016, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.2.bias
+torch.sum(param.data):  tensor(0., device='cuda:0', dtype=torch.float16)
+Loading LoRA weights...
+Merging LoRA weights...
+Model is loaded...
+nq9 generation
+/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA::/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//
+nq9 inference
+Mon May 11 12:15:00 2026       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 535.154.05             Driver Version: 535.154.05   CUDA Version: 12.2     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  Tesla V100-PCIE-32GB           On  | 00000000:D8:00.0 Off |                  Off |
+| N/A   29C    P0              24W / 250W |      0MiB / 32768MiB |      0%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+                                                                                         
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|  No running processes found                                                           |
++---------------------------------------------------------------------------------------+
+/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA::/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//AB3DMOT/Xinshuo_PyToolbox:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//V2V4Real:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//DMSTrack:/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/DMSTrack/DMSTrack/..//
+0
+0
+v2v4real_3d_grounding_v2vgot_10ep_both_shallow_f2_4330_full_nq9sm3w6dc
+./checkpoints/llava-v1.5-7b-task-lora/llava-v1.5-7b-task-lora_v2v4real_3d_grounding_v2vgot_10ep_both_shallow_f2/checkpoint-4330
+./playground/data/eval/v2v4real_3d_grounding_v2vgot_10ep_both_shallow_f2_4330_full_nq9sm3w6dc/answers/val/llava-v1.5-7b/nq9sm3w6dc.json
+./playground/data/eval/v2v4real_3d_grounding_v2vgot_10ep_both_shallow_f2_4330_full_nq9sm3w6dc/answers/val/llava-v1.5-7b/1_0.jsonl
+[2026-05-11 12:15:03,864] [INFO] [real_accelerator.py:161:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+kwargs:  {'device_map': 'auto', 'my_model_config': {'mm_scene_projector_input_size': 3072, 'scene_level_only': False, 'object_level_only': False, 'scene_feature_mode': 'shallow', 'object_feature_mode': 'shallow', 'num_input_frames': 2, 'ego_only': False, 'feature_source': 'no_fusion_keep_all', 'dataset_source': 'v2v4real', 'num_latency_frames': 0, 'positional_error_std': 0.0}}
+Loading LLaVA from base model...
+kwargs["my_model_config"]:  {'mm_scene_projector_input_size': 3072, 'scene_level_only': False, 'object_level_only': False, 'scene_feature_mode': 'shallow', 'object_feature_mode': 'shallow', 'num_input_frames': 2, 'ego_only': False, 'feature_source': 'no_fusion_keep_all', 'dataset_source': 'v2v4real', 'num_latency_frames': 0, 'positional_error_std': 0.0}
+my_model_config:  {'mm_scene_projector_input_size': 3072, 'scene_level_only': False, 'object_level_only': False, 'scene_feature_mode': 'shallow', 'object_feature_mode': 'shallow', 'num_input_frames': 2, 'ego_only': False, 'feature_source': 'no_fusion_keep_all', 'dataset_source': 'v2v4real', 'num_latency_frames': 0, 'positional_error_std': 0.0}
+config:  LlavaConfig {
+  "_name_or_path": "liuhaotian/llava-v1.5-7b",
+  "architectures": [
+    "LlavaLlamaForCausalLM"
+  ],
+  "attention_bias": false,
+  "attention_dropout": 0.0,
+  "bos_token_id": 1,
+  "ego_only": false,
+  "eos_token_id": 2,
+  "freeze_mm_mlp_adapter": false,
+  "freeze_mm_vision_resampler": false,
+  "hidden_act": "silu",
+  "hidden_size": 4096,
+  "image_aspect_ratio": "pad",
+  "initializer_range": 0.02,
+  "intermediate_size": 11008,
+  "max_length": 4096,
+  "max_position_embeddings": 4096,
+  "mm_hidden_size": 1024,
+  "mm_patch_merge_type": "flat",
+  "mm_projector_lr": 2e-05,
+  "mm_projector_type": "mlp2x_gelu",
+  "mm_resampler_type": null,
+  "mm_scene_projector_input_size": 3072,
+  "mm_use_im_patch_token": false,
+  "mm_use_im_start_end": false,
+  "mm_vision_select_feature": "patch",
+  "mm_vision_select_layer": -2,
+  "mm_vision_tower": "openai/clip-vit-large-patch14-336",
+  "model_type": "llava_llama",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 32,
+  "object_feature_mode": "shallow",
+  "object_level_only": false,
+  "pad_token_id": 0,
+  "pretraining_tp": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": null,
+  "rope_theta": 10000.0,
+  "scene_feature_mode": "shallow",
+  "tie_word_embeddings": false,
+  "tokenizer_model_max_length": 2048,
+  "tokenizer_padding_side": "right",
+  "torch_dtype": "float16",
+  "transformers_version": "4.37.2",
+  "tune_mm_mlp_adapter": false,
+  "tune_mm_vision_resampler": false,
+  "unfreeze_mm_vision_tower": false,
+  "use_cache": false,
+  "use_mm_proj": true,
+  "vocab_size": 32000
+}
+
+mm_scene_projector_input_size:  3072
+Loading additional LLaVA weights...
+model_path:  ./checkpoints/llava-v1.5-7b-task-lora/llava-v1.5-7b-task-lora_v2v4real_3d_grounding_v2vgot_10ep_both_shallow_f2/checkpoint-4330
+name:  model.mm_projector.0.weight
+param.data.shape:  torch.Size([4096, 1024])
+torch.sum(param.data):  tensor(-749.5000, device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.0.bias
+param.data.shape:  torch.Size([4096])
+torch.sum(param.data):  tensor(-17.5938, device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.2.weight
+param.data.shape:  torch.Size([4096, 4096])
+torch.sum(param.data):  tensor(228.8750, device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.2.bias
+param.data.shape:  torch.Size([4096])
+torch.sum(param.data):  tensor(-12.2578, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.0.weight
+param.data.shape:  torch.Size([4096, 3072])
+torch.sum(param.data):  tensor(-13.7344, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.0.bias
+param.data.shape:  torch.Size([4096])
+torch.sum(param.data):  tensor(0., device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.2.weight
+param.data.shape:  torch.Size([4096, 4096])
+torch.sum(param.data):  tensor(-15.8672, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.2.bias
+param.data.shape:  torch.Size([4096])
+torch.sum(param.data):  tensor(0., device='cuda:0', dtype=torch.float16)
+After loading non_lora_trainables
+
+name:  model.mm_projector.0.weight
+torch.sum(param.data):  tensor(-824., device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.0.bias
+torch.sum(param.data):  tensor(-17.6719, device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.2.weight
+torch.sum(param.data):  tensor(117.1875, device='cuda:0', dtype=torch.float16)
+name:  model.mm_projector.2.bias
+torch.sum(param.data):  tensor(-12.2656, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.0.weight
+torch.sum(param.data):  tensor(-10.2969, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.0.bias
+torch.sum(param.data):  tensor(0., device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.2.weight
+torch.sum(param.data):  tensor(-4.1016, device='cuda:0', dtype=torch.float16)
+name:  model.mm_scene_projector.2.bias
+torch.sum(param.data):  tensor(0., device='cuda:0', dtype=torch.float16)
+Loading LoRA weights...
+Merging LoRA weights...
+Model is loaded...
+
+=== Pipeline finished ===
+Time: lun 11 mai 2026 12:15:25 CEST

@@ -1,0 +1,74 @@
+/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+You are using a model of type llava to instantiate a model of type llava_llama. This is not supported for all configurations of models and can yield errors.
+You are using a model of type llava to instantiate a model of type llava_llama. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:  50%|█████     | 1/2 [00:27<00:27, 27.06s/it]Loading checkpoint shards:  50%|█████     | 1/2 [01:01<01:01, 61.21s/it]Loading checkpoint shards: 100%|██████████| 2/2 [01:33<00:00, 50.23s/it]Loading checkpoint shards: 100%|██████████| 2/2 [01:33<00:00, 46.75s/it]
+Some weights of LlavaLlamaForCausalLM were not initialized from the model checkpoint at liuhaotian/llava-v1.5-7b and are newly initialized: ['model.mm_scene_projector.0.bias', 'model.mm_scene_projector.0.weight', 'model.mm_scene_projector.2.bias', 'model.mm_scene_projector.2.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Loading checkpoint shards: 100%|██████████| 2/2 [01:33<00:00, 44.40s/it]Loading checkpoint shards: 100%|██████████| 2/2 [01:33<00:00, 46.92s/it]
+Some weights of LlavaLlamaForCausalLM were not initialized from the model checkpoint at liuhaotian/llava-v1.5-7b and are newly initialized: ['model.mm_scene_projector.0.bias', 'model.mm_scene_projector.0.weight', 'model.mm_scene_projector.2.bias', 'model.mm_scene_projector.2.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/transformers/deepspeed.py:23: FutureWarning: transformers.deepspeed module is deprecated and will be removed in a future version. Please import deepspeed modules directly from transformers.integrations
+  warnings.warn(
+/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/transformers/deepspeed.py:23: FutureWarning: transformers.deepspeed module is deprecated and will be removed in a future version. Please import deepspeed modules directly from transformers.integrations
+  warnings.warn(
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/faresse/.netrc.
+wandb: Currently logged in as: ilyas-faresse (ilyas-faresse-epfl) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+Traceback (most recent call last):
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/llava/train/train_mem.py", line 4, in <module>
+    train()
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/llava/train/train.py", line 2213, in train
+    trainer.train()
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/transformers/trainer.py", line 1539, in train
+    return inner_training_loop(
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/transformers/trainer.py", line 1787, in _inner_training_loop
+    self.control = self.callback_handler.on_train_begin(args, self.state, self.control)
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/transformers/trainer_callback.py", line 370, in on_train_begin
+    return self.call_event("on_train_begin", args, state, control)
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/transformers/trainer_callback.py", line 414, in call_event
+    result = getattr(callback, event)(
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/transformers/integrations/integration_utils.py", line 767, in on_train_begin
+    self.setup(args, state, model, **kwargs)
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/transformers/integrations/integration_utils.py", line 740, in setup
+    self._wandb.init(
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/wandb/sdk/wandb_init.py", line 1613, in init
+    get_sentry().reraise(e)
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/wandb/analytics/sentry.py", line 191, in reraise
+    raise exc.with_traceback(tb)
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/wandb/sdk/wandb_init.py", line 1596, in init
+    run = wi.init(run_settings, run_config, run_printer)
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/wandb/sdk/wandb_init.py", line 901, in init
+    service = self._wl.ensure_service()
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/wandb/sdk/wandb_setup.py", line 392, in ensure_service
+    self._connection = service_connection.connect_to_service(
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/wandb/sdk/lib/service/service_connection.py", line 51, in connect_to_service
+    return _start_and_connect_service(asyncer, settings)
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/wandb/sdk/lib/service/service_connection.py", line 64, in _start_and_connect_service
+    proc = service_process.start(settings)
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/wandb/sdk/lib/service/service_process.py", line 33, in start
+    return _start(
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/wandb/sdk/lib/service/service_process.py", line 81, in _start
+    get_sentry().reraise(e)
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/wandb/analytics/sentry.py", line 191, in reraise
+    raise exc.with_traceback(tb)
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/wandb/sdk/lib/service/service_process.py", line 75, in _start
+    return _launch_server(
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/wandb/sdk/lib/service/service_process.py", line 162, in _launch_server
+    token = service_port_file.poll_for_token(
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/wandb/sdk/lib/service/service_port_file.py", line 63, in poll_for_token
+    raise ServicePollForTokenError(
+wandb.sdk.lib.service.service_port_file.ServicePollForTokenError: Failed to read port info after 30.0 seconds (wandb-core PID=557716): /tmp/2941803/tmpcu5aosst/port-556944.txt

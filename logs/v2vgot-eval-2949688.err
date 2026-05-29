@@ -1,0 +1,14 @@
+/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Traceback (most recent call last):
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/scripts/eval_v2vgot_unified.py", line 581, in <module>
+    main()
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/scripts/eval_v2vgot_unified.py", line 471, in main
+    metrics = evaluate_future_trajectory(
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/scripts/eval_v2v4real_3d_grounding.py", line 730, in evaluate_future_trajectory
+    has_collision = check_has_collision(future_cav_location_in_current_ego_coordinate, global_timestamp_index, future_global_timestamp_index, npy_save_path, data_sample['asker_cav_id'])
+  File "/scratch/izar/faresse/v2v-got/cs503-v2v-project/code/V2V-GoT/LLaVA/scripts/eval_v2v4real_3d_grounding.py", line 537, in check_has_collision
+    current_ego_lidar_pose = np.load(os.path.join(npy_save_path, 'ego', '%04d_lidar_pose.npy' % global_timestamp_index))
+  File "/home/faresse/miniconda3/envs/v2v/lib/python3.10/site-packages/numpy/lib/npyio.py", line 427, in load
+    fid = stack.enter_context(open(os_fspath(file), "rb"))
+FileNotFoundError: [Errno 2] No such file or directory: 'DMSTrack/V2V4Real/official_models/no_fusion_keep_all/npy/ego/0000_lidar_pose.npy'
