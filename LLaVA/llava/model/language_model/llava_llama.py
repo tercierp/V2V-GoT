@@ -113,12 +113,15 @@ class LlavaLlamaForCausalLM(LlamaForCausalLM, LlavaMetaForCausalLM):
             ):
         self.my_model_config = my_model_config
         print('my_model_config: ', my_model_config)     
-        config.mm_scene_projector_input_size = my_model_config['mm_scene_projector_input_size']    
-        config.object_level_only = my_model_config['object_level_only']    
-        config.scene_feature_mode = my_model_config['scene_feature_mode']    
-        config.object_feature_mode = my_model_config['object_feature_mode']    
-        config.ego_only = my_model_config['ego_only']    
-        #assert False    
+        config.mm_scene_projector_input_size = my_model_config['mm_scene_projector_input_size']
+        config.object_level_only = my_model_config['object_level_only']
+        config.scene_feature_mode = my_model_config['scene_feature_mode']
+        config.object_feature_mode = my_model_config['object_feature_mode']
+        config.ego_only = my_model_config['ego_only']
+        # MY_CODE: OSM config
+        config.use_osm = my_model_config.get('use_osm', False)
+        config.osm_encoder_name = my_model_config.get('osm_encoder_name', 'timm/vit_large_patch16_dinov3.sat493m')
+        #assert False
 
             # Overwrite the token feature size before projector
         #    config.mm_hidden_size = model_args.mm_point_hidden_size
@@ -170,6 +173,8 @@ class LlavaLlamaForCausalLM(LlamaForCausalLM, LlavaMetaForCausalLM):
         global_timestamp_index: Optional[torch.FloatTensor] = None,
         local_timestamp_index: Optional[torch.FloatTensor] = None,
         qa_sub_type: Optional[torch.FloatTensor] = None,
+        # MY_CODE: OSM map image
+        osm_image: Optional[torch.FloatTensor] = None,
     ) -> Union[Tuple, CausalLMOutputWithPast]:
 
         # MY_DEBUG
@@ -249,7 +254,8 @@ class LlavaLlamaForCausalLM(LlamaForCausalLM, LlavaMetaForCausalLM):
                 classification_map,
                 detection_box_score,
                 object_features,
-                active_agent_mask
+                active_agent_mask,
+                osm_image
             )
         # HERE
         #assert False
@@ -280,6 +286,8 @@ class LlavaLlamaForCausalLM(LlamaForCausalLM, LlavaMetaForCausalLM):
         detection_box_score: Optional[torch.Tensor] = None,
         object_features: Optional[torch.Tensor] = None,
         active_agent_mask: Optional[torch.Tensor] = None,
+        # MY_CODE: OSM map image
+        osm_image: Optional[torch.Tensor] = None,
         **kwargs,
     ) -> Union[GenerateOutput, torch.LongTensor]:
         position_ids = kwargs.pop("position_ids", None)
@@ -310,7 +318,8 @@ class LlavaLlamaForCausalLM(LlamaForCausalLM, LlavaMetaForCausalLM):
                 classification_map=classification_map,
                 detection_box_score=detection_box_score,
                 object_features=object_features,
-                active_agent_mask=active_agent_mask
+                active_agent_mask=active_agent_mask,
+                osm_image=osm_image
             )
         else:
             inputs_embeds = self.get_model().embed_tokens(inputs)

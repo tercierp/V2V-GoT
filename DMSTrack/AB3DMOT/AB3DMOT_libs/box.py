@@ -3,40 +3,16 @@ from numba import jit
 from copy import deepcopy
 from .kitti_oxts import roty
 
-def _as_scalar_float(v, name="value"):
-    """
-    Convert scalar / 0-d array / 1-element list / 1-element ndarray to float.
-    Raise a clear error for real non-scalar values instead of letting numba crash.
-    """
-    if v is None:
-        return None
-
-    arr = np.asarray(v)
-
-    if arr.dtype == object:
-        arr = np.asarray(arr.tolist(), dtype=np.float64)
-    else:
-        arr = arr.astype(np.float64, copy=False)
-
-    arr = arr.reshape(-1)
-
-    if arr.size != 1:
-        raise ValueError(
-            f"{name} must be scalar, got shape={arr.shape}, value={v!r}"
-        )
-
-    return float(arr[0])
-
 class Box3D:
     def __init__(self, x=None, y=None, z=None, h=None, w=None, l=None, ry=None, s=None):
-        self.x = _as_scalar_float(x, "x")
-        self.y = _as_scalar_float(y, "y")
-        self.z = _as_scalar_float(z, "z")
-        self.h = _as_scalar_float(h, "h")
-        self.w = _as_scalar_float(w, "w")
-        self.l = _as_scalar_float(l, "l")
-        self.ry = _as_scalar_float(ry, "ry")
-        self.s = _as_scalar_float(s, "s") if s is not None else None
+        self.x = x      # center x
+        self.y = y      # center y
+        self.z = z      # center z
+        self.h = h      # height
+        self.w = w      # width
+        self.l = l      # length
+        self.ry = ry    # orientation
+        self.s = s      # detection score
         self.corners_3d_cam = None
 
     def __str__(self):
@@ -65,42 +41,22 @@ class Box3D:
 
     @classmethod
     def array2bbox_raw(cls, data):
-        # data format: [h,w,l,x,y,z,theta]
-        data = np.asarray(data, dtype=object).reshape(-1)
+        # take the format of data of [h,w,l,x,y,z,theta]
 
-        if data.size < 7:
-            raise ValueError(f"array2bbox_raw expects at least 7 values, got shape={data.shape}, value={data!r}")
-
-        bbox = cls(
-        h=data[0],
-        w=data[1],
-        l=data[2],
-        x=data[3],
-        y=data[4],
-        z=data[5],
-        ry=data[6],
-        s=data[7] if data.size >= 8 else None,
-        )
+        bbox = Box3D()
+        bbox.h, bbox.w, bbox.l, bbox.x, bbox.y, bbox.z, bbox.ry = data[:7]
+        if len(data) == 8:
+            bbox.s = data[-1]
         return bbox
     
     @classmethod
     def array2bbox(cls, data):
-        # data format: [x,y,z,theta,l,w,h]
-        data = np.asarray(data, dtype=object).reshape(-1)
+        # take the format of data of [x,y,z,theta,l,w,h]
 
-        if data.size < 7:
-            raise ValueError(f"array2bbox expects at least 7 values, got shape={data.shape}, value={data!r}")
-
-        bbox = cls(
-            x=data[0],
-            y=data[1],
-            z=data[2],
-            ry=data[3],
-            l=data[4],
-            w=data[5],
-            h=data[6],
-            s=data[7] if data.size >= 8 else None,
-        )
+        bbox = Box3D()
+        bbox.x, bbox.y, bbox.z, bbox.ry, bbox.l, bbox.w, bbox.h = data[:7]
+        if len(data) == 8:
+            bbox.s = data[-1]
         return bbox
     
     @classmethod
@@ -133,24 +89,10 @@ class Box3D:
 
         # compute rotational matrix around yaw axis
         # -1.57 means straight, so there is a rotation here
-        ry = _as_scalar_float(bbox.ry, "bbox.ry")
-
-        c = np.cos(ry)
-        s = np.sin(ry)
-
-        R = np.array([
-            [c, 0.0, s],
-            [0.0, 1.0, 0.0],
-            [-s, 0.0, c],
-        ], dtype=np.float64)  
+        R = roty(bbox.ry)   
 
         # 3d bounding box dimensions
-        x = _as_scalar_float(bbox.x, "bbox.x")
-        y = _as_scalar_float(bbox.y, "bbox.y")
-        z = _as_scalar_float(bbox.z, "bbox.z")
-        l = _as_scalar_float(bbox.l, "bbox.l")
-        w = _as_scalar_float(bbox.w, "bbox.w")
-        h = _as_scalar_float(bbox.h, "bbox.h")
+        l, w, h = bbox.l, bbox.w, bbox.h
 
         # 3d bounding box corners
         x_corners = [l/2,l/2,-l/2,-l/2,l/2,l/2,-l/2,-l/2];
@@ -159,9 +101,9 @@ class Box3D:
 
         # rotate and translate 3d bounding box
         corners_3d = np.dot(R, np.vstack([x_corners, y_corners, z_corners]))
-        corners_3d[0, :] = corners_3d[0, :] + x
-        corners_3d[1, :] = corners_3d[1, :] + y
-        corners_3d[2, :] = corners_3d[2, :] + z
+        corners_3d[0,:] = corners_3d[0,:] + bbox.x
+        corners_3d[1,:] = corners_3d[1,:] + bbox.y
+        corners_3d[2,:] = corners_3d[2,:] + bbox.z
         corners_3d = np.transpose(corners_3d)
         bbox.corners_3d_cam = corners_3d
 

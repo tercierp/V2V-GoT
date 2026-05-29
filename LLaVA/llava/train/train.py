@@ -77,6 +77,13 @@ class ModelArguments:
     ego_only: bool = field(default=False)
     feature_source: Optional[str] = field(default="no_fusion_keep_all") # or cobevt
     dataset_source: Optional[str] = field(default="v2v4real") # or v2xreal
+    # MY_CODE: OSM map image encoder
+    use_osm: bool = field(default=False)
+    osm_encoder_name: Optional[str] = field(default="timm/vit_large_patch16_dinov3.sat493m")
+    # Stage 1: freeze everything except mm_osm_projector
+    freeze_all_but_osm_projector: bool = field(default=False)
+    # Stage 2: path to non_lora_trainables.bin saved by Stage 1
+    pretrain_osm_projector: Optional[str] = field(default=None)
 
 
 @dataclass
@@ -92,7 +99,12 @@ class DataArguments:
     eval_data_split: str = 'val'
     seq_eval_mode: str = 'all' # or one of ['0000', '0001', ...]
     v2v4real_config_path: str = './playground/data/V2V4Real/data.json'
-    simplified_object_feature: int = 0 
+    simplified_object_feature: int = 0
+    # MY_CODE: folder containing one OSM PNG per scenario, named {seq_id}.png (e.g. 0000.png)
+    # For CRAFTER: root folder of sat_images (e.g. /scratch/tercier/v2v-got/sat_images)
+    osm_image_folder: Optional[str] = field(default=None)
+    # MY_CODE: which data split folder to use for CRAFTER sat images (e.g. 'train_01')
+    crafter_split: Optional[str] = field(default=None)
     # 0: original: dmstrack coordinate system
     # 8: [h, w, l, x, y, z, a, s], 3: [x, y, s], in v2v4real coordinate
 
@@ -229,7 +241,7 @@ def get_mm_adapter_state_maybe_zero_3(named_params, keys_to_match):
 def find_all_linear_names(model):
     cls = torch.nn.Linear
     lora_module_names = set()
-    multimodal_keywords = ['mm_projector', 'vision_tower', 'vision_resampler', 'mm_scene_projector']
+    multimodal_keywords = ['mm_projector', 'vision_tower', 'vision_resampler', 'mm_scene_projector', 'mm_osm_encoder', 'mm_osm_projector']
     for name, module in model.named_modules():
         if any(mm_keyword in name for mm_keyword in multimodal_keywords):
             continue
@@ -979,9 +991,9 @@ class V2V4RealDataset(Dataset):
         # instead of updating and reading from config, directly set the path?
         #self.llm_data_path = data_config[self.data_split]['llm_data_path'][self.model_args.feature_source]
         if self.data_split == 'train':
-          self.llm_data_path = os.path.join('/scratch/izar/faresse/v2v-got/data/V2V-GoT-QA/dataset_processed_features_and_gt/', 'train_' + self.model_args.feature_source, 'npy/co_llm')
+          self.llm_data_path = os.path.join('../DMSTrack/V2V4Real/official_models/', 'train_' + self.model_args.feature_source, 'npy/co_llm')
         else:  
-          self.llm_data_path = os.path.join('/scratch/izar/faresse/v2v-got/data/V2V-GoT-QA/dataset_processed_features_and_gt/', self.model_args.feature_source, 'npy/co_llm')
+          self.llm_data_path = os.path.join('../DMSTrack/V2V4Real/official_models/', self.model_args.feature_source, 'npy/co_llm')
 
         self.seq_eval = data_config[self.data_split]['seq_eval'] if self.data_args.seq_eval_mode == 'all' else [self.data_args.seq_eval_mode]
         self.len_record = data_config[self.data_split]['len_record']
@@ -993,6 +1005,16 @@ class V2V4RealDataset(Dataset):
         #assert False
         return
 
+
+    # MY_CODE: OSM helper
+    def _global_to_seq_id(self, global_timestamp_index):
+        '''Map a global frame index to its scenario sequence ID string (e.g. "0003").'''
+        prev_end = 0
+        for seq_id, end in zip(self.seq_eval, self.len_record):
+            if prev_end <= global_timestamp_index < end:
+                return seq_id
+            prev_end = end
+        return self.seq_eval[-1]
 
     def __len__(self):
         # revert back to the original llava format
@@ -1426,6 +1448,23 @@ class V2V4RealDataset(Dataset):
         data_dict['local_timestamp_index'] = torch.from_numpy(np.array(local_timestamp_index))
         data_dict['qa_sub_type'] = torch.from_numpy(np.array(-1))
 
+        # MY_CODE: load OSM map image for this scenario (one image per sequence)
+        # Uses CLIPImageProcessor to match the existing vision_tower preprocessing
+        if self.data_args.osm_image_folder is not None:
+            from PIL import Image as PILImage
+            seq_id = self._global_to_seq_id(global_timestamp_index)
+            osm_path = os.path.join(self.data_args.osm_image_folder, f'{seq_id}.png')
+            if not os.path.exists(osm_path):
+                osm_path = os.path.join(self.data_args.osm_image_folder, f'{seq_id}.jpg')
+            if os.path.exists(osm_path):
+                osm_img = PILImage.open(osm_path).convert('RGB')
+            else:
+                osm_img = PILImage.new('RGB', (256, 256), color=(255, 255, 255))
+            # Reuse the CLIP image processor already instantiated for the vision tower
+            clip_processor = self.data_args.image_processor
+            osm_tensor = clip_processor.preprocess(osm_img, return_tensors='pt')['pixel_values'][0]
+            data_dict['osm_image'] = osm_tensor  # [3, 336, 336]
+
         return data_dict
 
 
@@ -1719,6 +1758,82 @@ class V2XRealDataset(V2V4RealDataset):
         return data_dict
 
 
+# MY_CODE: CRAFTER dataset (satellite images from faresse)
+# sat_images structure:
+#   {osm_image_folder}/{crafter_split}/{sequence_name}/{frame_step_id}/agent_0.png
+# where frame_step_id is zero-padded 6 digits multiple of 30 (e.g. 000000, 000030, ...)
+class CRAFTERDataset(V2V4RealDataset):
+    """Dataset for CRAFTER data with per-frame satellite images.
+
+    The sat_images folder from faresse has the structure:
+        sat_images/{split}/{sequence_name}/{frame_step_id}/agent_{n}.png
+
+    This dataset extends V2V4RealDataset and overrides the OSM image loading
+    to resolve the correct per-frame satellite image from the nested directory.
+    """
+
+    def __init__(self, data_path: str,
+                 tokenizer: transformers.PreTrainedTokenizer,
+                 data_args: DataArguments,
+                 model_args: ModelArguments,
+                 dataset_for: str):
+        super(CRAFTERDataset, self).__init__(data_path, tokenizer, data_args, model_args, dataset_for)
+        rank0_print('CRAFTERDataset: using sat_images folder:', data_args.osm_image_folder)
+        rank0_print('CRAFTERDataset: split:', data_args.crafter_split)
+
+    def _resolve_crafter_sat_image(self, global_timestamp_index: int, agent_id: int = 0) -> str:
+        """Return the path to the satellite image for a given global frame index.
+
+        Maps global_timestamp_index → (sequence_name, local_frame_step_id)
+        using self.seq_eval and self.len_record (same as _global_to_seq_id).
+
+        The local frame within the sequence is converted back to the CRAFTER
+        frame step format: local_idx * 30, zero-padded to 6 digits.
+        (e.g. local frame 0 → '000000', local frame 1 → '000030', ...)
+        """
+        prev_end = 0
+        local_frame_idx = global_timestamp_index
+        seq_name = self.seq_eval[-1]  # fallback
+        for sn, end in zip(self.seq_eval, self.len_record):
+            if prev_end <= global_timestamp_index < end:
+                seq_name = sn
+                local_frame_idx = global_timestamp_index - prev_end
+                break
+            prev_end = end
+
+        frame_step_id = f'{local_frame_idx * 30:06d}'
+        base = self.data_args.osm_image_folder
+        for split_dir in sorted(os.listdir(base)):
+            path = os.path.join(base, split_dir, seq_name, frame_step_id, f'agent_{agent_id}.png')
+            if os.path.exists(path):
+                return path
+        return ''
+
+    def __getitem__(self, i) -> Dict[str, torch.Tensor]:
+        # Call parent __getitem__ to get the base data dict
+        data_dict = super(CRAFTERDataset, self).__getitem__(i)
+
+        # Override the OSM image with the per-frame CRAFTER satellite image
+        if self.data_args.osm_image_folder is not None:
+            from PIL import Image as PILImage
+            sources = self.list_data_dict[i]
+            global_timestamp_index = sources['global_timestamp_index']
+
+            # Use ego satellite image (agent_0)
+            sat_path = self._resolve_crafter_sat_image(global_timestamp_index, agent_id=0)
+            if os.path.exists(sat_path):
+                osm_img = PILImage.open(sat_path).convert('RGB')
+            else:
+                rank0_print(f'[CRAFTERDataset] WARNING: sat image not found: {sat_path}')
+                osm_img = PILImage.new('RGB', (256, 256), color=(255, 255, 255))
+
+            clip_processor = self.data_args.image_processor
+            osm_tensor = clip_processor.preprocess(osm_img, return_tensors='pt')['pixel_values'][0]
+            data_dict['osm_image'] = osm_tensor  # [3, 336, 336]
+
+        return data_dict
+
+
 
 
 @dataclass
@@ -1756,7 +1871,7 @@ class DataCollatorForSupervisedDataset(object):
         # can do for loop over the ke words:
         # ['image', 'scene_point_feature_map', ...]
         #print('instances: ', instances)        
-        for data_feature_name in ['scene_point_feature_map', 'regression_map', 'classification_map', 'detection_box_score', 'object_features', 'active_agent_mask', 'i', 'global_timestamp_index', 'local_timestamp_index', 'qa_sub_type']:
+        for data_feature_name in ['scene_point_feature_map', 'regression_map', 'classification_map', 'detection_box_score', 'object_features', 'active_agent_mask', 'i', 'global_timestamp_index', 'local_timestamp_index', 'qa_sub_type', 'osm_image']:
             if data_feature_name in instances[0]:
                 images = [instance[data_feature_name] for instance in instances]
                 if all(x is not None and x.shape == images[0].shape for x in images):
@@ -1804,7 +1919,14 @@ def make_supervised_data_module(tokenizer: transformers.PreTrainedTokenizer,
     #print('data_args: ', data_args)
     # llava:
     # data_args:  DataArguments(data_path='./playground/data/LLaVA-Pretrain/blip_laion_cc_sbu_558k.json', lazy_preprocess=True, is_multimodal=True, image_folder='./playground/data/LLaVA-Pretrain/images', image_aspect_ratio='square')
-    if 'V2V4Real' in data_args.data_path:
+    if 'CRAFTER' in data_args.data_path:
+      # MY_CODE: CRAFTER dataset with per-frame satellite images from faresse
+      train_dataset = CRAFTERDataset(tokenizer=tokenizer,
+                                data_path=data_args.data_path,
+                                data_args=data_args,
+                                model_args=model_args,
+                                dataset_for='train')
+    elif 'V2V4Real' in data_args.data_path:
       train_dataset = V2V4RealDataset(tokenizer=tokenizer,
                                 data_path=data_args.data_path,
                                 data_args=data_args,
@@ -1919,6 +2041,9 @@ def train(attn_implementation=None):
         'ego_only': model_args.ego_only,
         'feature_source': model_args.feature_source,
         'dataset_source': model_args.dataset_source,
+        # OSM
+        'use_osm': model_args.use_osm,
+        'osm_encoder_name': model_args.osm_encoder_name,
     }
     local_rank = training_args.local_rank
     compute_dtype = (torch.float16 if training_args.fp16 else (torch.bfloat16 if training_args.bf16 else torch.float32))
@@ -2069,6 +2194,17 @@ def train(attn_implementation=None):
         rank0_print("Adding LoRA adapters...")
         model = get_peft_model(model, lora_config)
 
+    # MY_CODE: Stage 1 — freeze everything AFTER LoRA setup, only train mm_osm_projector
+    # Must run after get_peft_model() so LoRA adapters are also frozen
+    if model_args.freeze_all_but_osm_projector:
+        rank0_print("Stage 1: freezing all parameters except mm_osm_projector...")
+        model.requires_grad_(False)
+        if hasattr(model.get_model(), 'mm_osm_projector'):
+            for p in model.get_model().mm_osm_projector.parameters():
+                p.requires_grad = True
+        else:
+            raise ValueError("freeze_all_but_osm_projector=True but mm_osm_projector not found — set --use_osm True.")
+
     if 'mpt' in model_args.model_name_or_path:
         tokenizer = transformers.AutoTokenizer.from_pretrained(
             model_args.model_name_or_path,
@@ -2148,6 +2284,20 @@ def train(attn_implementation=None):
         training_args.use_im_start_end = model_args.mm_use_im_start_end
         model.config.mm_use_im_patch_token = model_args.mm_use_im_patch_token
         model.initialize_vision_tokenizer(model_args, tokenizer=tokenizer)
+
+        # MY_CODE: Stage 2 — load mm_osm_projector weights from Stage 1 checkpoint
+        if model_args.pretrain_osm_projector is not None:
+            rank0_print(f"Stage 2: loading OSM projector weights from {model_args.pretrain_osm_projector}")
+            osm_weights_all = torch.load(model_args.pretrain_osm_projector, map_location='cpu')
+            osm_weights = {
+                k.replace('model.mm_osm_projector.', ''): v
+                for k, v in osm_weights_all.items()
+                if 'mm_osm_projector' in k
+            }
+            if len(osm_weights) == 0:
+                raise ValueError(f"No mm_osm_projector keys found in {model_args.pretrain_osm_projector}")
+            model.get_model().mm_osm_projector.load_state_dict(osm_weights, strict=True)
+            rank0_print(f"Loaded {len(osm_weights)} OSM projector tensors.")
 
     if training_args.bits in [4, 8]:
         from peft.tuners.lora import LoraLayer

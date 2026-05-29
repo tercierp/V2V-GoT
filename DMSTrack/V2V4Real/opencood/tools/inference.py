@@ -2959,27 +2959,24 @@ def get_cav_ego_future_trajectory(npy_save_path, global_timestamp_index, start_g
 
 
 
-def get_double_cavs_future_trajectory(npy_save_path, global_timestamp_index, start_global_timestamp_index, end_global_timestamp_index, num_future_frames, cav_ids):
+def get_double_cavs_future_trajectory(npy_save_path, global_timestamp_index, start_global_timestamp_index, end_global_timestamp_index, num_future_frames, cav_ids, reference_cav_id='ego'):
   '''
 
   Output:
-    double_cavs_future_trajectory_in_ego_current: 
-      dict['ego']: cav_ego's future traj in cav_ego's current coordinate system
-      dict['1']: cav_1's future traj in cav_ego's current coordinate system
-    double_cavs_future_trajectory_in_self_current  
-      dict['ego']: cav_ego's future traj in cav_ego's current coordinate system
-      dict['1']: cav_1's future traj in cav_1's current coordinate system
+    double_cavs_future_trajectory_in_ego_current:
+      dict[cav_id]: each cav's future traj in reference_cav_id's current coordinate system
+    double_cavs_future_trajectory_in_self_current
+      dict[cav_id]: each cav's future traj in that cav's own current coordinate system
     initial_lidar_pose
       each lidar_pose in current world coordinate system
+
+  Args:
+    reference_cav_id: which CAV's frame to use as the shared reference frame.
+      Defaults to 'ego' (original behaviour). Pass '1' to run with swapped roles,
+      which is needed by role_swap_eval.py (Phase 0 pre-flight).
   '''
-  double_cavs_future_trajectory_in_ego_current = {
-    'ego': np.zeros([num_future_frames, 2]),
-    '1': np.zeros([num_future_frames, 2]),
-  }
-  double_cavs_future_trajectory_in_self_current = {
-    'ego': np.zeros([num_future_frames, 2]),
-    '1': np.zeros([num_future_frames, 2]),
-  }
+  double_cavs_future_trajectory_in_ego_current = {cav_id: np.zeros([num_future_frames, 2]) for cav_id in cav_ids}
+  double_cavs_future_trajectory_in_self_current = {cav_id: np.zeros([num_future_frames, 2]) for cav_id in cav_ids}
 
   initial_lidar_pose = dict()
   for cav_id in cav_ids:
@@ -2992,7 +2989,7 @@ def get_double_cavs_future_trajectory(npy_save_path, global_timestamp_index, sta
       #print('lidar_pose_in_world: ', lidar_pose_in_world)
 
       # double_cavs_future_trajectory_in_ego_current
-      lidar_pose_in_ego_initial_frame = x1_to_x2(lidar_pose_in_world, initial_lidar_pose['ego'])
+      lidar_pose_in_ego_initial_frame = x1_to_x2(lidar_pose_in_world, initial_lidar_pose[reference_cav_id])
       #print('lidar_pose_in_ego_initial_frame: ', lidar_pose_in_ego_initial_frame)
       location_2d_in_ego_initial_frame = np.array([lidar_pose_in_ego_initial_frame[0, 3], lidar_pose_in_ego_initial_frame[1, 3]])
       # v2v4real [x, y]
